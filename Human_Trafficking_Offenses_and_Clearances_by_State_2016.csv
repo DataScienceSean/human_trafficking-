@@ -1,4 +1,4 @@
-"","year","State","commercial_sex_act_offense","commercial_sex_act_cleared","commercial_sex_act_under_18","involuntary_servitude_offense","involuntary_servitude_cleared","involuntary_servitude_under_18","total_offenses","total_cleared","total_under_18"
+"","year","State","commercial_sex_act_offense","commercial_sex_act_cleared","commercial_sex_act_cleared_under_18","involuntary_servitude_offense","involuntary_servitude_cleared","involuntary_servitude_cleared_under_18","total_offenses","total_cleared","total_under_18"
 "1",2016,"Alaska","11","8","0","1","0","0","12","8","0"
 "2",2016,"Arizona","19","5","0","0","0","0","19","5","0"
 "3",2016,"Arkansas","4","4","0","2","0","0","6","4","0"
