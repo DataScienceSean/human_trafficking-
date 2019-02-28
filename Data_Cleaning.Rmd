@@ -1,0 +1,123 @@
+---
+title: "Data Cleaning"
+author: "Sean F. Larsen"
+date: "February 27, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("readxl")
+library("dplyr")
+library("tidyr")
+```
+# The Human Trafficking Project
+
+Human trafficking is the business of stealing freedom for profit. In some cases, traffickers trick, defraud or physically force victims into providing commercial sex. In others, victims are lied to, assaulted, threatened or manipulated into working under inhumane, illegal or otherwise unacceptable conditions. It is a multi-billion dollar criminal industry that denies freedom to 24.9 million people around the world.
+
+My project is to examine the data avaialable on the FBI website for human trafficking.
+
+## Data Cleaning
+
+I will be using the readxl, dplyr, and tdyr packages for the data cleaning process.
+
+Human Trafficking files were loaded from the FBI Uniform Crime Report Crimes in the United States data site.
+2014 data was derived from the following site:
+
+https://ucr.fbi.gov/crime-in-the-u.s/2014/crime-in-the-u.s.-2014/additional-reports/human-trafficking-report/human-trafficking.pdf
+
+The PDF contains links to the data sets. 2015 data was derived from the following site
+
+https://ucr.fbi.gov/crime-in-the-u.s/2015/crime-in-the-u.s.-2015/additional-reports/human-trafficking/humantrafficking_-2015-_final
+
+2016 data was derived from the follwoing site 
+
+https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/additional-publications/human-trafficking
+
+2017 data was derived from the follwoing site https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/additional-data-collections/human-trafficking
+
+2018 data is not available at this time
+
+The follwoing Tables are the Offense and Clearnace using the FBI's Summary Reporting System (SRS)
+When more than one crime was committed by the same person or group of persons and the time and space intervals
+separating the crimes were insignificant, then the crime highest in the hierarchy is the only offense reported.
+
+An Offense is reported and under investigation by a participating organization.
+A Clearance is an offense where a perpetrator has been arrested or convicted.
+
+## Read and Write
+
+The first thing I am going to do, is read each file, create a data frame from the data, then create a data frame to work with.
+```{r}
+ht_offenses_clearing_2014 <- read_excel("Table_2_Human_Trafficking_Offenses_and_Clearances_by_State_2014.xlsx")
+ht_offenses_clearing_2014_df <- data.frame(ht_offenses_clearing_2014)
+write.csv(ht_offenses_clearing_2014, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2014.csv")
+
+ht_offenses_clearing_2015 <- read_excel("table-1_Human_Trafficking_Offenses_and_Clearances_by_State_2015.xls")
+ht_offenses_clearing_2015_df <- data.frame(ht_offenses_clearing_2015)
+write.csv(ht_offenses_clearing_2015, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2015.csv")
+
+ht_offenses_clearing_2016 <- read_excel("table-1_Human_Trafficking_Offenses_and_Clearances_by_State_2016.xls")
+ht_offenses_clearing_2016_df <- data.frame(ht_offenses_clearing_2016)
+write.csv(ht_offenses_clearing_2016, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2016.csv")
+
+ht_offenses_clearing_2017 <- read_excel("table-1_Human_Trafficking_Offenses_and_Clearances_by_State_2017.xls")
+ht_offenses_clearing_2017_df <- data.frame(ht_offenses_clearing_2017)
+write.csv(ht_offenses_clearing_2017, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2017.csv")
+```
+
+## Column Names
+
+There are no column names, so I am adding the column names to each file.
+
+```{r}
+colnames(ht_offenses_clearing_2014_df) <- c("State", "commercial_sex_act_offense", "commercial_sex_act_cleared", "commercial_sex_act_cleared_under_18", "involuntary_servitude_offense", "involuntary_servitude_cleared", "involuntary_servitude_cleared_under_18","total_offenses", "total_cleared","total_under_18")
+
+colnames(ht_offenses_clearing_2015_df) <- c("State", "commercial_sex_act_offense", "commercial_sex_act_cleared", "commercial_sex_act_cleared_under_18", "involuntary_servitude_offense", "involuntary_servitude_cleared", "involuntary_servitude_cleared_under_18","total_offenses", "total_cleared","total_under_18")
+
+colnames(ht_offenses_clearing_2016_df) <- c("State", "commercial_sex_act_offense", "commercial_sex_act_cleared", "commercial_sex_act_cleared_under_18", "involuntary_servitude_offense", "involuntary_servitude_cleared", "involuntary_servitude_cleared_under_18","total_offenses", "total_cleared","total_under_18")
+
+colnames(ht_offenses_clearing_2017_df) <- c("State", "commercial_sex_act_offense", "commercial_sex_act_cleared", "commercial_sex_act_cleared_under_18", "involuntary_servitude_offense", "involuntary_servitude_cleared", "involuntary_servitude_cleared_under_18","total_offenses", "total_cleared","total_under_18")
+```
+
+## Rows that aren't needed
+
+There are 4 rows in each file that were used a data information header in excel, that are not needed.  I am deleting these rows using the following code.
+
+```{r}
+ht_offenses_clearing_2014_df <- ht_offenses_clearing_2014_df[-c(1, 2, 3, 4),]
+ht_offenses_clearing_2015_df <- ht_offenses_clearing_2015_df[-c(1, 2, 3, 4),]
+ht_offenses_clearing_2016_df <- ht_offenses_clearing_2016_df[-c(1, 2, 3, 4),]
+ht_offenses_clearing_2017_df <- ht_offenses_clearing_2017_df[-c(1, 2, 3, 4),]
+```
+
+## Adding Columns
+
+Since each file represents data form a particular year, and eventually the data will be combined, I need a column for the year.
+This is the code I am using to create the new column and add the year of the file as the data in the new column.
+
+```{r}
+# Creating a new column for the year and move that column to the front.
+ht_offenses_clearing_2014_df <- mutate(ht_offenses_clearing_2014_df,"year" = 2014)
+ht_offenses_clearing_2014_df <- select(ht_offenses_clearing_2014_df, year, everything())
+
+ht_offenses_clearing_2015_df <- mutate(ht_offenses_clearing_2015_df,"year" = 2015)
+ht_offenses_clearing_2015_df <- select(ht_offenses_clearing_2015_df, year, everything())
+
+ht_offenses_clearing_2016_df <- mutate(ht_offenses_clearing_2016_df,"year" = 2016)
+ht_offenses_clearing_2016_df <- select(ht_offenses_clearing_2016_df, year, everything())
+
+ht_offenses_clearing_2017_df <- mutate(ht_offenses_clearing_2017_df,"year" = 2017)
+ht_offenses_clearing_2017_df <- select(ht_offenses_clearing_2017_df, year, everything())
+```
+
+## Writing the data to a file
+
+Now the data hass been set-up, I will rewrite each of the CSV files.
+
+```{r}
+write.csv(ht_offenses_clearing_2014, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2014.csv")
+write.csv(ht_offenses_clearing_2015, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2015.csv")
+write.csv(ht_offenses_clearing_2016, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2016.csv")
+write.csv(ht_offenses_clearing_2017, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2017.csv")
+```
