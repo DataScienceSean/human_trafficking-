@@ -199,20 +199,18 @@ $(document).ready(function () {
 <div id="data-cleaning" class="section level2">
 <h2>Data Cleaning</h2>
 <p>I will be using the readxl, dplyr, and tdyr packages for the data cleaning process.</p>
-<p>Human Trafficking files were loaded from the FBI Uniform Crime Report Crimes in the United States data site. 2014 data was derived from the following site:</p>
+<p>Human Trafficking files were loaded from the FBI Uniform Crime Report Crimes in the United States data site. Each year has it’s own page and explanation of the data and methods of gathering. Information and datacan be accessed from the following sites:</p>
 <p><a href="https://ucr.fbi.gov/crime-in-the-u.s/2014/crime-in-the-u.s.-2014/additional-reports/human-trafficking-report/human-trafficking.pdf" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2014/crime-in-the-u.s.-2014/additional-reports/human-trafficking-report/human-trafficking.pdf</a></p>
-<p>The PDF contains links to the data sets. 2015 data was derived from the following site</p>
 <p><a href="https://ucr.fbi.gov/crime-in-the-u.s/2015/crime-in-the-u.s.-2015/additional-reports/human-trafficking/humantrafficking_-2015-_final" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2015/crime-in-the-u.s.-2015/additional-reports/human-trafficking/humantrafficking_-2015-_final</a></p>
-<p>2016 data was derived from the follwoing site</p>
 <p><a href="https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/additional-publications/human-trafficking" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/additional-publications/human-trafficking</a></p>
-<p>2017 data was derived from the follwoing site <a href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/additional-data-collections/human-trafficking" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/additional-data-collections/human-trafficking</a></p>
+<p><a href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/additional-data-collections/human-trafficking" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/additional-data-collections/human-trafficking</a></p>
 <p>2018 data is not available at this time</p>
-<p>The follwoing Tables are the Offense and Clearnace using the FBI’s Summary Reporting System (SRS) When more than one crime was committed by the same person or group of persons and the time and space intervals separating the crimes were insignificant, then the crime highest in the hierarchy is the only offense reported.</p>
+<p>The follwoing Tables are the Offense and Clearnace using the FBI’s Summary Reporting System (SRS) When more than one crime was committed by the same person or group of persons. The time and space intervals separating the crimes were insignificant. So, the crime highest in the hierarchy is the only offense reported.</p>
 <p>An Offense is reported and under investigation by a participating organization. A Clearance is an offense where a perpetrator has been arrested or convicted.</p>
 </div>
 <div id="read-and-write" class="section level2">
 <h2>Read and Write</h2>
-<p>The first thing I am going to do, is read each file, create a data frame from the data, then create a data frame to work with.</p>
+<p>This code reads each file and creates a data frame to work with.</p>
 <pre class="r"><code>ht_offenses_clearing_2014 &lt;- read_excel(&quot;Table_2_Human_Trafficking_Offenses_and_Clearances_by_State_2014.xlsx&quot;)</code></pre>
 <pre><code>## New names:
 ## * `` -&gt; `..2`
@@ -260,13 +258,13 @@ write.csv(ht_offenses_clearing_2017, file = &quot;Human_Trafficking_Offenses_and
 <div id="column-names" class="section level2">
 <h2>Column Names</h2>
 <p>There are no column names, so I am adding the column names to each file.</p>
-<pre class="r"><code>colnames(ht_offenses_clearing_2014_df) &lt;- c(&quot;State&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;,&quot;total_offenses&quot;, &quot;total_cleared&quot;,&quot;total_under_18&quot;)
+<pre class="r"><code>colnames(ht_offenses_clearing_2014_df) &lt;- c(&quot;state&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;,&quot;total_offenses&quot;, &quot;total_cleared&quot;,&quot;total_under_18&quot;)
 
-colnames(ht_offenses_clearing_2015_df) &lt;- c(&quot;State&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;,&quot;total_offenses&quot;, &quot;total_cleared&quot;,&quot;total_under_18&quot;)
+colnames(ht_offenses_clearing_2015_df) &lt;- c(&quot;state&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;,&quot;total_offenses&quot;, &quot;total_cleared&quot;,&quot;total_under_18&quot;)
 
-colnames(ht_offenses_clearing_2016_df) &lt;- c(&quot;State&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;,&quot;total_offenses&quot;, &quot;total_cleared&quot;,&quot;total_under_18&quot;)
+colnames(ht_offenses_clearing_2016_df) &lt;- c(&quot;state&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;,&quot;total_offenses&quot;, &quot;total_cleared&quot;,&quot;total_under_18&quot;)
 
-colnames(ht_offenses_clearing_2017_df) &lt;- c(&quot;State&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;,&quot;total_offenses&quot;, &quot;total_cleared&quot;,&quot;total_under_18&quot;)</code></pre>
+colnames(ht_offenses_clearing_2017_df) &lt;- c(&quot;state&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;,&quot;total_offenses&quot;, &quot;total_cleared&quot;,&quot;total_under_18&quot;)</code></pre>
 </div>
 <div id="rows-that-arent-needed" class="section level2">
 <h2>Rows that aren’t needed</h2>
@@ -295,11 +293,193 @@ ht_offenses_clearing_2017_df &lt;- select(ht_offenses_clearing_2017_df, year, ev
 <div id="writing-the-data-to-a-file" class="section level2">
 <h2>Writing the data to a file</h2>
 <p>Now the data hass been set-up, I will rewrite each of the CSV files.</p>
-<pre class="r"><code>write.csv(ht_offenses_clearing_2014, file = &quot;Human_Trafficking_Offenses_and_Clearances_by_State_2014.csv&quot;)
-write.csv(ht_offenses_clearing_2015, file = &quot;Human_Trafficking_Offenses_and_Clearances_by_State_2015.csv&quot;)
-write.csv(ht_offenses_clearing_2016, file = &quot;Human_Trafficking_Offenses_and_Clearances_by_State_2016.csv&quot;)
-write.csv(ht_offenses_clearing_2017, file = &quot;Human_Trafficking_Offenses_and_Clearances_by_State_2017.csv&quot;)</code></pre>
 </div>
+</div>
+<div id="combine-and-sort" class="section level1">
+<h1>Combine and Sort</h1>
+<div id="this-code-combines-all-four-data-frames-into-a-single-dataframe-to-use-with-analysis-and-writes-it-to-a-single-csv-file." class="section level2">
+<h2>This code combines all four data frames into a single dataframe to use with analysis, and writes it to a single CSV file.</h2>
+<pre class="r"><code>ht_offenses_clearing_4_years_df &lt;- bind_rows(ht_offenses_clearing_2014_df, ht_offenses_clearing_2015_df, ht_offenses_clearing_2016_df, ht_offenses_clearing_2017_df)
+write.csv(ht_offenses_clearing_4_years_df, file = &quot;Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017.csv&quot;)</code></pre>
+</div>
+<div id="how-the-data-is-organized" class="section level2">
+<h2>How the Data is Organized</h2>
+<p>Now that the data is organized and combined and after reading the FBI website on the process of compiling the data, I’ve leanred that data is generally broken down by age and is categorized as adult and juvenile. If an individual is over 18 they are adults and under 18 they are juveniles. There are also two tpyes of offences listed. Commercial Sex Acts and Involuntary Servitude. Both age and offense need to be separated by columns.</p>
+</div>
+<div id="separate-offenses-and-age" class="section level2">
+<h2>Separate Offenses and Age</h2>
+<p>I am going to pull out Commercial Sex Offense and Involuntary servituded into two different groups and then combine them back.</p>
+<pre class="r"><code>comm_sex_offense_df &lt;- select(ht_offenses_clearing_4_years_df, &quot;year&quot;, &quot;state&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;)</code></pre>
+<p>This code removes the invalid row at the bottom</p>
+<pre class="r"><code>comm_sex_offense_df &lt;- comm_sex_offense_df[-c(149),]</code></pre>
+<p>This code creates a new column for offense</p>
+<pre class="r"><code>comm_sex_offense_df &lt;- mutate(comm_sex_offense_df, &quot;offense&quot; = &quot;commercial sex act&quot;)</code></pre>
+<p>I discovered that my values are characters and not numeric. This code Changes the columns to numeric in value.</p>
+<pre class="r"><code>comm_sex_offense_df$year &lt;- as.numeric(comm_sex_offense_df$year)
+comm_sex_offense_df$commercial_sex_act_offense &lt;- as.numeric(comm_sex_offense_df$commercial_sex_act_offense)
+comm_sex_offense_df$commercial_sex_act_cleared &lt;- as.numeric(comm_sex_offense_df$commercial_sex_act_cleared)
+comm_sex_offense_df$commercial_sex_act_cleared_under_18 &lt;- as.numeric(comm_sex_offense_df$commercial_sex_act_cleared_under_18)</code></pre>
+<p>This code creates a new column for adult cleared offenses, then reorders the columns</p>
+<pre class="r"><code>comm_sex_offense_df &lt;- mutate(comm_sex_offense_df, commercial_sex_act_cleared_adults = (commercial_sex_act_cleared - commercial_sex_act_cleared_under_18))
+
+comm_sex_offense_df &lt;- select(comm_sex_offense_df, year, state, offense,commercial_sex_act_offense, commercial_sex_act_cleared, commercial_sex_act_cleared_adults, commercial_sex_act_cleared_under_18, everything())</code></pre>
+<p>With commercial_sex_act_cleared_adults separted out from commercial_sex_act_cleared, commercial_sex_act_cleared is no longer needed. The columns also need to be rename to help understanding the data in each column.</p>
+<pre class="r"><code>comm_sex_offense_df$commercial_sex_act_cleared &lt;- NULL
+colnames(comm_sex_offense_df) &lt;- c(&quot;year&quot;, &quot;state&quot;, &quot;offense&quot;, &quot;occurrence&quot;, &quot;adult&quot;, &quot;juvenile&quot;)</code></pre>
+<p>This will create and column for age and gather Adult and Juvenile.</p>
+<pre class="r"><code>comm_sex_offense_df &lt;- gather(comm_sex_offense_df, age, cleared, adult, juvenile)</code></pre>
+<p>Now I’m pulling the data for involuntary servitude. I will clean this up and then put coomercial sex act and involuntary servitude back together.</p>
+<pre class="r"><code>invol_serv_df &lt;- select(ht_offenses_clearing_4_years_df, &quot;year&quot;, &quot;state&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;)</code></pre>
+<p>This code removes the invalid row at the bottom.</p>
+<pre class="r"><code>invol_serv_df &lt;- invol_serv_df[-c(149),]</code></pre>
+<p>This code creates a new column for offenses.</p>
+<pre class="r"><code>invol_serv_df &lt;- mutate(invol_serv_df,&quot;offense&quot; = &quot;involuntary servitude&quot;)</code></pre>
+<p>This code Changes certain columns to numeric values.</p>
+<pre class="r"><code>invol_serv_df$year &lt;- as.numeric(invol_serv_df$year)
+invol_serv_df$involuntary_servitude_offense &lt;- as.numeric(invol_serv_df$involuntary_servitude_offense)
+invol_serv_df$involuntary_servitude_cleared &lt;- as.numeric(invol_serv_df$involuntary_servitude_cleared)
+invol_serv_df$involuntary_servitude_cleared_under_18 &lt;- as.numeric(invol_serv_df$involuntary_servitude_cleared_under_18)</code></pre>
+<p>this code creates a new column for adult cleared offenses.</p>
+<pre class="r"><code>invol_serv_df &lt;- mutate(invol_serv_df, involuntary_servitude_cleared_adult = (involuntary_servitude_cleared - involuntary_servitude_cleared_under_18))</code></pre>
+<p>With involuntary_servitude_cleared_adult separted out from involuntary_servitude_cleared, involuntary_servitude_cleared is no longer needed. This code removes the column, reoders the columns, and renames them for easier analysis later.</p>
+<pre class="r"><code>invol_serv_df$involuntary_servitude_cleared &lt;- NULL
+invol_serv_df &lt;- select(invol_serv_df, year, state, offense, involuntary_servitude_offense, involuntary_servitude_cleared_adult, involuntary_servitude_cleared_under_18, everything())
+colnames(invol_serv_df) &lt;- c(&quot;year&quot;, &quot;state&quot;, &quot;offense&quot;, &quot;occurrence&quot;, &quot;adult&quot;, &quot;juvenile&quot;)</code></pre>
+<p>This will create and column for age and gather Adult and Juvenile.</p>
+<pre class="r"><code>invol_serv_df &lt;- gather(invol_serv_df, age, cleared, adult, juvenile)</code></pre>
+</div>
+</div>
+<div id="combine" class="section level1">
+<h1>Combine</h1>
+<p>Now this code combines the two data frames into one final data frame.</p>
+<pre class="r"><code>ht_offenses_4_years_clean_df &lt;- bind_rows(comm_sex_offense_df, invol_serv_df)</code></pre>
+</div>
+<div id="one-more-look" class="section level1">
+<h1>One More Look</h1>
+<p>After examining the data, I noticed a few states have an asterisk after it in certain years. This code removes the astreisk.</p>
+<pre class="r"><code>ht_offenses_4_years_clean_df$state &lt;- gsub(&quot;U. S. Virgin Islands&quot;, &quot;U.S. Virgin Islands&quot;, ht_offenses_4_years_clean_df$state)</code></pre>
+<p>U.S. Virgin Islands is spelled two Different Ways. This will correct the spelling of the odd one.</p>
+<pre class="r"><code>ht_offenses_4_years_clean_df$state &lt;- gsub(&quot;\\*&quot;, &quot;&quot;, ht_offenses_4_years_clean_df$state)</code></pre>
+</div>
+<div id="fbi-regions" class="section level1">
+<h1>FBI Regions</h1>
+<p>Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data. The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns.</p>
+<pre class="r"><code>ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, region = state)
+ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, region_description = state)</code></pre>
+<p>This code will replace the State with the Region code and the region description.</p>
+<pre class="r"><code>ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Maine&quot;, &quot;1&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Maine&quot;, &quot;New England&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;New Hampshire&quot;, &quot;1&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;New Hampshire&quot;, &quot;New England&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Rhode Island&quot;, &quot;1&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Rhode Island&quot;, &quot;New England&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Massachusetts&quot;, &quot;1&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Massachusetts&quot;, &quot;New England&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;New York&quot;, &quot;2&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;New York&quot;, &quot;Mideast North&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Vermont&quot;, &quot;2&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Vermont&quot;, &quot;Mideast North&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Connecticut&quot;, &quot;2&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Connecticut&quot;, &quot;Mideast North&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Pennsylvania&quot;, &quot;3&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Pennsylvania&quot;, &quot;Mideast South&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;New Jersey&quot;, &quot;3&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;New Jersey&quot;, &quot;Mideast South&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Delaware&quot;, &quot;3&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Delaware&quot;, &quot;Mideast South&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;West Virginia&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;West Virginia&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Maryland&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Maryland&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Virginia&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Virginia&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;North Carolina&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;North Carolina&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;South Carolina&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;South Carolina&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Alabama&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Alabama&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Mississippi&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Mississippi&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Georgia&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Georgia&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Florida&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Florida&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Puerto Rico&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Puerto Rico&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;U.S. Virgin Islands&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;U.S. Virgin Islands&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Michigan&quot;, &quot;6&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Michigan&quot;, &quot;Central&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Ohio&quot;, &quot;6&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Ohio&quot;, &quot;Central&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Kentucky&quot;, &quot;6&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Kentucky&quot;, &quot;Central&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Tennessee&quot;, &quot;6&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Tennessee&quot;, &quot;Central&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Wisconsin&quot;, &quot;7&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Wisconsin&quot;, &quot;North Central&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Indiana&quot;, &quot;7&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Indiana&quot;, &quot;North Central&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Illinois&quot;, &quot;7&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Illinois&quot;, &quot;North Central&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Minnesota&quot;, &quot;7&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Minnesota&quot;, &quot;North Central&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;North Dakota&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;North Dakota&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;South Dakota&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;South Dakota&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Nebraska&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Nebraska&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Iowa&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Iowa&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Missouri&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Missouri&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Arkansas&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Arkansas&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;California&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;California&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Nevada&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Nevada&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Arizona&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Arizona&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Hawaii&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Hawaii&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Alaska&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Alaska&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Guam&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Guam&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Wyoming&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Wyoming&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Utah&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Utah&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Colorado&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Colorado&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Kansas&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Kansas&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;New Mexico&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;New Mexico&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Oklahoma&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Oklahoma&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Texas&quot;, &quot;11&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Texas&quot;, &quot;Gulf Coast West&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Louisiana&quot;, &quot;11&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Louisiana&quot;, &quot;Gulf Coast West&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Washington&quot;, &quot;12&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Washington&quot;, &quot;Northeast&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Oregon&quot;, &quot;12&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Oregon&quot;, &quot;Northeast&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Idaho&quot;, &quot;12&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Idaho&quot;, &quot;Northeast&quot;, ht_offenses_4_years_clean_df$region_description)
+ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Montana&quot;, &quot;12&quot;, ht_offenses_4_years_clean_df$region)
+ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Montana&quot;, &quot;Northeast&quot;, ht_offenses_4_years_clean_df$region_description)</code></pre>
+<p>This code reorders the column names for later analysis.</p>
+<pre class="r"><code>ht_offenses_4_years_clean_df &lt;- select(ht_offenses_4_years_clean_df, year, region, region_description, state, offense, occurrence, age, cleared,everything())</code></pre>
+</div>
+<div id="write-the-csv-file" class="section level1">
+<h1>Write the CSV file</h1>
+<p>This code writes the final data to a new CSV file.</p>
+<pre class="r"><code>write.csv(ht_offenses_4_years_clean_df, file = &quot;Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv&quot;)</code></pre>
 </div>
 
 
