@@ -1,0 +1,21 @@
+---
+title: "Human Trafficking Data Analysis"
+author: "Sean F. Larsen"
+date: "February 28, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Human Trafficking Data Analysis
+
+The data has been cleaned and is ready for analysis.  First step will be to look at the data and determine what additional data will be needed.
+
+```{r include=TRUE}
+ht_offenses_4_years_clean <- read.csv("Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv")
+ht_offenses_4_years_clean_df <- data.frame(ht_offenses_4_years_clean)
+ht_offenses_4_years_clean_df$X <- NULL
+ht_offenses_4_years_clean_df
+```
