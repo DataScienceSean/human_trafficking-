@@ -45,6 +45,7 @@ A Clearance is an offense where a perpetrator has been arrested or convicted.
 ## Read and Write
 
 This code reads each file and creates a data frame to work with.
+
 ```{r include=TRUE}
 ht_offenses_clearing_2014 <- read_excel("Table_2_Human_Trafficking_Offenses_and_Clearances_by_State_2014.xlsx")
 ht_offenses_clearing_2014_df <- data.frame(ht_offenses_clearing_2014)
@@ -121,7 +122,7 @@ write.csv(ht_offenses_clearing_2017, file = "Human_Trafficking_Offenses_and_Clea
 
 # Combine and Sort
 
-## This code combines all four data frames into a single dataframe to use with analysis, and writes it to a single CSV file.
+This code combines all four dataframes into a single dataframe to use with analysis, and writes it to a single CSV file.
 
 ```{r include=TRUE}
 ht_offenses_clearing_4_years_df <- bind_rows(ht_offenses_clearing_2014_df, ht_offenses_clearing_2015_df, ht_offenses_clearing_2016_df, ht_offenses_clearing_2017_df)
@@ -145,10 +146,13 @@ comm_sex_offense_df <- select(ht_offenses_clearing_4_years_df, "year", "state", 
 ```
 
 This code removes the invalid row at the bottom
+
 ```{r include=TRUE}
 comm_sex_offense_df <- comm_sex_offense_df[-c(149),]
 ```
+
 This code creates a new column for offense
+
 ```{r include=TRUE}
 comm_sex_offense_df <- mutate(comm_sex_offense_df, "offense" = "commercial sex act")
 ```
@@ -211,7 +215,7 @@ invol_serv_df$involuntary_servitude_cleared <- as.numeric(invol_serv_df$involunt
 invol_serv_df$involuntary_servitude_cleared_under_18 <- as.numeric(invol_serv_df$involuntary_servitude_cleared_under_18)
 ```
 
-this code creates a new column for adult cleared offenses.
+This code creates a new column for adult cleared offenses.
 
 ```{r include=TRUE}
 invol_serv_df <- mutate(invol_serv_df, involuntary_servitude_cleared_adult = (involuntary_servitude_cleared - involuntary_servitude_cleared_under_18))
@@ -226,6 +230,7 @@ colnames(invol_serv_df) <- c("year", "state", "offense", "occurrence", "adult", 
 ```
 
 This will create and column for age and gather Adult and Juvenile.
+
 ```{r include=TRUE}
 invol_serv_df <- gather(invol_serv_df, age, cleared, adult, juvenile)
 ```
@@ -255,127 +260,91 @@ ht_offenses_4_years_clean_df$state <- gsub("\\*", "", ht_offenses_4_years_clean_
 
 # FBI Regions
 
-Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data.  The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns.
+Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data.  The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns. The regions and descriptions are in a file state_region.csv.  We will import that data into a dataframe, Create evquivilant columns in the current dataframe.
 
 ```{r include=TRUE}
 ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, region = state)
 ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, region_description = state)
-```
 
-This code will replace the State with the Region code and the region description.
+state_regions <- read.csv(file = "state_regions.csv")
+state_regions_df <- data.frame(state_regions)
+```
+The columns in the state_regions_df are factors and the matching columns in ht_offenses_4_years_clean_df are Characters.
 
 ```{r include=TRUE}
-ht_offenses_4_years_clean_df$region <- gsub("Maine", "1", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Maine", "New England", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("New Hampshire", "1", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("New Hampshire", "New England", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Rhode Island", "1", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Rhode Island", "New England", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Massachusetts", "1", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Massachusetts", "New England", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("New York", "2", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("New York", "Mideast North", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Vermont", "2", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Vermont", "Mideast North", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Connecticut", "2", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Connecticut", "Mideast North", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Pennsylvania", "3", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Pennsylvania", "Mideast South", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("New Jersey", "3", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("New Jersey", "Mideast South", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Delaware", "3", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Delaware", "Mideast South", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("West Virginia", "4", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("West Virginia", "Mid-Atlantic", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Maryland", "4", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Maryland", "Mid-Atlantic", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Virginia", "4", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Virginia", "Mid-Atlantic", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("North Carolina", "4", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("North Carolina", "Mid-Atlantic", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("South Carolina", "4", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("South Carolina", "Mid-Atlantic", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Alabama", "5", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Alabama", "Gulf Coast East", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Mississippi", "5", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Mississippi", "Gulf Coast East", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Georgia", "5", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Georgia", "Gulf Coast East", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Florida", "5", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Florida", "Gulf Coast East", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Puerto Rico", "5", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Puerto Rico", "Gulf Coast East", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("U.S. Virgin Islands", "5", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("U.S. Virgin Islands", "Gulf Coast East", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Michigan", "6", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Michigan", "Central", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Ohio", "6", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Ohio", "Central", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Kentucky", "6", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Kentucky", "Central", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Tennessee", "6", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Tennessee", "Central", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Wisconsin", "7", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Wisconsin", "North Central", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Indiana", "7", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Indiana", "North Central", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Illinois", "7", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Illinois", "North Central", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Minnesota", "7", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Minnesota", "North Central", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("North Dakota", "8", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("North Dakota", "Plains", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("South Dakota", "8", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("South Dakota", "Plains", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Nebraska", "8", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Nebraska", "Plains", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Iowa", "8", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Iowa", "Plains", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Missouri", "8", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Missouri", "Plains", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Arkansas", "8", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Arkansas", "Plains", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("California", "9", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("California", "Southwest/Pacific", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Nevada", "9", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Nevada", "Southwest/Pacific", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Arizona", "9", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Arizona", "Southwest/Pacific", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Hawaii", "9", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Hawaii", "Southwest/Pacific", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Alaska", "9", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Alaska", "Southwest/Pacific", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Guam", "9", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Guam", "Southwest/Pacific", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Wyoming", "10", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Wyoming", "Rockies/Mid-West", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Utah", "10", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Utah", "Rockies/Mid-West", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Colorado", "10", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Colorado", "Rockies/Mid-West", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Kansas", "10", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Kansas", "Rockies/Mid-West", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("New Mexico", "10", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("New Mexico", "Rockies/Mid-West", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Oklahoma", "10", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Oklahoma", "Rockies/Mid-West", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Texas", "11", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Texas", "Gulf Coast West", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Louisiana", "11", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Louisiana", "Gulf Coast West", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Washington", "12", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Washington", "Northeast", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Oregon", "12", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Oregon", "Northeast", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Idaho", "12", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Idaho", "Northeast", ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region <- gsub("Montana", "12", ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description <- gsub("Montana", "Northeast", ht_offenses_4_years_clean_df$region_description)
+state_regions_df$state <- as.character(state_regions_df$state)
+state_regions_df$region <- as.character(state_regions_df$region)
+state_regions_df$region_description <- as.character(state_regions_df$region_description)
 ```
+
+This code will join the two dataframes.
+
+
+This Code adds a column for years that will be more usful in regression analysis.
+
+```{r include=TRUE}
+ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, year_data = year)
+
+ht_offenses_4_years_clean_df$year_data <- gsub(2014, 0, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data <- gsub(2015, 1, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data <- gsub(2016, 2, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data <- gsub(2017, 3, ht_offenses_4_years_clean_df$year_data)
+```
+
 This code reorders the column names for later analysis.
 
 ```{r include=TRUE}
-ht_offenses_4_years_clean_df <- select(ht_offenses_4_years_clean_df, year, region, region_description, state, offense, occurrence, age, cleared,everything())
+ht_offenses_4_years_clean_df <- select(ht_offenses_4_years_clean_df, year_data, year, region, region_description, state, offense, occurrence, age, cleared,everything())
+```
+# Population
+
+I found a data set at https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk that had the population for each state for the years 2010 through 2018. This code will read the csv file and create a dataframe of the population.
+
+```{r include=TRUE}
+population <- read.csv(file = "PEP_2018_PEPANNRES_with_ann.csv")
+population_df <- data.frame(population)
+```
+
+The first two columns contain unneeded Geo IDs and the 4th columns contains a 2010 estimate.  The column names are also geo ID codes and need to be renamed. Once that is done, the first row won't be needed. Since the second row has the popluation for the entire United States, That will be deleted also.
+
+This code deletes the three columns.
+
+```{r include=TRUE}
+population_df$GEO.id <- NULL
+population_df$GEO.id2 <- NULL
+population_df$rescen42010 <- NULL
+```
+
+This code renames the columns and deletes the first row.
+
+```{r include=TRUE}
+colnames(population_df) <- c("state", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018")
+population_df <- population_df[-c(1, 2),]
+```
+
+Currently with the new file, all the years are columns. To match the dataframe to be analyised, the columns need to be turned to rows.
+This code creates a new dataframe where the columns for years are gathered into rows.
+
+```{r include=TRUE}
+population_gather <- gather(population_df, year, population, -state)
+population_gather_df <- data.frame(population_gather)
+```
+Since I may want to use both of these dataframes in the future I am writing them to a csv file.
+
+```{r include=TRUE}
+write.csv(population_df, file = "population_by_state_by_year_wide.csv")
+write.csv(population_gather_df, file = "population_by_sate_by_year_long.csv")
+```
+
+# Combine Crime Data and Population
+
+We have a the human traficing dataframe and the population dataframe and we need to put them together.
+The human traficing dataframe needs a column for poplulation and then they can be merged.
+
+```{r inclue=TRUE}
+colnames(state_regions_df)
+colnames(ht_offenses_4_years_clean_df)
+colnames(population_gather_df)
 ```
 
 # Write the CSV file
@@ -384,3 +353,4 @@ This code writes the final data to a new CSV file.
 ```{r include=TRUE}
 write.csv(ht_offenses_4_years_clean_df, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv")
 ```
+
