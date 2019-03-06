@@ -297,11 +297,9 @@ ht_offenses_clearing_2017_df &lt;- select(ht_offenses_clearing_2017_df, year, ev
 </div>
 <div id="combine-and-sort" class="section level1">
 <h1>Combine and Sort</h1>
-<div id="this-code-combines-all-four-data-frames-into-a-single-dataframe-to-use-with-analysis-and-writes-it-to-a-single-csv-file." class="section level2">
-<h2>This code combines all four data frames into a single dataframe to use with analysis, and writes it to a single CSV file.</h2>
+<p>This code combines all four dataframes into a single dataframe to use with analysis, and writes it to a single CSV file.</p>
 <pre class="r"><code>ht_offenses_clearing_4_years_df &lt;- bind_rows(ht_offenses_clearing_2014_df, ht_offenses_clearing_2015_df, ht_offenses_clearing_2016_df, ht_offenses_clearing_2017_df)
 write.csv(ht_offenses_clearing_4_years_df, file = &quot;Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017.csv&quot;)</code></pre>
-</div>
 <div id="how-the-data-is-organized" class="section level2">
 <h2>How the Data is Organized</h2>
 <p>Now that the data is organized and combined and after reading the FBI website on the process of compiling the data, I’ve leanred that data is generally broken down by age and is categorized as adult and juvenile. If an individual is over 18 they are adults and under 18 they are juveniles. There are also two tpyes of offences listed. Commercial Sex Acts and Involuntary Servitude. Both age and offense need to be separated by columns.</p>
@@ -339,7 +337,7 @@ colnames(comm_sex_offense_df) &lt;- c(&quot;year&quot;, &quot;state&quot;, &quot
 invol_serv_df$involuntary_servitude_offense &lt;- as.numeric(invol_serv_df$involuntary_servitude_offense)
 invol_serv_df$involuntary_servitude_cleared &lt;- as.numeric(invol_serv_df$involuntary_servitude_cleared)
 invol_serv_df$involuntary_servitude_cleared_under_18 &lt;- as.numeric(invol_serv_df$involuntary_servitude_cleared_under_18)</code></pre>
-<p>this code creates a new column for adult cleared offenses.</p>
+<p>This code creates a new column for adult cleared offenses.</p>
 <pre class="r"><code>invol_serv_df &lt;- mutate(invol_serv_df, involuntary_servitude_cleared_adult = (involuntary_servitude_cleared - involuntary_servitude_cleared_under_18))</code></pre>
 <p>With involuntary_servitude_cleared_adult separted out from involuntary_servitude_cleared, involuntary_servitude_cleared is no longer needed. This code removes the column, reoders the columns, and renames them for easier analysis later.</p>
 <pre class="r"><code>invol_serv_df$involuntary_servitude_cleared &lt;- NULL
@@ -363,118 +361,2446 @@ colnames(invol_serv_df) &lt;- c(&quot;year&quot;, &quot;state&quot;, &quot;offen
 </div>
 <div id="fbi-regions" class="section level1">
 <h1>FBI Regions</h1>
-<p>Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data. The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns.</p>
+<p>Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data. The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns. The regions and descriptions are in a file state_region.csv. We will import that data into a dataframe, Create evquivilant columns in the current dataframe.</p>
 <pre class="r"><code>ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, region = state)
-ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, region_description = state)</code></pre>
-<p>This code will replace the State with the Region code and the region description.</p>
-<pre class="r"><code>ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Maine&quot;, &quot;1&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Maine&quot;, &quot;New England&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;New Hampshire&quot;, &quot;1&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;New Hampshire&quot;, &quot;New England&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Rhode Island&quot;, &quot;1&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Rhode Island&quot;, &quot;New England&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Massachusetts&quot;, &quot;1&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Massachusetts&quot;, &quot;New England&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;New York&quot;, &quot;2&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;New York&quot;, &quot;Mideast North&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Vermont&quot;, &quot;2&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Vermont&quot;, &quot;Mideast North&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Connecticut&quot;, &quot;2&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Connecticut&quot;, &quot;Mideast North&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Pennsylvania&quot;, &quot;3&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Pennsylvania&quot;, &quot;Mideast South&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;New Jersey&quot;, &quot;3&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;New Jersey&quot;, &quot;Mideast South&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Delaware&quot;, &quot;3&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Delaware&quot;, &quot;Mideast South&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;West Virginia&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;West Virginia&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Maryland&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Maryland&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Virginia&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Virginia&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;North Carolina&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;North Carolina&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;South Carolina&quot;, &quot;4&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;South Carolina&quot;, &quot;Mid-Atlantic&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Alabama&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Alabama&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Mississippi&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Mississippi&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Georgia&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Georgia&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Florida&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Florida&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Puerto Rico&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Puerto Rico&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;U.S. Virgin Islands&quot;, &quot;5&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;U.S. Virgin Islands&quot;, &quot;Gulf Coast East&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Michigan&quot;, &quot;6&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Michigan&quot;, &quot;Central&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Ohio&quot;, &quot;6&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Ohio&quot;, &quot;Central&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Kentucky&quot;, &quot;6&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Kentucky&quot;, &quot;Central&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Tennessee&quot;, &quot;6&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Tennessee&quot;, &quot;Central&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Wisconsin&quot;, &quot;7&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Wisconsin&quot;, &quot;North Central&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Indiana&quot;, &quot;7&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Indiana&quot;, &quot;North Central&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Illinois&quot;, &quot;7&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Illinois&quot;, &quot;North Central&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Minnesota&quot;, &quot;7&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Minnesota&quot;, &quot;North Central&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;North Dakota&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;North Dakota&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;South Dakota&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;South Dakota&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Nebraska&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Nebraska&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Iowa&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Iowa&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Missouri&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Missouri&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Arkansas&quot;, &quot;8&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Arkansas&quot;, &quot;Plains&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;California&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;California&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Nevada&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Nevada&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Arizona&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Arizona&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Hawaii&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Hawaii&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Alaska&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Alaska&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Guam&quot;, &quot;9&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Guam&quot;, &quot;Southwest/Pacific&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Wyoming&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Wyoming&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Utah&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Utah&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Colorado&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Colorado&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Kansas&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Kansas&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;New Mexico&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;New Mexico&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Oklahoma&quot;, &quot;10&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Oklahoma&quot;, &quot;Rockies/Mid-West&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Texas&quot;, &quot;11&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Texas&quot;, &quot;Gulf Coast West&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Louisiana&quot;, &quot;11&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Louisiana&quot;, &quot;Gulf Coast West&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Washington&quot;, &quot;12&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Washington&quot;, &quot;Northeast&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Oregon&quot;, &quot;12&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Oregon&quot;, &quot;Northeast&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Idaho&quot;, &quot;12&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Idaho&quot;, &quot;Northeast&quot;, ht_offenses_4_years_clean_df$region_description)
-ht_offenses_4_years_clean_df$region &lt;- gsub(&quot;Montana&quot;, &quot;12&quot;, ht_offenses_4_years_clean_df$region)
-ht_offenses_4_years_clean_df$region_description &lt;- gsub(&quot;Montana&quot;, &quot;Northeast&quot;, ht_offenses_4_years_clean_df$region_description)</code></pre>
+ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, region_description = state)
+
+state_regions &lt;- read.csv(file = &quot;state_regions.csv&quot;)
+state_regions_df &lt;- data.frame(state_regions)</code></pre>
+<p>The columns in the state_regions_df are factors and the matching columns in ht_offenses_4_years_clean_df are Characters.</p>
+<pre class="r"><code>state_regions_df$state &lt;- as.character(state_regions_df$state)
+state_regions_df$region &lt;- as.character(state_regions_df$region)
+state_regions_df$region_description &lt;- as.character(state_regions_df$region_description)</code></pre>
+<p>This code will join the two dataframes.</p>
+<p>This Code adds a column for years that will be more usful in regression analysis.</p>
+<pre class="r"><code>ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, year_data = year)
+
+ht_offenses_4_years_clean_df$year_data &lt;- gsub(2014, 0, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data &lt;- gsub(2015, 1, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data &lt;- gsub(2016, 2, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data &lt;- gsub(2017, 3, ht_offenses_4_years_clean_df$year_data)</code></pre>
 <p>This code reorders the column names for later analysis.</p>
-<pre class="r"><code>ht_offenses_4_years_clean_df &lt;- select(ht_offenses_4_years_clean_df, year, region, region_description, state, offense, occurrence, age, cleared,everything())</code></pre>
+<pre class="r"><code>ht_offenses_4_years_clean_df &lt;- select(ht_offenses_4_years_clean_df, year_data, year, region, region_description, state, offense, occurrence, age, cleared,everything())</code></pre>
+</div>
+<div id="population" class="section level1">
+<h1>Population</h1>
+<p>I found a data set at <a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk" class="uri">https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk</a> that had the population for each state for the years 2010 through 2018. This code will read the csv file and create a dataframe of the population.</p>
+<pre class="r"><code>population &lt;- read.csv(file = &quot;PEP_2018_PEPANNRES_with_ann.csv&quot;)
+population_df &lt;- data.frame(population)
+population_df</code></pre>
+<pre><code>##         GEO.id GEO.id2    GEO.display.label            rescen42010
+## 1           Id     Id2            Geography April 1, 2010 - Census
+## 2    0100000US                United States              308745538
+## 3  0400000US01       1              Alabama                4779736
+## 4  0400000US02       2               Alaska                 710231
+## 5  0400000US04       4              Arizona                6392017
+## 6  0400000US05       5             Arkansas                2915918
+## 7  0400000US06       6           California               37253956
+## 8  0400000US08       8             Colorado                5029196
+## 9  0400000US09       9          Connecticut                3574097
+## 10 0400000US10      10             Delaware                 897934
+## 11 0400000US11      11 District of Columbia                 601723
+## 12 0400000US12      12              Florida               18801310
+## 13 0400000US13      13              Georgia                9687653
+## 14 0400000US14      14                 Guam                 159444
+## 15 0400000US15      15               Hawaii                1360301
+## 16 0400000US16      16                Idaho                1567582
+## 17 0400000US17      17             Illinois               12830632
+## 18 0400000US18      18              Indiana                6483802
+## 19 0400000US19      19                 Iowa                3046355
+## 20 0400000US20      20               Kansas                2853118
+## 21 0400000US21      21             Kentucky                4339367
+## 22 0400000US22      22            Louisiana                4533372
+## 23 0400000US23      23                Maine                1328361
+## 24 0400000US24      24             Maryland                5773552
+## 25 0400000US25      25        Massachusetts                6547629
+## 26 0400000US26      26             Michigan                9883640
+## 27 0400000US27      27            Minnesota                5303925
+## 28 0400000US28      28          Mississippi                2967297
+## 29 0400000US29      29             Missouri                5988927
+## 30 0400000US30      30              Montana                 989415
+## 31 0400000US31      31             Nebraska                1826341
+## 32 0400000US32      32               Nevada                2700551
+## 33 0400000US33      33        New Hampshire                1316470
+## 34 0400000US34      34           New Jersey                8791894
+## 35 0400000US35      35           New Mexico                2059179
+## 36 0400000US36      36             New York               19378102
+## 37 0400000US37      37       North Carolina                9535483
+## 38 0400000US38      38         North Dakota                 672591
+## 39 0400000US39      39                 Ohio               11536504
+## 40 0400000US40      40             Oklahoma                3751351
+## 41 0400000US41      41               Oregon                3831074
+## 42 0400000US42      42         Pennsylvania               12702379
+## 43 0400000US44      44         Rhode Island                1052567
+## 44 0400000US45      45       South Carolina                4625364
+## 45 0400000US46      46         South Dakota                 814180
+## 46 0400000US47      47            Tennessee                6346105
+## 47 0400000US48      48                Texas               25145561
+## 48 0400000US49      49                 Utah                2763885
+## 49 0400000US50      50              Vermont                 625741
+## 50 0400000US51      51             Virginia                8001024
+## 51 0400000US53      53           Washington                6724540
+## 52 0400000US54      54        West Virginia                1852994
+## 53 0400000US55      55            Wisconsin                5686986
+## 54 0400000US56      56              Wyoming                 563626
+## 55 0400000USXX      XX  U.S. Virgin Islands                 108358
+## 56 0400000US72      72          Puerto Rico                3725789
+##                      resbase42010
+## 1  April 1, 2010 - Estimates Base
+## 2                       308758105
+## 3                         4780138
+## 4                          710249
+## 5                         6392288
+## 6                         2916028
+## 7                        37254523
+## 8                         5029316
+## 9                         3574147
+## 10                         897934
+## 11                         601766
+## 12                       18804580
+## 13                        9688709
+## 14                         159444
+## 15                        1360307
+## 16                        1567657
+## 17                       12831572
+## 18                        6484061
+## 19                        3046872
+## 20                        2853126
+## 21                        4339333
+## 22                        4533485
+## 23                        1328369
+## 24                        5773798
+## 25                        6547790
+## 26                        9884117
+## 27                        5303925
+## 28                        2968118
+## 29                        5988952
+## 30                         989409
+## 31                        1826305
+## 32                        2700679
+## 33                        1316464
+## 34                        8791962
+## 35                        2059180
+## 36                       19378124
+## 37                        9535736
+## 38                         672576
+## 39                       11536757
+## 40                        3751583
+## 41                        3831075
+## 42                       12702873
+## 43                        1052957
+## 44                        4625381
+## 45                         814198
+## 46                        6346286
+## 47                       25146114
+## 48                        2763891
+## 49                         625744
+## 50                        8001055
+## 51                        6724540
+## 52                        1853001
+## 53                        5687282
+## 54                         563773
+## 55                         109750
+## 56                        3726157
+##                                  respop72010
+## 1  Population Estimate (as of July 1) - 2010
+## 2                                  309326085
+## 3                                    4785448
+## 4                                     713906
+## 5                                    6407774
+## 6                                    2921978
+## 7                                   37320903
+## 8                                    5048281
+## 9                                    3579125
+## 10                                    899595
+## 11                                    605085
+## 12                                  18845785
+## 13                                   9711810
+## 14                                    159444
+## 15                                   1363963
+## 16                                   1570773
+## 17                                  12840762
+## 18                                   6490436
+## 19                                   3050767
+## 20                                   2858213
+## 21                                   4348200
+## 22                                   4544532
+## 23                                   1327632
+## 24                                   5788642
+## 25                                   6566431
+## 26                                   9877535
+## 27                                   5310843
+## 28                                   2970536
+## 29                                   5995976
+## 30                                    990722
+## 31                                   1829536
+## 32                                   2702464
+## 33                                   1316777
+## 34                                   8799624
+## 35                                   2064588
+## 36                                  19400080
+## 37                                   9574293
+## 38                                    674710
+## 39                                  11539327
+## 40                                   3759632
+## 41                                   3837532
+## 42                                  12711158
+## 43                                   1053938
+## 44                                   4635656
+## 45                                    816165
+## 46                                   6355301
+## 47                                  25242679
+## 48                                   2775334
+## 49                                    625880
+## 50                                   8023680
+## 51                                   6742902
+## 52                                   1854214
+## 53                                   5690479
+## 54                                    564483
+## 55                                    109750
+## 56                                   3721525
+##                                  respop72011
+## 1  Population Estimate (as of July 1) - 2011
+## 2                                  311580009
+## 3                                    4798834
+## 4                                     722038
+## 5                                    6473497
+## 6                                    2940407
+## 7                                   37641823
+## 8                                    5121771
+## 9                                    3588023
+## 10                                    907316
+## 11                                    619602
+## 12                                  19093352
+## 13                                   9801578
+## 14                                    159678
+## 15                                   1379252
+## 16                                   1583828
+## 17                                  12867291
+## 18                                   6516045
+## 19                                   3066054
+## 20                                   2869035
+## 21                                   4369488
+## 22                                   4575184
+## 23                                   1328150
+## 24                                   5838991
+## 25                                   6613149
+## 26                                   9881521
+## 27                                   5345668
+## 28                                   2978470
+## 29                                   6009641
+## 30                                    997221
+## 31                                   1840538
+## 32                                   2712799
+## 33                                   1319815
+## 34                                   8827783
+## 35                                   2080395
+## 36                                  19498514
+## 37                                   9656754
+## 38                                    685136
+## 39                                  11543463
+## 40                                   3787821
+## 41                                   3871728
+## 42                                  12744583
+## 43                                   1053536
+## 44                                   4671422
+## 45                                    823484
+## 46                                   6397410
+## 47                                  25646227
+## 48                                   2814216
+## 49                                    626979
+## 50                                   8100469
+## 51                                   6821655
+## 52                                   1856074
+## 53                                   5704755
+## 54                                    567224
+## 55                                    108292
+## 56                                   3678732
+##                                  respop72012
+## 1  Population Estimate (as of July 1) - 2012
+## 2                                  313874218
+## 3                                    4815564
+## 4                                     730399
+## 5                                    6556629
+## 6                                    2952109
+## 7                                   37960782
+## 8                                    5193721
+## 9                                    3594395
+## 10                                    915188
+## 11                                    634725
+## 12                                  19326230
+## 13                                   9901496
+## 14                                    159973
+## 15                                   1394905
+## 16                                   1595441
+## 17                                  12884119
+## 18                                   6537640
+## 19                                   3076097
+## 20                                   2885361
+## 21                                   4386381
+## 22                                   4600814
+## 23                                   1327691
+## 24                                   5887072
+## 25                                   6663158
+## 26                                   9896930
+## 27                                   5376550
+## 28                                   2983767
+## 29                                   6024081
+## 30                                   1003754
+## 31                                   1853323
+## 32                                   2744566
+## 33                                   1323962
+## 34                                   8845483
+## 35                                   2087549
+## 36                                  19574549
+## 37                                   9749123
+## 38                                    701116
+## 39                                  11548369
+## 40                                   3818600
+## 41                                   3899118
+## 42                                  12766827
+## 43                                   1054601
+## 44                                   4717112
+## 45                                    833496
+## 46                                   6451281
+## 47                                  26089620
+## 48                                   2853467
+## 49                                    626063
+## 50                                   8185229
+## 51                                   6892876
+## 52                                   1856764
+## 53                                   5719855
+## 54                                    576270
+## 55                                    108191
+## 56                                   3634488
+##                                  respop72013
+## 1  Population Estimate (as of July 1) - 2013
+## 2                                  316057727
+## 3                                    4830460
+## 4                                     737045
+## 5                                    6634999
+## 6                                    2959549
+## 7                                   38280824
+## 8                                    5270482
+## 9                                    3594915
+## 10                                    923638
+## 11                                    650431
+## 12                                  19563166
+## 13                                   9973326
+## 14                                    160375
+## 15                                   1408453
+## 16                                   1611530
+## 17                                  12898269
+## 18                                   6568367
+## 19                                   3093078
+## 20                                   2893510
+## 21                                   4404817
+## 22                                   4624577
+## 23                                   1328196
+## 24                                   5923704
+## 25                                   6713944
+## 26                                   9913349
+## 27                                   5413693
+## 28                                   2988797
+## 29                                   6040658
+## 30                                   1013564
+## 31                                   1865414
+## 32                                   2776972
+## 33                                   1326408
+## 34                                   8858362
+## 35                                   2092792
+## 36                                  19628043
+## 37                                   9843599
+## 38                                    721999
+## 39                                  11576576
+## 40                                   3853205
+## 41                                   3922908
+## 42                                  12776621
+## 43                                   1055122
+## 44                                   4764153
+## 45                                    842270
+## 46                                   6493432
+## 47                                  26489464
+## 48                                   2897927
+## 49                                    626212
+## 50                                   8253053
+## 51                                   6962906
+## 52                                   1853873
+## 53                                   5736952
+## 54                                    582123
+## 55                                    108044
+## 56                                   3593077
+##                                  respop72014
+## 1  Population Estimate (as of July 1) - 2014
+## 2                                  318386421
+## 3                                    4842481
+## 4                                     736307
+## 5                                    6733840
+## 6                                    2967726
+## 7                                   38625139
+## 8                                    5351218
+## 9                                    3594783
+## 10                                    932596
+## 11                                    662513
+## 12                                  19860330
+## 13                                  10069001
+## 14                                    160967
+## 15                                   1414862
+## 16                                   1631479
+## 17                                  12888962
+## 18                                   6593533
+## 19                                   3109504
+## 20                                   2900896
+## 21                                   4414483
+## 22                                   4644204
+## 23                                   1330760
+## 24                                   5958165
+## 25                                   6763652
+## 26                                   9930589
+## 27                                   5451522
+## 28                                   2990623
+## 29                                   6056293
+## 30                                   1021891
+## 31                                   1879522
+## 32                                   2819012
+## 33                                   1333223
+## 34                                   8866780
+## 35                                   2090342
+## 36                                  19656330
+## 37                                   9933944
+## 38                                    737382
+## 39                                  11602973
+## 40                                   3878367
+## 41                                   3964106
+## 42                                  12789101
+## 43                                   1056017
+## 44                                   4823793
+## 45                                    849088
+## 46                                   6540826
+## 47                                  26977142
+## 48                                   2937399
+## 49                                    625218
+## 50                                   8312076
+## 51                                   7052439
+## 52                                   1849467
+## 53                                   5751974
+## 54                                    582548
+## 55                                    107884
+## 56                                   3534874
+##                                  respop72015
+## 1  Population Estimate (as of July 1) - 2015
+## 2                                  320742673
+## 3                                    4853160
+## 4                                     737547
+## 5                                    6833596
+## 6                                    2978407
+## 7                                   38953142
+## 8                                    5452107
+## 9                                    3587509
+## 10                                    941413
+## 11                                    675254
+## 12                                  20224249
+## 13                                  10181111
+## 14                                    161797
+## 15                                   1422484
+## 16                                   1651523
+## 17                                  12864342
+## 18                                   6608296
+## 19                                   3121460
+## 20                                   2909502
+## 21                                   4425999
+## 22                                   4664851
+## 23                                   1328484
+## 24                                   5986717
+## 25                                   6795891
+## 26                                   9932573
+## 27                                   5482503
+## 28                                   2988693
+## 29                                   6071745
+## 30                                   1030503
+## 31                                   1891507
+## 32                                   2868666
+## 33                                   1336294
+## 34                                   8870869
+## 35                                   2090211
+## 36                                  19661411
+## 37                                  10033079
+## 38                                    754022
+## 39                                  11617850
+## 40                                   3909831
+## 41                                   4016918
+## 42                                  12785759
+## 43                                   1056173
+## 44                                   4892253
+## 45                                    853933
+## 46                                   6590808
+## 47                                  27486814
+## 48                                   2982497
+## 49                                    625197
+## 50                                   8362907
+## 51                                   7163543
+## 52                                   1841996
+## 53                                   5761406
+## 54                                    585668
+## 55                                    107710
+## 56                                   3473166
+##                                  respop72016
+## 1  Population Estimate (as of July 1) - 2016
+## 2                                  323071342
+## 3                                    4864745
+## 4                                     741504
+## 5                                    6945452
+## 6                                    2990410
+## 7                                   39209127
+## 8                                    5540921
+## 9                                    3578674
+## 10                                    949216
+## 11                                    686575
+## 12                                  20629982
+## 13                                  10304763
+## 14                                    162896
+## 15                                   1428105
+## 16                                   1682930
+## 17                                  12826895
+## 18                                   6633344
+## 19                                   3131785
+## 20                                   2911263
+## 21                                   4438229
+## 22                                   4678215
+## 23                                   1331370
+## 24                                   6004692
+## 25                                   6826022
+## 26                                   9951890
+## 27                                   5523409
+## 28                                   2988298
+## 29                                   6087203
+## 30                                   1040863
+## 31                                   1905924
+## 32                                   2919772
+## 33                                   1342373
+## 34                                   8874516
+## 35                                   2092789
+## 36                                  19641589
+## 37                                  10156679
+## 38                                    754353
+## 39                                  11635003
+## 40                                   3926769
+## 41                                   4091404
+## 42                                  12783538
+## 43                                   1057063
+## 44                                   4958235
+## 45                                    862890
+## 46                                   6645011
+## 47                                  27937492
+## 48                                   3042613
+## 49                                    623644
+## 50                                   8410946
+## 51                                   7294680
+## 52                                   1830929
+## 53                                   5772958
+## 54                                    584290
+## 55                                    107510
+## 56                                   3406495
+##                                  respop72017
+## 1  Population Estimate (as of July 1) - 2017
+## 2                                  325147121
+## 3                                    4875120
+## 4                                     739786
+## 5                                    7048876
+## 6                                    3002997
+## 7                                   39399349
+## 8                                    5615902
+## 9                                    3573880
+## 10                                    957078
+## 11                                    695691
+## 12                                  20976812
+## 13                                  10413055
+## 14                                    164229
+## 15                                   1424203
+## 16                                   1718904
+## 17                                  12786196
+## 18                                   6660082
+## 19                                   3143637
+## 20                                   2910689
+## 21                                   4453874
+## 22                                   4670818
+## 23                                   1335063
+## 24                                   6024891
+## 25                                   6863246
+## 26                                   9976447
+## 27                                   5568155
+## 28                                   2989663
+## 29                                   6108612
+## 30                                   1053090
+## 31                                   1917575
+## 32                                   2972405
+## 33                                   1349767
+## 34                                   8888543
+## 35                                   2093395
+## 36                                  19590719
+## 37                                  10270800
+## 38                                    755176
+## 39                                  11664129
+## 40                                   3932640
+## 41                                   4146592
+## 42                                  12790447
+## 43                                   1056486
+## 44                                   5021219
+## 45                                    873286
+## 46                                   6708794
+## 47                                  28322717
+## 48                                   3103118
+## 49                                    624525
+## 50                                   8465207
+## 51                                   7425432
+## 52                                   1817048
+## 53                                   5792051
+## 54                                    578934
+## 55                                    107268
+## 56                                   3325001
+##                                  respop72018
+## 1  Population Estimate (as of July 1) - 2018
+## 2                                  327167434
+## 3                                    4887871
+## 4                                     737438
+## 5                                    7171646
+## 6                                    3013825
+## 7                                   39557045
+## 8                                    5695564
+## 9                                    3572665
+## 10                                    967171
+## 11                                    702455
+## 12                                  21299325
+## 13                                  10519475
+## 14                                    165718
+## 15                                   1420491
+## 16                                   1754208
+## 17                                  12741080
+## 18                                   6691878
+## 19                                   3156145
+## 20                                   2911505
+## 21                                   4468402
+## 22                                   4659978
+## 23                                   1338404
+## 24                                   6042718
+## 25                                   6902149
+## 26                                   9995915
+## 27                                   5611179
+## 28                                   2986530
+## 29                                   6126452
+## 30                                   1062305
+## 31                                   1929268
+## 32                                   3034392
+## 33                                   1356458
+## 34                                   8908520
+## 35                                   2095428
+## 36                                  19542209
+## 37                                  10383620
+## 38                                    760077
+## 39                                  11689442
+## 40                                   3943079
+## 41                                   4190713
+## 42                                  12807060
+## 43                                   1057315
+## 44                                   5084127
+## 45                                    882235
+## 46                                   6770010
+## 47                                  28701845
+## 48                                   3161105
+## 49                                    626299
+## 50                                   8517685
+## 51                                   7535591
+## 52                                   1805832
+## 53                                   5813568
+## 54                                    577737
+## 55                                    107282
+## 56                                   3195153</code></pre>
+<p>The first two columns contain unneeded Geo IDs and the 4th columns contains a 2010 estimate. The column names are also geo ID codes and need to be renamed. Once that is done, the first row won’t be needed. Since the second row has the popluation for the entire United States, That will be deleted also.</p>
+<p>This code deletes the three columns.</p>
+<pre class="r"><code>population_df$GEO.id &lt;- NULL
+population_df$GEO.id2 &lt;- NULL
+population_df$rescen42010 &lt;- NULL
+population_df</code></pre>
+<pre><code>##       GEO.display.label                   resbase42010
+## 1             Geography April 1, 2010 - Estimates Base
+## 2         United States                      308758105
+## 3               Alabama                        4780138
+## 4                Alaska                         710249
+## 5               Arizona                        6392288
+## 6              Arkansas                        2916028
+## 7            California                       37254523
+## 8              Colorado                        5029316
+## 9           Connecticut                        3574147
+## 10             Delaware                         897934
+## 11 District of Columbia                         601766
+## 12              Florida                       18804580
+## 13              Georgia                        9688709
+## 14                 Guam                         159444
+## 15               Hawaii                        1360307
+## 16                Idaho                        1567657
+## 17             Illinois                       12831572
+## 18              Indiana                        6484061
+## 19                 Iowa                        3046872
+## 20               Kansas                        2853126
+## 21             Kentucky                        4339333
+## 22            Louisiana                        4533485
+## 23                Maine                        1328369
+## 24             Maryland                        5773798
+## 25        Massachusetts                        6547790
+## 26             Michigan                        9884117
+## 27            Minnesota                        5303925
+## 28          Mississippi                        2968118
+## 29             Missouri                        5988952
+## 30              Montana                         989409
+## 31             Nebraska                        1826305
+## 32               Nevada                        2700679
+## 33        New Hampshire                        1316464
+## 34           New Jersey                        8791962
+## 35           New Mexico                        2059180
+## 36             New York                       19378124
+## 37       North Carolina                        9535736
+## 38         North Dakota                         672576
+## 39                 Ohio                       11536757
+## 40             Oklahoma                        3751583
+## 41               Oregon                        3831075
+## 42         Pennsylvania                       12702873
+## 43         Rhode Island                        1052957
+## 44       South Carolina                        4625381
+## 45         South Dakota                         814198
+## 46            Tennessee                        6346286
+## 47                Texas                       25146114
+## 48                 Utah                        2763891
+## 49              Vermont                         625744
+## 50             Virginia                        8001055
+## 51           Washington                        6724540
+## 52        West Virginia                        1853001
+## 53            Wisconsin                        5687282
+## 54              Wyoming                         563773
+## 55  U.S. Virgin Islands                         109750
+## 56          Puerto Rico                        3726157
+##                                  respop72010
+## 1  Population Estimate (as of July 1) - 2010
+## 2                                  309326085
+## 3                                    4785448
+## 4                                     713906
+## 5                                    6407774
+## 6                                    2921978
+## 7                                   37320903
+## 8                                    5048281
+## 9                                    3579125
+## 10                                    899595
+## 11                                    605085
+## 12                                  18845785
+## 13                                   9711810
+## 14                                    159444
+## 15                                   1363963
+## 16                                   1570773
+## 17                                  12840762
+## 18                                   6490436
+## 19                                   3050767
+## 20                                   2858213
+## 21                                   4348200
+## 22                                   4544532
+## 23                                   1327632
+## 24                                   5788642
+## 25                                   6566431
+## 26                                   9877535
+## 27                                   5310843
+## 28                                   2970536
+## 29                                   5995976
+## 30                                    990722
+## 31                                   1829536
+## 32                                   2702464
+## 33                                   1316777
+## 34                                   8799624
+## 35                                   2064588
+## 36                                  19400080
+## 37                                   9574293
+## 38                                    674710
+## 39                                  11539327
+## 40                                   3759632
+## 41                                   3837532
+## 42                                  12711158
+## 43                                   1053938
+## 44                                   4635656
+## 45                                    816165
+## 46                                   6355301
+## 47                                  25242679
+## 48                                   2775334
+## 49                                    625880
+## 50                                   8023680
+## 51                                   6742902
+## 52                                   1854214
+## 53                                   5690479
+## 54                                    564483
+## 55                                    109750
+## 56                                   3721525
+##                                  respop72011
+## 1  Population Estimate (as of July 1) - 2011
+## 2                                  311580009
+## 3                                    4798834
+## 4                                     722038
+## 5                                    6473497
+## 6                                    2940407
+## 7                                   37641823
+## 8                                    5121771
+## 9                                    3588023
+## 10                                    907316
+## 11                                    619602
+## 12                                  19093352
+## 13                                   9801578
+## 14                                    159678
+## 15                                   1379252
+## 16                                   1583828
+## 17                                  12867291
+## 18                                   6516045
+## 19                                   3066054
+## 20                                   2869035
+## 21                                   4369488
+## 22                                   4575184
+## 23                                   1328150
+## 24                                   5838991
+## 25                                   6613149
+## 26                                   9881521
+## 27                                   5345668
+## 28                                   2978470
+## 29                                   6009641
+## 30                                    997221
+## 31                                   1840538
+## 32                                   2712799
+## 33                                   1319815
+## 34                                   8827783
+## 35                                   2080395
+## 36                                  19498514
+## 37                                   9656754
+## 38                                    685136
+## 39                                  11543463
+## 40                                   3787821
+## 41                                   3871728
+## 42                                  12744583
+## 43                                   1053536
+## 44                                   4671422
+## 45                                    823484
+## 46                                   6397410
+## 47                                  25646227
+## 48                                   2814216
+## 49                                    626979
+## 50                                   8100469
+## 51                                   6821655
+## 52                                   1856074
+## 53                                   5704755
+## 54                                    567224
+## 55                                    108292
+## 56                                   3678732
+##                                  respop72012
+## 1  Population Estimate (as of July 1) - 2012
+## 2                                  313874218
+## 3                                    4815564
+## 4                                     730399
+## 5                                    6556629
+## 6                                    2952109
+## 7                                   37960782
+## 8                                    5193721
+## 9                                    3594395
+## 10                                    915188
+## 11                                    634725
+## 12                                  19326230
+## 13                                   9901496
+## 14                                    159973
+## 15                                   1394905
+## 16                                   1595441
+## 17                                  12884119
+## 18                                   6537640
+## 19                                   3076097
+## 20                                   2885361
+## 21                                   4386381
+## 22                                   4600814
+## 23                                   1327691
+## 24                                   5887072
+## 25                                   6663158
+## 26                                   9896930
+## 27                                   5376550
+## 28                                   2983767
+## 29                                   6024081
+## 30                                   1003754
+## 31                                   1853323
+## 32                                   2744566
+## 33                                   1323962
+## 34                                   8845483
+## 35                                   2087549
+## 36                                  19574549
+## 37                                   9749123
+## 38                                    701116
+## 39                                  11548369
+## 40                                   3818600
+## 41                                   3899118
+## 42                                  12766827
+## 43                                   1054601
+## 44                                   4717112
+## 45                                    833496
+## 46                                   6451281
+## 47                                  26089620
+## 48                                   2853467
+## 49                                    626063
+## 50                                   8185229
+## 51                                   6892876
+## 52                                   1856764
+## 53                                   5719855
+## 54                                    576270
+## 55                                    108191
+## 56                                   3634488
+##                                  respop72013
+## 1  Population Estimate (as of July 1) - 2013
+## 2                                  316057727
+## 3                                    4830460
+## 4                                     737045
+## 5                                    6634999
+## 6                                    2959549
+## 7                                   38280824
+## 8                                    5270482
+## 9                                    3594915
+## 10                                    923638
+## 11                                    650431
+## 12                                  19563166
+## 13                                   9973326
+## 14                                    160375
+## 15                                   1408453
+## 16                                   1611530
+## 17                                  12898269
+## 18                                   6568367
+## 19                                   3093078
+## 20                                   2893510
+## 21                                   4404817
+## 22                                   4624577
+## 23                                   1328196
+## 24                                   5923704
+## 25                                   6713944
+## 26                                   9913349
+## 27                                   5413693
+## 28                                   2988797
+## 29                                   6040658
+## 30                                   1013564
+## 31                                   1865414
+## 32                                   2776972
+## 33                                   1326408
+## 34                                   8858362
+## 35                                   2092792
+## 36                                  19628043
+## 37                                   9843599
+## 38                                    721999
+## 39                                  11576576
+## 40                                   3853205
+## 41                                   3922908
+## 42                                  12776621
+## 43                                   1055122
+## 44                                   4764153
+## 45                                    842270
+## 46                                   6493432
+## 47                                  26489464
+## 48                                   2897927
+## 49                                    626212
+## 50                                   8253053
+## 51                                   6962906
+## 52                                   1853873
+## 53                                   5736952
+## 54                                    582123
+## 55                                    108044
+## 56                                   3593077
+##                                  respop72014
+## 1  Population Estimate (as of July 1) - 2014
+## 2                                  318386421
+## 3                                    4842481
+## 4                                     736307
+## 5                                    6733840
+## 6                                    2967726
+## 7                                   38625139
+## 8                                    5351218
+## 9                                    3594783
+## 10                                    932596
+## 11                                    662513
+## 12                                  19860330
+## 13                                  10069001
+## 14                                    160967
+## 15                                   1414862
+## 16                                   1631479
+## 17                                  12888962
+## 18                                   6593533
+## 19                                   3109504
+## 20                                   2900896
+## 21                                   4414483
+## 22                                   4644204
+## 23                                   1330760
+## 24                                   5958165
+## 25                                   6763652
+## 26                                   9930589
+## 27                                   5451522
+## 28                                   2990623
+## 29                                   6056293
+## 30                                   1021891
+## 31                                   1879522
+## 32                                   2819012
+## 33                                   1333223
+## 34                                   8866780
+## 35                                   2090342
+## 36                                  19656330
+## 37                                   9933944
+## 38                                    737382
+## 39                                  11602973
+## 40                                   3878367
+## 41                                   3964106
+## 42                                  12789101
+## 43                                   1056017
+## 44                                   4823793
+## 45                                    849088
+## 46                                   6540826
+## 47                                  26977142
+## 48                                   2937399
+## 49                                    625218
+## 50                                   8312076
+## 51                                   7052439
+## 52                                   1849467
+## 53                                   5751974
+## 54                                    582548
+## 55                                    107884
+## 56                                   3534874
+##                                  respop72015
+## 1  Population Estimate (as of July 1) - 2015
+## 2                                  320742673
+## 3                                    4853160
+## 4                                     737547
+## 5                                    6833596
+## 6                                    2978407
+## 7                                   38953142
+## 8                                    5452107
+## 9                                    3587509
+## 10                                    941413
+## 11                                    675254
+## 12                                  20224249
+## 13                                  10181111
+## 14                                    161797
+## 15                                   1422484
+## 16                                   1651523
+## 17                                  12864342
+## 18                                   6608296
+## 19                                   3121460
+## 20                                   2909502
+## 21                                   4425999
+## 22                                   4664851
+## 23                                   1328484
+## 24                                   5986717
+## 25                                   6795891
+## 26                                   9932573
+## 27                                   5482503
+## 28                                   2988693
+## 29                                   6071745
+## 30                                   1030503
+## 31                                   1891507
+## 32                                   2868666
+## 33                                   1336294
+## 34                                   8870869
+## 35                                   2090211
+## 36                                  19661411
+## 37                                  10033079
+## 38                                    754022
+## 39                                  11617850
+## 40                                   3909831
+## 41                                   4016918
+## 42                                  12785759
+## 43                                   1056173
+## 44                                   4892253
+## 45                                    853933
+## 46                                   6590808
+## 47                                  27486814
+## 48                                   2982497
+## 49                                    625197
+## 50                                   8362907
+## 51                                   7163543
+## 52                                   1841996
+## 53                                   5761406
+## 54                                    585668
+## 55                                    107710
+## 56                                   3473166
+##                                  respop72016
+## 1  Population Estimate (as of July 1) - 2016
+## 2                                  323071342
+## 3                                    4864745
+## 4                                     741504
+## 5                                    6945452
+## 6                                    2990410
+## 7                                   39209127
+## 8                                    5540921
+## 9                                    3578674
+## 10                                    949216
+## 11                                    686575
+## 12                                  20629982
+## 13                                  10304763
+## 14                                    162896
+## 15                                   1428105
+## 16                                   1682930
+## 17                                  12826895
+## 18                                   6633344
+## 19                                   3131785
+## 20                                   2911263
+## 21                                   4438229
+## 22                                   4678215
+## 23                                   1331370
+## 24                                   6004692
+## 25                                   6826022
+## 26                                   9951890
+## 27                                   5523409
+## 28                                   2988298
+## 29                                   6087203
+## 30                                   1040863
+## 31                                   1905924
+## 32                                   2919772
+## 33                                   1342373
+## 34                                   8874516
+## 35                                   2092789
+## 36                                  19641589
+## 37                                  10156679
+## 38                                    754353
+## 39                                  11635003
+## 40                                   3926769
+## 41                                   4091404
+## 42                                  12783538
+## 43                                   1057063
+## 44                                   4958235
+## 45                                    862890
+## 46                                   6645011
+## 47                                  27937492
+## 48                                   3042613
+## 49                                    623644
+## 50                                   8410946
+## 51                                   7294680
+## 52                                   1830929
+## 53                                   5772958
+## 54                                    584290
+## 55                                    107510
+## 56                                   3406495
+##                                  respop72017
+## 1  Population Estimate (as of July 1) - 2017
+## 2                                  325147121
+## 3                                    4875120
+## 4                                     739786
+## 5                                    7048876
+## 6                                    3002997
+## 7                                   39399349
+## 8                                    5615902
+## 9                                    3573880
+## 10                                    957078
+## 11                                    695691
+## 12                                  20976812
+## 13                                  10413055
+## 14                                    164229
+## 15                                   1424203
+## 16                                   1718904
+## 17                                  12786196
+## 18                                   6660082
+## 19                                   3143637
+## 20                                   2910689
+## 21                                   4453874
+## 22                                   4670818
+## 23                                   1335063
+## 24                                   6024891
+## 25                                   6863246
+## 26                                   9976447
+## 27                                   5568155
+## 28                                   2989663
+## 29                                   6108612
+## 30                                   1053090
+## 31                                   1917575
+## 32                                   2972405
+## 33                                   1349767
+## 34                                   8888543
+## 35                                   2093395
+## 36                                  19590719
+## 37                                  10270800
+## 38                                    755176
+## 39                                  11664129
+## 40                                   3932640
+## 41                                   4146592
+## 42                                  12790447
+## 43                                   1056486
+## 44                                   5021219
+## 45                                    873286
+## 46                                   6708794
+## 47                                  28322717
+## 48                                   3103118
+## 49                                    624525
+## 50                                   8465207
+## 51                                   7425432
+## 52                                   1817048
+## 53                                   5792051
+## 54                                    578934
+## 55                                    107268
+## 56                                   3325001
+##                                  respop72018
+## 1  Population Estimate (as of July 1) - 2018
+## 2                                  327167434
+## 3                                    4887871
+## 4                                     737438
+## 5                                    7171646
+## 6                                    3013825
+## 7                                   39557045
+## 8                                    5695564
+## 9                                    3572665
+## 10                                    967171
+## 11                                    702455
+## 12                                  21299325
+## 13                                  10519475
+## 14                                    165718
+## 15                                   1420491
+## 16                                   1754208
+## 17                                  12741080
+## 18                                   6691878
+## 19                                   3156145
+## 20                                   2911505
+## 21                                   4468402
+## 22                                   4659978
+## 23                                   1338404
+## 24                                   6042718
+## 25                                   6902149
+## 26                                   9995915
+## 27                                   5611179
+## 28                                   2986530
+## 29                                   6126452
+## 30                                   1062305
+## 31                                   1929268
+## 32                                   3034392
+## 33                                   1356458
+## 34                                   8908520
+## 35                                   2095428
+## 36                                  19542209
+## 37                                  10383620
+## 38                                    760077
+## 39                                  11689442
+## 40                                   3943079
+## 41                                   4190713
+## 42                                  12807060
+## 43                                   1057315
+## 44                                   5084127
+## 45                                    882235
+## 46                                   6770010
+## 47                                  28701845
+## 48                                   3161105
+## 49                                    626299
+## 50                                   8517685
+## 51                                   7535591
+## 52                                   1805832
+## 53                                   5813568
+## 54                                    577737
+## 55                                    107282
+## 56                                   3195153</code></pre>
+<p>This code renames the columns and deletes the first row.</p>
+<pre class="r"><code>colnames(population_df) &lt;- c(&quot;state&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;)
+population_df &lt;- population_df[-c(1, 2),]</code></pre>
+<p>Currently with the new file, all the years are columns. To match the dataframe to be analyised, the columns need to be turned to rows. This code creates a new dataframe where the columns for years are gathered into rows.</p>
+<pre class="r"><code>population_gather &lt;- gather(population_df, year, population, -state)</code></pre>
+<pre><code>## Warning: attributes are not identical across measure variables;
+## they will be dropped</code></pre>
+<pre class="r"><code>population_gather_df &lt;- data.frame(population_gather)</code></pre>
+<p>Since I may want to use both of these dataframes in the future I am writing them to a csv file.</p>
+<pre class="r"><code>write.csv(population_df, file = &quot;population_by_state_by_year_wide.csv&quot;)
+write.csv(population_gather_df, file = &quot;population_by_sate_by_year_long.csv&quot;)
+ht_offenses_4_years_clean_df</code></pre>
+<pre><code>##     year_data year              region  region_description
+## 1           0 2014              Alaska              Alaska
+## 2           0 2014             Arizona             Arizona
+## 3           0 2014          California          California
+## 4           0 2014            Colorado            Colorado
+## 5           0 2014            Delaware            Delaware
+## 6           0 2014             Florida             Florida
+## 7           0 2014                Guam                Guam
+## 8           0 2014              Hawaii              Hawaii
+## 9           0 2014               Idaho               Idaho
+## 10          0 2014            Illinois            Illinois
+## 11          0 2014             Indiana             Indiana
+## 12          0 2014              Kansas              Kansas
+## 13          0 2014       Massachusetts       Massachusetts
+## 14          0 2014            Michigan            Michigan
+## 15          0 2014           Minnesota           Minnesota
+## 16          0 2014            Missouri            Missouri
+## 17          0 2014         Mississippi         Mississippi
+## 18          0 2014             Montana             Montana
+## 19          0 2014              Nevada              Nevada
+## 20          0 2014                Ohio                Ohio
+## 21          0 2014            Oklahoma            Oklahoma
+## 22          0 2014              Oregon              Oregon
+## 23          0 2014        South Dakota        South Dakota
+## 24          0 2014           Tennessee           Tennessee
+## 25          0 2014               Texas               Texas
+## 26          0 2014                Utah                Utah
+## 27          0 2014 U.S. Virgin Islands U.S. Virgin Islands
+## 28          0 2014          Washington          Washington
+## 29          0 2014             Wyoming             Wyoming
+## 30          1 2015              Alaska              Alaska
+## 31          1 2015             Arizona             Arizona
+## 32          1 2015            Arkansas            Arkansas
+## 33          1 2015            Colorado            Colorado
+## 34          1 2015         Connecticut         Connecticut
+## 35          1 2015            Delaware            Delaware
+## 36          1 2015             Florida             Florida
+## 37          1 2015              Hawaii              Hawaii
+## 38          1 2015            Illinois            Illinois
+## 39          1 2015             Indiana             Indiana
+## 40          1 2015              Kansas              Kansas
+## 41          1 2015           Louisiana           Louisiana
+## 42          1 2015            Maryland            Maryland
+## 43          1 2015       Massachusetts       Massachusetts
+## 44          1 2015            Michigan            Michigan
+## 45          1 2015           Minnesota           Minnesota
+## 46          1 2015         Mississippi         Mississippi
+## 47          1 2015            Missouri            Missouri
+## 48          1 2015             Montana             Montana
+## 49          1 2015              Nevada              Nevada
+## 50          1 2015        North Dakota        North Dakota
+## 51          1 2015                Ohio                Ohio
+## 52          1 2015            Oklahoma            Oklahoma
+## 53          1 2015              Oregon              Oregon
+## 54          1 2015         Puerto Rico         Puerto Rico
+## 55          1 2015        Rhode Island        Rhode Island
+## 56          1 2015      South Carolina      South Carolina
+## 57          1 2015        South Dakota        South Dakota
+## 58          1 2015           Tennessee           Tennessee
+## 59          1 2015               Texas               Texas
+## 60          1 2015 U.S. Virgin Islands U.S. Virgin Islands
+## 61          1 2015                Utah                Utah
+## 62          1 2015             Vermont             Vermont
+## 63          1 2015          Washington          Washington
+## 64          1 2015           Wisconsin           Wisconsin
+## 65          1 2015             Wyoming             Wyoming
+## 66          2 2016              Alaska              Alaska
+## 67          2 2016             Arizona             Arizona
+## 68          2 2016            Arkansas            Arkansas
+## 69          2 2016            Colorado            Colorado
+## 70          2 2016         Connecticut         Connecticut
+## 71          2 2016            Delaware            Delaware
+## 72          2 2016             Florida             Florida
+## 73          2 2016              Hawaii              Hawaii
+## 74          2 2016            Illinois            Illinois
+## 75          2 2016             Indiana             Indiana
+## 76          2 2016              Kansas              Kansas
+## 77          2 2016           Louisiana           Louisiana
+## 78          2 2016            Maryland            Maryland
+## 79          2 2016       Massachusetts       Massachusetts
+## 80          2 2016            Michigan            Michigan
+## 81          2 2016           Minnesota           Minnesota
+## 82          2 2016         Mississippi         Mississippi
+## 83          2 2016            Missouri            Missouri
+## 84          2 2016             Montana             Montana
+## 85          2 2016              Nevada              Nevada
+## 86          2 2016        North Dakota        North Dakota
+## 87          2 2016                Ohio                Ohio
+## 88          2 2016            Oklahoma            Oklahoma
+## 89          2 2016              Oregon              Oregon
+## 90          2 2016         Puerto Rico         Puerto Rico
+## 91          2 2016        Rhode Island        Rhode Island
+## 92          2 2016      South Carolina      South Carolina
+## 93          2 2016        South Dakota        South Dakota
+## 94          2 2016           Tennessee           Tennessee
+## 95          2 2016               Texas               Texas
+## 96          2 2016 U.S. Virgin Islands U.S. Virgin Islands
+## 97          2 2016                Utah                Utah
+## 98          2 2016             Vermont             Vermont
+## 99          2 2016          Washington          Washington
+## 100         2 2016           Wisconsin           Wisconsin
+## 101         2 2016             Wyoming             Wyoming
+## 102         3 2017             Alabama             Alabama
+## 103         3 2017              Alaska              Alaska
+## 104         3 2017             Arizona             Arizona
+## 105         3 2017            Arkansas            Arkansas
+## 106         3 2017          California          California
+## 107         3 2017            Colorado            Colorado
+## 108         3 2017         Connecticut         Connecticut
+## 109         3 2017            Delaware            Delaware
+## 110         3 2017             Florida             Florida
+## 111         3 2017             Georgia             Georgia
+## 112         3 2017                Guam                Guam
+## 113         3 2017              Hawaii              Hawaii
+## 114         3 2017               Idaho               Idaho
+## 115         3 2017            Illinois            Illinois
+## 116         3 2017             Indiana             Indiana
+## 117         3 2017              Kansas              Kansas
+## 118         3 2017            Kentucky            Kentucky
+## 119         3 2017           Louisiana           Louisiana
+## 120         3 2017               Maine               Maine
+## 121         3 2017            Maryland            Maryland
+## 122         3 2017       Massachusetts       Massachusetts
+## 123         3 2017            Michigan            Michigan
+## 124         3 2017           Minnesota           Minnesota
+## 125         3 2017         Mississippi         Mississippi
+## 126         3 2017            Missouri            Missouri
+## 127         3 2017             Montana             Montana
+## 128         3 2017            Nebraska            Nebraska
+## 129         3 2017              Nevada              Nevada
+## 130         3 2017       New Hampshire       New Hampshire
+## 131         3 2017          New Mexico          New Mexico
+## 132         3 2017            New York            New York
+## 133         3 2017      North Carolina      North Carolina
+## 134         3 2017        North Dakota        North Dakota
+## 135         3 2017                Ohio                Ohio
+## 136         3 2017            Oklahoma            Oklahoma
+## 137         3 2017              Oregon              Oregon
+## 138         3 2017         Puerto Rico         Puerto Rico
+## 139         3 2017        Rhode Island        Rhode Island
+## 140         3 2017      South Carolina      South Carolina
+## 141         3 2017        South Dakota        South Dakota
+## 142         3 2017           Tennessee           Tennessee
+## 143         3 2017               Texas               Texas
+## 144         3 2017                Utah                Utah
+## 145         3 2017             Vermont             Vermont
+## 146         3 2017          Washington          Washington
+## 147         3 2017           Wisconsin           Wisconsin
+## 148         3 2017             Wyoming             Wyoming
+## 149         0 2014              Alaska              Alaska
+## 150         0 2014             Arizona             Arizona
+## 151         0 2014          California          California
+## 152         0 2014            Colorado            Colorado
+## 153         0 2014            Delaware            Delaware
+## 154         0 2014             Florida             Florida
+## 155         0 2014                Guam                Guam
+## 156         0 2014              Hawaii              Hawaii
+## 157         0 2014               Idaho               Idaho
+## 158         0 2014            Illinois            Illinois
+## 159         0 2014             Indiana             Indiana
+## 160         0 2014              Kansas              Kansas
+## 161         0 2014       Massachusetts       Massachusetts
+## 162         0 2014            Michigan            Michigan
+## 163         0 2014           Minnesota           Minnesota
+## 164         0 2014            Missouri            Missouri
+## 165         0 2014         Mississippi         Mississippi
+## 166         0 2014             Montana             Montana
+## 167         0 2014              Nevada              Nevada
+## 168         0 2014                Ohio                Ohio
+## 169         0 2014            Oklahoma            Oklahoma
+## 170         0 2014              Oregon              Oregon
+## 171         0 2014        South Dakota        South Dakota
+## 172         0 2014           Tennessee           Tennessee
+## 173         0 2014               Texas               Texas
+## 174         0 2014                Utah                Utah
+## 175         0 2014 U.S. Virgin Islands U.S. Virgin Islands
+## 176         0 2014          Washington          Washington
+## 177         0 2014             Wyoming             Wyoming
+## 178         1 2015              Alaska              Alaska
+## 179         1 2015             Arizona             Arizona
+## 180         1 2015            Arkansas            Arkansas
+## 181         1 2015            Colorado            Colorado
+## 182         1 2015         Connecticut         Connecticut
+## 183         1 2015            Delaware            Delaware
+## 184         1 2015             Florida             Florida
+## 185         1 2015              Hawaii              Hawaii
+## 186         1 2015            Illinois            Illinois
+## 187         1 2015             Indiana             Indiana
+## 188         1 2015              Kansas              Kansas
+## 189         1 2015           Louisiana           Louisiana
+## 190         1 2015            Maryland            Maryland
+## 191         1 2015       Massachusetts       Massachusetts
+## 192         1 2015            Michigan            Michigan
+## 193         1 2015           Minnesota           Minnesota
+## 194         1 2015         Mississippi         Mississippi
+## 195         1 2015            Missouri            Missouri
+## 196         1 2015             Montana             Montana
+## 197         1 2015              Nevada              Nevada
+## 198         1 2015        North Dakota        North Dakota
+## 199         1 2015                Ohio                Ohio
+## 200         1 2015            Oklahoma            Oklahoma
+## 201         1 2015              Oregon              Oregon
+## 202         1 2015         Puerto Rico         Puerto Rico
+## 203         1 2015        Rhode Island        Rhode Island
+## 204         1 2015      South Carolina      South Carolina
+## 205         1 2015        South Dakota        South Dakota
+## 206         1 2015           Tennessee           Tennessee
+## 207         1 2015               Texas               Texas
+## 208         1 2015 U.S. Virgin Islands U.S. Virgin Islands
+## 209         1 2015                Utah                Utah
+## 210         1 2015             Vermont             Vermont
+## 211         1 2015          Washington          Washington
+## 212         1 2015           Wisconsin           Wisconsin
+## 213         1 2015             Wyoming             Wyoming
+## 214         2 2016              Alaska              Alaska
+## 215         2 2016             Arizona             Arizona
+## 216         2 2016            Arkansas            Arkansas
+## 217         2 2016            Colorado            Colorado
+## 218         2 2016         Connecticut         Connecticut
+## 219         2 2016            Delaware            Delaware
+## 220         2 2016             Florida             Florida
+## 221         2 2016              Hawaii              Hawaii
+## 222         2 2016            Illinois            Illinois
+## 223         2 2016             Indiana             Indiana
+## 224         2 2016              Kansas              Kansas
+## 225         2 2016           Louisiana           Louisiana
+## 226         2 2016            Maryland            Maryland
+## 227         2 2016       Massachusetts       Massachusetts
+## 228         2 2016            Michigan            Michigan
+## 229         2 2016           Minnesota           Minnesota
+## 230         2 2016         Mississippi         Mississippi
+## 231         2 2016            Missouri            Missouri
+## 232         2 2016             Montana             Montana
+## 233         2 2016              Nevada              Nevada
+## 234         2 2016        North Dakota        North Dakota
+## 235         2 2016                Ohio                Ohio
+## 236         2 2016            Oklahoma            Oklahoma
+## 237         2 2016              Oregon              Oregon
+## 238         2 2016         Puerto Rico         Puerto Rico
+## 239         2 2016        Rhode Island        Rhode Island
+## 240         2 2016      South Carolina      South Carolina
+## 241         2 2016        South Dakota        South Dakota
+## 242         2 2016           Tennessee           Tennessee
+## 243         2 2016               Texas               Texas
+## 244         2 2016 U.S. Virgin Islands U.S. Virgin Islands
+## 245         2 2016                Utah                Utah
+## 246         2 2016             Vermont             Vermont
+## 247         2 2016          Washington          Washington
+## 248         2 2016           Wisconsin           Wisconsin
+## 249         2 2016             Wyoming             Wyoming
+## 250         3 2017             Alabama             Alabama
+## 251         3 2017              Alaska              Alaska
+## 252         3 2017             Arizona             Arizona
+## 253         3 2017            Arkansas            Arkansas
+## 254         3 2017          California          California
+## 255         3 2017            Colorado            Colorado
+## 256         3 2017         Connecticut         Connecticut
+## 257         3 2017            Delaware            Delaware
+## 258         3 2017             Florida             Florida
+## 259         3 2017             Georgia             Georgia
+## 260         3 2017                Guam                Guam
+## 261         3 2017              Hawaii              Hawaii
+## 262         3 2017               Idaho               Idaho
+## 263         3 2017            Illinois            Illinois
+## 264         3 2017             Indiana             Indiana
+## 265         3 2017              Kansas              Kansas
+## 266         3 2017            Kentucky            Kentucky
+## 267         3 2017           Louisiana           Louisiana
+## 268         3 2017               Maine               Maine
+## 269         3 2017            Maryland            Maryland
+## 270         3 2017       Massachusetts       Massachusetts
+## 271         3 2017            Michigan            Michigan
+## 272         3 2017           Minnesota           Minnesota
+## 273         3 2017         Mississippi         Mississippi
+## 274         3 2017            Missouri            Missouri
+## 275         3 2017             Montana             Montana
+## 276         3 2017            Nebraska            Nebraska
+## 277         3 2017              Nevada              Nevada
+## 278         3 2017       New Hampshire       New Hampshire
+## 279         3 2017          New Mexico          New Mexico
+## 280         3 2017            New York            New York
+## 281         3 2017      North Carolina      North Carolina
+## 282         3 2017        North Dakota        North Dakota
+## 283         3 2017                Ohio                Ohio
+## 284         3 2017            Oklahoma            Oklahoma
+## 285         3 2017              Oregon              Oregon
+## 286         3 2017         Puerto Rico         Puerto Rico
+## 287         3 2017        Rhode Island        Rhode Island
+## 288         3 2017      South Carolina      South Carolina
+## 289         3 2017        South Dakota        South Dakota
+## 290         3 2017           Tennessee           Tennessee
+## 291         3 2017               Texas               Texas
+## 292         3 2017                Utah                Utah
+## 293         3 2017             Vermont             Vermont
+## 294         3 2017          Washington          Washington
+## 295         3 2017           Wisconsin           Wisconsin
+## 296         3 2017             Wyoming             Wyoming
+## 297         0 2014              Alaska              Alaska
+## 298         0 2014             Arizona             Arizona
+## 299         0 2014          California          California
+## 300         0 2014            Colorado            Colorado
+## 301         0 2014            Delaware            Delaware
+## 302         0 2014             Florida             Florida
+## 303         0 2014                Guam                Guam
+## 304         0 2014              Hawaii              Hawaii
+## 305         0 2014               Idaho               Idaho
+## 306         0 2014            Illinois            Illinois
+## 307         0 2014             Indiana             Indiana
+## 308         0 2014              Kansas              Kansas
+## 309         0 2014       Massachusetts       Massachusetts
+## 310         0 2014            Michigan            Michigan
+## 311         0 2014           Minnesota           Minnesota
+## 312         0 2014            Missouri            Missouri
+## 313         0 2014         Mississippi         Mississippi
+## 314         0 2014             Montana             Montana
+## 315         0 2014              Nevada              Nevada
+## 316         0 2014                Ohio                Ohio
+## 317         0 2014            Oklahoma            Oklahoma
+## 318         0 2014              Oregon              Oregon
+## 319         0 2014        South Dakota        South Dakota
+## 320         0 2014           Tennessee           Tennessee
+## 321         0 2014               Texas               Texas
+## 322         0 2014                Utah                Utah
+## 323         0 2014 U.S. Virgin Islands U.S. Virgin Islands
+## 324         0 2014          Washington          Washington
+## 325         0 2014             Wyoming             Wyoming
+## 326         1 2015              Alaska              Alaska
+## 327         1 2015             Arizona             Arizona
+## 328         1 2015            Arkansas            Arkansas
+## 329         1 2015            Colorado            Colorado
+## 330         1 2015         Connecticut         Connecticut
+## 331         1 2015            Delaware            Delaware
+## 332         1 2015             Florida             Florida
+## 333         1 2015              Hawaii              Hawaii
+## 334         1 2015            Illinois            Illinois
+## 335         1 2015             Indiana             Indiana
+## 336         1 2015              Kansas              Kansas
+## 337         1 2015           Louisiana           Louisiana
+## 338         1 2015            Maryland            Maryland
+## 339         1 2015       Massachusetts       Massachusetts
+## 340         1 2015            Michigan            Michigan
+## 341         1 2015           Minnesota           Minnesota
+## 342         1 2015         Mississippi         Mississippi
+## 343         1 2015            Missouri            Missouri
+## 344         1 2015             Montana             Montana
+## 345         1 2015              Nevada              Nevada
+## 346         1 2015        North Dakota        North Dakota
+## 347         1 2015                Ohio                Ohio
+## 348         1 2015            Oklahoma            Oklahoma
+## 349         1 2015              Oregon              Oregon
+## 350         1 2015         Puerto Rico         Puerto Rico
+## 351         1 2015        Rhode Island        Rhode Island
+## 352         1 2015      South Carolina      South Carolina
+## 353         1 2015        South Dakota        South Dakota
+## 354         1 2015           Tennessee           Tennessee
+## 355         1 2015               Texas               Texas
+## 356         1 2015 U.S. Virgin Islands U.S. Virgin Islands
+## 357         1 2015                Utah                Utah
+## 358         1 2015             Vermont             Vermont
+## 359         1 2015          Washington          Washington
+## 360         1 2015           Wisconsin           Wisconsin
+## 361         1 2015             Wyoming             Wyoming
+## 362         2 2016              Alaska              Alaska
+## 363         2 2016             Arizona             Arizona
+## 364         2 2016            Arkansas            Arkansas
+## 365         2 2016            Colorado            Colorado
+## 366         2 2016         Connecticut         Connecticut
+## 367         2 2016            Delaware            Delaware
+## 368         2 2016             Florida             Florida
+## 369         2 2016              Hawaii              Hawaii
+## 370         2 2016            Illinois            Illinois
+## 371         2 2016             Indiana             Indiana
+## 372         2 2016              Kansas              Kansas
+## 373         2 2016           Louisiana           Louisiana
+## 374         2 2016            Maryland            Maryland
+## 375         2 2016       Massachusetts       Massachusetts
+## 376         2 2016            Michigan            Michigan
+## 377         2 2016           Minnesota           Minnesota
+## 378         2 2016         Mississippi         Mississippi
+## 379         2 2016            Missouri            Missouri
+## 380         2 2016             Montana             Montana
+## 381         2 2016              Nevada              Nevada
+## 382         2 2016        North Dakota        North Dakota
+## 383         2 2016                Ohio                Ohio
+## 384         2 2016            Oklahoma            Oklahoma
+## 385         2 2016              Oregon              Oregon
+## 386         2 2016         Puerto Rico         Puerto Rico
+## 387         2 2016        Rhode Island        Rhode Island
+## 388         2 2016      South Carolina      South Carolina
+## 389         2 2016        South Dakota        South Dakota
+## 390         2 2016           Tennessee           Tennessee
+## 391         2 2016               Texas               Texas
+## 392         2 2016 U.S. Virgin Islands U.S. Virgin Islands
+## 393         2 2016                Utah                Utah
+## 394         2 2016             Vermont             Vermont
+## 395         2 2016          Washington          Washington
+## 396         2 2016           Wisconsin           Wisconsin
+## 397         2 2016             Wyoming             Wyoming
+## 398         3 2017             Alabama             Alabama
+## 399         3 2017              Alaska              Alaska
+## 400         3 2017             Arizona             Arizona
+## 401         3 2017            Arkansas            Arkansas
+## 402         3 2017          California          California
+## 403         3 2017            Colorado            Colorado
+## 404         3 2017         Connecticut         Connecticut
+## 405         3 2017            Delaware            Delaware
+## 406         3 2017             Florida             Florida
+## 407         3 2017             Georgia             Georgia
+## 408         3 2017                Guam                Guam
+## 409         3 2017              Hawaii              Hawaii
+## 410         3 2017               Idaho               Idaho
+## 411         3 2017            Illinois            Illinois
+## 412         3 2017             Indiana             Indiana
+## 413         3 2017              Kansas              Kansas
+## 414         3 2017            Kentucky            Kentucky
+## 415         3 2017           Louisiana           Louisiana
+## 416         3 2017               Maine               Maine
+## 417         3 2017            Maryland            Maryland
+## 418         3 2017       Massachusetts       Massachusetts
+## 419         3 2017            Michigan            Michigan
+## 420         3 2017           Minnesota           Minnesota
+## 421         3 2017         Mississippi         Mississippi
+## 422         3 2017            Missouri            Missouri
+## 423         3 2017             Montana             Montana
+## 424         3 2017            Nebraska            Nebraska
+## 425         3 2017              Nevada              Nevada
+## 426         3 2017       New Hampshire       New Hampshire
+## 427         3 2017          New Mexico          New Mexico
+## 428         3 2017            New York            New York
+## 429         3 2017      North Carolina      North Carolina
+## 430         3 2017        North Dakota        North Dakota
+## 431         3 2017                Ohio                Ohio
+## 432         3 2017            Oklahoma            Oklahoma
+## 433         3 2017              Oregon              Oregon
+## 434         3 2017         Puerto Rico         Puerto Rico
+## 435         3 2017        Rhode Island        Rhode Island
+## 436         3 2017      South Carolina      South Carolina
+## 437         3 2017        South Dakota        South Dakota
+## 438         3 2017           Tennessee           Tennessee
+## 439         3 2017               Texas               Texas
+## 440         3 2017                Utah                Utah
+## 441         3 2017             Vermont             Vermont
+## 442         3 2017          Washington          Washington
+## 443         3 2017           Wisconsin           Wisconsin
+## 444         3 2017             Wyoming             Wyoming
+## 445         0 2014              Alaska              Alaska
+## 446         0 2014             Arizona             Arizona
+## 447         0 2014          California          California
+## 448         0 2014            Colorado            Colorado
+## 449         0 2014            Delaware            Delaware
+## 450         0 2014             Florida             Florida
+## 451         0 2014                Guam                Guam
+## 452         0 2014              Hawaii              Hawaii
+## 453         0 2014               Idaho               Idaho
+## 454         0 2014            Illinois            Illinois
+## 455         0 2014             Indiana             Indiana
+## 456         0 2014              Kansas              Kansas
+## 457         0 2014       Massachusetts       Massachusetts
+## 458         0 2014            Michigan            Michigan
+## 459         0 2014           Minnesota           Minnesota
+## 460         0 2014            Missouri            Missouri
+## 461         0 2014         Mississippi         Mississippi
+## 462         0 2014             Montana             Montana
+## 463         0 2014              Nevada              Nevada
+## 464         0 2014                Ohio                Ohio
+## 465         0 2014            Oklahoma            Oklahoma
+## 466         0 2014              Oregon              Oregon
+## 467         0 2014        South Dakota        South Dakota
+## 468         0 2014           Tennessee           Tennessee
+## 469         0 2014               Texas               Texas
+## 470         0 2014                Utah                Utah
+## 471         0 2014 U.S. Virgin Islands U.S. Virgin Islands
+## 472         0 2014          Washington          Washington
+## 473         0 2014             Wyoming             Wyoming
+## 474         1 2015              Alaska              Alaska
+## 475         1 2015             Arizona             Arizona
+## 476         1 2015            Arkansas            Arkansas
+## 477         1 2015            Colorado            Colorado
+## 478         1 2015         Connecticut         Connecticut
+## 479         1 2015            Delaware            Delaware
+## 480         1 2015             Florida             Florida
+## 481         1 2015              Hawaii              Hawaii
+## 482         1 2015            Illinois            Illinois
+## 483         1 2015             Indiana             Indiana
+## 484         1 2015              Kansas              Kansas
+## 485         1 2015           Louisiana           Louisiana
+## 486         1 2015            Maryland            Maryland
+## 487         1 2015       Massachusetts       Massachusetts
+## 488         1 2015            Michigan            Michigan
+## 489         1 2015           Minnesota           Minnesota
+## 490         1 2015         Mississippi         Mississippi
+## 491         1 2015            Missouri            Missouri
+## 492         1 2015             Montana             Montana
+## 493         1 2015              Nevada              Nevada
+## 494         1 2015        North Dakota        North Dakota
+## 495         1 2015                Ohio                Ohio
+## 496         1 2015            Oklahoma            Oklahoma
+## 497         1 2015              Oregon              Oregon
+## 498         1 2015         Puerto Rico         Puerto Rico
+## 499         1 2015        Rhode Island        Rhode Island
+## 500         1 2015      South Carolina      South Carolina
+## 501         1 2015        South Dakota        South Dakota
+## 502         1 2015           Tennessee           Tennessee
+## 503         1 2015               Texas               Texas
+## 504         1 2015 U.S. Virgin Islands U.S. Virgin Islands
+## 505         1 2015                Utah                Utah
+## 506         1 2015             Vermont             Vermont
+## 507         1 2015          Washington          Washington
+## 508         1 2015           Wisconsin           Wisconsin
+## 509         1 2015             Wyoming             Wyoming
+## 510         2 2016              Alaska              Alaska
+## 511         2 2016             Arizona             Arizona
+## 512         2 2016            Arkansas            Arkansas
+## 513         2 2016            Colorado            Colorado
+## 514         2 2016         Connecticut         Connecticut
+## 515         2 2016            Delaware            Delaware
+## 516         2 2016             Florida             Florida
+## 517         2 2016              Hawaii              Hawaii
+## 518         2 2016            Illinois            Illinois
+## 519         2 2016             Indiana             Indiana
+## 520         2 2016              Kansas              Kansas
+## 521         2 2016           Louisiana           Louisiana
+## 522         2 2016            Maryland            Maryland
+## 523         2 2016       Massachusetts       Massachusetts
+## 524         2 2016            Michigan            Michigan
+## 525         2 2016           Minnesota           Minnesota
+## 526         2 2016         Mississippi         Mississippi
+## 527         2 2016            Missouri            Missouri
+## 528         2 2016             Montana             Montana
+## 529         2 2016              Nevada              Nevada
+## 530         2 2016        North Dakota        North Dakota
+## 531         2 2016                Ohio                Ohio
+## 532         2 2016            Oklahoma            Oklahoma
+## 533         2 2016              Oregon              Oregon
+## 534         2 2016         Puerto Rico         Puerto Rico
+## 535         2 2016        Rhode Island        Rhode Island
+## 536         2 2016      South Carolina      South Carolina
+## 537         2 2016        South Dakota        South Dakota
+## 538         2 2016           Tennessee           Tennessee
+## 539         2 2016               Texas               Texas
+## 540         2 2016 U.S. Virgin Islands U.S. Virgin Islands
+## 541         2 2016                Utah                Utah
+## 542         2 2016             Vermont             Vermont
+## 543         2 2016          Washington          Washington
+## 544         2 2016           Wisconsin           Wisconsin
+## 545         2 2016             Wyoming             Wyoming
+## 546         3 2017             Alabama             Alabama
+## 547         3 2017              Alaska              Alaska
+## 548         3 2017             Arizona             Arizona
+## 549         3 2017            Arkansas            Arkansas
+## 550         3 2017          California          California
+## 551         3 2017            Colorado            Colorado
+## 552         3 2017         Connecticut         Connecticut
+## 553         3 2017            Delaware            Delaware
+## 554         3 2017             Florida             Florida
+## 555         3 2017             Georgia             Georgia
+## 556         3 2017                Guam                Guam
+## 557         3 2017              Hawaii              Hawaii
+## 558         3 2017               Idaho               Idaho
+## 559         3 2017            Illinois            Illinois
+## 560         3 2017             Indiana             Indiana
+## 561         3 2017              Kansas              Kansas
+## 562         3 2017            Kentucky            Kentucky
+## 563         3 2017           Louisiana           Louisiana
+## 564         3 2017               Maine               Maine
+## 565         3 2017            Maryland            Maryland
+## 566         3 2017       Massachusetts       Massachusetts
+## 567         3 2017            Michigan            Michigan
+## 568         3 2017           Minnesota           Minnesota
+## 569         3 2017         Mississippi         Mississippi
+## 570         3 2017            Missouri            Missouri
+## 571         3 2017             Montana             Montana
+## 572         3 2017            Nebraska            Nebraska
+## 573         3 2017              Nevada              Nevada
+## 574         3 2017       New Hampshire       New Hampshire
+## 575         3 2017          New Mexico          New Mexico
+## 576         3 2017            New York            New York
+## 577         3 2017      North Carolina      North Carolina
+## 578         3 2017        North Dakota        North Dakota
+## 579         3 2017                Ohio                Ohio
+## 580         3 2017            Oklahoma            Oklahoma
+## 581         3 2017              Oregon              Oregon
+## 582         3 2017         Puerto Rico         Puerto Rico
+## 583         3 2017        Rhode Island        Rhode Island
+## 584         3 2017      South Carolina      South Carolina
+## 585         3 2017        South Dakota        South Dakota
+## 586         3 2017           Tennessee           Tennessee
+## 587         3 2017               Texas               Texas
+## 588         3 2017                Utah                Utah
+## 589         3 2017             Vermont             Vermont
+## 590         3 2017          Washington          Washington
+## 591         3 2017           Wisconsin           Wisconsin
+## 592         3 2017             Wyoming             Wyoming
+##                   state               offense occurrence      age cleared
+## 1                Alaska    commercial sex act         11    adult       3
+## 2               Arizona    commercial sex act         15    adult       8
+## 3            California    commercial sex act          0    adult       0
+## 4              Colorado    commercial sex act         11    adult       0
+## 5              Delaware    commercial sex act          0    adult       0
+## 6               Florida    commercial sex act         57    adult      44
+## 7                  Guam    commercial sex act          0    adult       0
+## 8                Hawaii    commercial sex act          0    adult       0
+## 9                 Idaho    commercial sex act          0    adult       0
+## 10             Illinois    commercial sex act         50    adult       0
+## 11              Indiana    commercial sex act          0    adult       0
+## 12               Kansas    commercial sex act          1    adult       1
+## 13        Massachusetts    commercial sex act          6    adult       4
+## 14             Michigan    commercial sex act          2    adult       2
+## 15            Minnesota    commercial sex act         22    adult       5
+## 16             Missouri    commercial sex act          5    adult       1
+## 17          Mississippi    commercial sex act          0    adult       0
+## 18              Montana    commercial sex act          1    adult       0
+## 19               Nevada    commercial sex act          0    adult       0
+## 20                 Ohio    commercial sex act          0    adult       0
+## 21             Oklahoma    commercial sex act         10    adult       7
+## 22               Oregon    commercial sex act          0    adult       0
+## 23         South Dakota    commercial sex act          0    adult       0
+## 24            Tennessee    commercial sex act         29    adult       0
+## 25                Texas    commercial sex act         78    adult      17
+## 26                 Utah    commercial sex act          0    adult       0
+## 27  U.S. Virgin Islands    commercial sex act          0    adult       0
+## 28           Washington    commercial sex act          2    adult       0
+## 29              Wyoming    commercial sex act          0    adult       0
+## 30               Alaska    commercial sex act         11    adult       8
+## 31              Arizona    commercial sex act         19    adult       5
+## 32             Arkansas    commercial sex act          4    adult       4
+## 33             Colorado    commercial sex act         12    adult       3
+## 34          Connecticut    commercial sex act          1    adult       0
+## 35             Delaware    commercial sex act          0    adult       0
+## 36              Florida    commercial sex act         98    adult      50
+## 37               Hawaii    commercial sex act          2    adult       0
+## 38             Illinois    commercial sex act         21    adult       0
+## 39              Indiana    commercial sex act          4    adult       0
+## 40               Kansas    commercial sex act          0    adult       0
+## 41            Louisiana    commercial sex act        121    adult      90
+## 42             Maryland    commercial sex act         17    adult      15
+## 43        Massachusetts    commercial sex act          0    adult       0
+## 44             Michigan    commercial sex act          1    adult       1
+## 45            Minnesota    commercial sex act        235    adult     190
+## 46          Mississippi    commercial sex act          0    adult       0
+## 47             Missouri    commercial sex act         16    adult      12
+## 48              Montana    commercial sex act          1    adult       0
+## 49               Nevada    commercial sex act        140    adult      23
+## 50         North Dakota    commercial sex act          4    adult       0
+## 51                 Ohio    commercial sex act          1    adult       0
+## 52             Oklahoma    commercial sex act         42    adult      36
+## 53               Oregon    commercial sex act          0    adult       0
+## 54          Puerto Rico    commercial sex act          0    adult       0
+## 55         Rhode Island    commercial sex act          5    adult       2
+## 56       South Carolina    commercial sex act         15    adult       7
+## 57         South Dakota    commercial sex act          0    adult       0
+## 58            Tennessee    commercial sex act         55    adult      26
+## 59                Texas    commercial sex act        130    adult      49
+## 60  U.S. Virgin Islands    commercial sex act          0    adult       0
+## 61                 Utah    commercial sex act          0    adult       0
+## 62              Vermont    commercial sex act          2    adult       2
+## 63           Washington    commercial sex act         13    adult       3
+## 64            Wisconsin    commercial sex act         34    adult      18
+## 65              Wyoming    commercial sex act          3    adult       2
+## 66               Alaska    commercial sex act         11    adult       8
+## 67              Arizona    commercial sex act         19    adult       5
+## 68             Arkansas    commercial sex act          4    adult       4
+## 69             Colorado    commercial sex act         12    adult       3
+## 70          Connecticut    commercial sex act          1    adult       0
+## 71             Delaware    commercial sex act          0    adult       0
+## 72              Florida    commercial sex act         98    adult      50
+## 73               Hawaii    commercial sex act          2    adult       0
+## 74             Illinois    commercial sex act         21    adult       0
+## 75              Indiana    commercial sex act          4    adult       0
+## 76               Kansas    commercial sex act          0    adult       0
+## 77            Louisiana    commercial sex act        121    adult      90
+## 78             Maryland    commercial sex act         17    adult      15
+## 79        Massachusetts    commercial sex act          0    adult       0
+## 80             Michigan    commercial sex act          1    adult       1
+## 81            Minnesota    commercial sex act        235    adult     190
+## 82          Mississippi    commercial sex act          0    adult       0
+## 83             Missouri    commercial sex act         16    adult      12
+## 84              Montana    commercial sex act          1    adult       0
+## 85               Nevada    commercial sex act        140    adult      23
+## 86         North Dakota    commercial sex act          4    adult       0
+## 87                 Ohio    commercial sex act          1    adult       0
+## 88             Oklahoma    commercial sex act         42    adult      36
+## 89               Oregon    commercial sex act          0    adult       0
+## 90          Puerto Rico    commercial sex act          0    adult       0
+## 91         Rhode Island    commercial sex act          5    adult       2
+## 92       South Carolina    commercial sex act         15    adult       7
+## 93         South Dakota    commercial sex act          0    adult       0
+## 94            Tennessee    commercial sex act         55    adult      26
+## 95                Texas    commercial sex act        130    adult      49
+## 96  U.S. Virgin Islands    commercial sex act          0    adult       0
+## 97                 Utah    commercial sex act          0    adult       0
+## 98              Vermont    commercial sex act          2    adult       2
+## 99           Washington    commercial sex act         13    adult       3
+## 100           Wisconsin    commercial sex act         34    adult      18
+## 101             Wyoming    commercial sex act          3    adult       2
+## 102             Alabama    commercial sex act          0    adult       0
+## 103              Alaska    commercial sex act          2    adult       0
+## 104             Arizona    commercial sex act         92    adult      34
+## 105            Arkansas    commercial sex act          0    adult       0
+## 106          California    commercial sex act          0    adult       0
+## 107            Colorado    commercial sex act         49    adult      14
+## 108         Connecticut    commercial sex act          8    adult       0
+## 109            Delaware    commercial sex act          5    adult       4
+## 110             Florida    commercial sex act         65    adult      51
+## 111             Georgia    commercial sex act          0    adult       0
+## 112                Guam    commercial sex act          0    adult       0
+## 113              Hawaii    commercial sex act          2    adult       1
+## 114               Idaho    commercial sex act          0    adult       0
+## 115            Illinois    commercial sex act         26    adult       0
+## 116             Indiana    commercial sex act          2    adult       0
+## 117              Kansas    commercial sex act          3    adult       2
+## 118            Kentucky    commercial sex act          8    adult       0
+## 119           Louisiana    commercial sex act         59    adult      47
+## 120               Maine    commercial sex act          2    adult       0
+## 121            Maryland    commercial sex act          0    adult       0
+## 122       Massachusetts    commercial sex act         17    adult       5
+## 123            Michigan    commercial sex act         11    adult       2
+## 124           Minnesota    commercial sex act        173    adult     146
+## 125         Mississippi    commercial sex act          0    adult       0
+## 126            Missouri    commercial sex act         25    adult      15
+## 127             Montana    commercial sex act          2    adult       0
+## 128            Nebraska    commercial sex act          0    adult       0
+## 129              Nevada    commercial sex act          5    adult       0
+## 130       New Hampshire    commercial sex act          2    adult       2
+## 131          New Mexico    commercial sex act          0    adult       0
+## 132            New York    commercial sex act          0    adult       0
+## 133      North Carolina    commercial sex act          0    adult       0
+## 134        North Dakota    commercial sex act         10    adult       0
+## 135                Ohio    commercial sex act          0    adult       0
+## 136            Oklahoma    commercial sex act         25    adult      15
+## 137              Oregon    commercial sex act          1    adult       0
+## 138         Puerto Rico    commercial sex act          0    adult       0
+## 139        Rhode Island    commercial sex act         12    adult       3
+## 140      South Carolina    commercial sex act         26    adult       1
+## 141        South Dakota    commercial sex act          3    adult       0
+## 142           Tennessee    commercial sex act         75    adult      10
+## 143               Texas    commercial sex act        193    adult      78
+## 144                Utah    commercial sex act          1    adult       0
+## 145             Vermont    commercial sex act          0    adult       0
+## 146          Washington    commercial sex act         29    adult       6
+## 147           Wisconsin    commercial sex act         59    adult      16
+## 148             Wyoming    commercial sex act          2    adult       1
+## 149              Alaska    commercial sex act         11 juvenile       0
+## 150             Arizona    commercial sex act         15 juvenile       0
+## 151          California    commercial sex act          0 juvenile       0
+## 152            Colorado    commercial sex act         11 juvenile       0
+## 153            Delaware    commercial sex act          0 juvenile       0
+## 154             Florida    commercial sex act         57 juvenile       0
+## 155                Guam    commercial sex act          0 juvenile       0
+## 156              Hawaii    commercial sex act          0 juvenile       0
+## 157               Idaho    commercial sex act          0 juvenile       0
+## 158            Illinois    commercial sex act         50 juvenile       0
+## 159             Indiana    commercial sex act          0 juvenile       0
+## 160              Kansas    commercial sex act          1 juvenile       0
+## 161       Massachusetts    commercial sex act          6 juvenile       0
+## 162            Michigan    commercial sex act          2 juvenile       0
+## 163           Minnesota    commercial sex act         22 juvenile       0
+## 164            Missouri    commercial sex act          5 juvenile       1
+## 165         Mississippi    commercial sex act          0 juvenile       0
+## 166             Montana    commercial sex act          1 juvenile       0
+## 167              Nevada    commercial sex act          0 juvenile       0
+## 168                Ohio    commercial sex act          0 juvenile       0
+## 169            Oklahoma    commercial sex act         10 juvenile       0
+## 170              Oregon    commercial sex act          0 juvenile       0
+## 171        South Dakota    commercial sex act          0 juvenile       0
+## 172           Tennessee    commercial sex act         29 juvenile       0
+## 173               Texas    commercial sex act         78 juvenile       5
+## 174                Utah    commercial sex act          0 juvenile       0
+## 175 U.S. Virgin Islands    commercial sex act          0 juvenile       0
+## 176          Washington    commercial sex act          2 juvenile       0
+## 177             Wyoming    commercial sex act          0 juvenile       0
+## 178              Alaska    commercial sex act         11 juvenile       0
+## 179             Arizona    commercial sex act         19 juvenile       0
+## 180            Arkansas    commercial sex act          4 juvenile       0
+## 181            Colorado    commercial sex act         12 juvenile       0
+## 182         Connecticut    commercial sex act          1 juvenile       0
+## 183            Delaware    commercial sex act          0 juvenile       0
+## 184             Florida    commercial sex act         98 juvenile       0
+## 185              Hawaii    commercial sex act          2 juvenile       0
+## 186            Illinois    commercial sex act         21 juvenile       0
+## 187             Indiana    commercial sex act          4 juvenile       2
+## 188              Kansas    commercial sex act          0 juvenile       0
+## 189           Louisiana    commercial sex act        121 juvenile       2
+## 190            Maryland    commercial sex act         17 juvenile       0
+## 191       Massachusetts    commercial sex act          0 juvenile       0
+## 192            Michigan    commercial sex act          1 juvenile       0
+## 193           Minnesota    commercial sex act        235 juvenile       1
+## 194         Mississippi    commercial sex act          0 juvenile       0
+## 195            Missouri    commercial sex act         16 juvenile       3
+## 196             Montana    commercial sex act          1 juvenile       0
+## 197              Nevada    commercial sex act        140 juvenile      35
+## 198        North Dakota    commercial sex act          4 juvenile       0
+## 199                Ohio    commercial sex act          1 juvenile       0
+## 200            Oklahoma    commercial sex act         42 juvenile       1
+## 201              Oregon    commercial sex act          0 juvenile       0
+## 202         Puerto Rico    commercial sex act          0 juvenile       0
+## 203        Rhode Island    commercial sex act          5 juvenile       0
+## 204      South Carolina    commercial sex act         15 juvenile       2
+## 205        South Dakota    commercial sex act          0 juvenile       0
+## 206           Tennessee    commercial sex act         55 juvenile       0
+## 207               Texas    commercial sex act        130 juvenile       2
+## 208 U.S. Virgin Islands    commercial sex act          0 juvenile       0
+## 209                Utah    commercial sex act          0 juvenile       0
+## 210             Vermont    commercial sex act          2 juvenile       0
+## 211          Washington    commercial sex act         13 juvenile       0
+## 212           Wisconsin    commercial sex act         34 juvenile       1
+## 213             Wyoming    commercial sex act          3 juvenile       0
+## 214              Alaska    commercial sex act         11 juvenile       0
+## 215             Arizona    commercial sex act         19 juvenile       0
+## 216            Arkansas    commercial sex act          4 juvenile       0
+## 217            Colorado    commercial sex act         12 juvenile       0
+## 218         Connecticut    commercial sex act          1 juvenile       0
+## 219            Delaware    commercial sex act          0 juvenile       0
+## 220             Florida    commercial sex act         98 juvenile       0
+## 221              Hawaii    commercial sex act          2 juvenile       0
+## 222            Illinois    commercial sex act         21 juvenile       0
+## 223             Indiana    commercial sex act          4 juvenile       2
+## 224              Kansas    commercial sex act          0 juvenile       0
+## 225           Louisiana    commercial sex act        121 juvenile       2
+## 226            Maryland    commercial sex act         17 juvenile       0
+## 227       Massachusetts    commercial sex act          0 juvenile       0
+## 228            Michigan    commercial sex act          1 juvenile       0
+## 229           Minnesota    commercial sex act        235 juvenile       1
+## 230         Mississippi    commercial sex act          0 juvenile       0
+## 231            Missouri    commercial sex act         16 juvenile       3
+## 232             Montana    commercial sex act          1 juvenile       0
+## 233              Nevada    commercial sex act        140 juvenile      35
+## 234        North Dakota    commercial sex act          4 juvenile       0
+## 235                Ohio    commercial sex act          1 juvenile       0
+## 236            Oklahoma    commercial sex act         42 juvenile       1
+## 237              Oregon    commercial sex act          0 juvenile       0
+## 238         Puerto Rico    commercial sex act          0 juvenile       0
+## 239        Rhode Island    commercial sex act          5 juvenile       0
+## 240      South Carolina    commercial sex act         15 juvenile       2
+## 241        South Dakota    commercial sex act          0 juvenile       0
+## 242           Tennessee    commercial sex act         55 juvenile       0
+## 243               Texas    commercial sex act        130 juvenile       2
+## 244 U.S. Virgin Islands    commercial sex act          0 juvenile       0
+## 245                Utah    commercial sex act          0 juvenile       0
+## 246             Vermont    commercial sex act          2 juvenile       0
+## 247          Washington    commercial sex act         13 juvenile       0
+## 248           Wisconsin    commercial sex act         34 juvenile       1
+## 249             Wyoming    commercial sex act          3 juvenile       0
+## 250             Alabama    commercial sex act          0 juvenile       0
+## 251              Alaska    commercial sex act          2 juvenile       0
+## 252             Arizona    commercial sex act         92 juvenile       3
+## 253            Arkansas    commercial sex act          0 juvenile       0
+## 254          California    commercial sex act          0 juvenile       0
+## 255            Colorado    commercial sex act         49 juvenile       0
+## 256         Connecticut    commercial sex act          8 juvenile       0
+## 257            Delaware    commercial sex act          5 juvenile       0
+## 258             Florida    commercial sex act         65 juvenile       0
+## 259             Georgia    commercial sex act          0 juvenile       0
+## 260                Guam    commercial sex act          0 juvenile       0
+## 261              Hawaii    commercial sex act          2 juvenile       0
+## 262               Idaho    commercial sex act          0 juvenile       0
+## 263            Illinois    commercial sex act         26 juvenile       0
+## 264             Indiana    commercial sex act          2 juvenile       0
+## 265              Kansas    commercial sex act          3 juvenile       0
+## 266            Kentucky    commercial sex act          8 juvenile       0
+## 267           Louisiana    commercial sex act         59 juvenile       0
+## 268               Maine    commercial sex act          2 juvenile       0
+## 269            Maryland    commercial sex act          0 juvenile       0
+## 270       Massachusetts    commercial sex act         17 juvenile       0
+## 271            Michigan    commercial sex act         11 juvenile       0
+## 272           Minnesota    commercial sex act        173 juvenile       1
+## 273         Mississippi    commercial sex act          0 juvenile       0
+## 274            Missouri    commercial sex act         25 juvenile       1
+## 275             Montana    commercial sex act          2 juvenile       0
+## 276            Nebraska    commercial sex act          0 juvenile       0
+## 277              Nevada    commercial sex act          5 juvenile       0
+## 278       New Hampshire    commercial sex act          2 juvenile       0
+## 279          New Mexico    commercial sex act          0 juvenile       0
+## 280            New York    commercial sex act          0 juvenile       0
+## 281      North Carolina    commercial sex act          0 juvenile       0
+## 282        North Dakota    commercial sex act         10 juvenile       0
+## 283                Ohio    commercial sex act          0 juvenile       0
+## 284            Oklahoma    commercial sex act         25 juvenile       2
+## 285              Oregon    commercial sex act          1 juvenile       0
+## 286         Puerto Rico    commercial sex act          0 juvenile       0
+## 287        Rhode Island    commercial sex act         12 juvenile       0
+## 288      South Carolina    commercial sex act         26 juvenile       1
+## 289        South Dakota    commercial sex act          3 juvenile       0
+## 290           Tennessee    commercial sex act         75 juvenile       1
+## 291               Texas    commercial sex act        193 juvenile       4
+## 292                Utah    commercial sex act          1 juvenile       0
+## 293             Vermont    commercial sex act          0 juvenile       0
+## 294          Washington    commercial sex act         29 juvenile       0
+## 295           Wisconsin    commercial sex act         59 juvenile       0
+## 296             Wyoming    commercial sex act          2 juvenile       1
+## 297              Alaska involuntary servitude          0    adult       0
+## 298             Arizona involuntary servitude          0    adult       0
+## 299          California involuntary servitude          0    adult       0
+## 300            Colorado involuntary servitude          2    adult       0
+## 301            Delaware involuntary servitude          0    adult       0
+## 302             Florida involuntary servitude          3    adult       3
+## 303                Guam involuntary servitude          0    adult       0
+## 304              Hawaii involuntary servitude          0    adult       0
+## 305               Idaho involuntary servitude          0    adult       0
+## 306            Illinois involuntary servitude         17    adult       0
+## 307             Indiana involuntary servitude          0    adult       0
+## 308              Kansas involuntary servitude          0    adult       0
+## 309       Massachusetts involuntary servitude          1    adult       0
+## 310            Michigan involuntary servitude          1    adult       0
+## 311           Minnesota involuntary servitude          1    adult       1
+## 312            Missouri involuntary servitude          1    adult       0
+## 313         Mississippi involuntary servitude          0    adult       0
+## 314             Montana involuntary servitude          0    adult       0
+## 315              Nevada involuntary servitude          0    adult       0
+## 316                Ohio involuntary servitude          0    adult       0
+## 317            Oklahoma involuntary servitude          0    adult       0
+## 318              Oregon involuntary servitude          0    adult       0
+## 319        South Dakota involuntary servitude          0    adult       0
+## 320           Tennessee involuntary servitude          1    adult       0
+## 321               Texas involuntary servitude        113    adult      14
+## 322                Utah involuntary servitude          0    adult       0
+## 323 U.S. Virgin Islands involuntary servitude          0    adult       0
+## 324          Washington involuntary servitude          0    adult       0
+## 325             Wyoming involuntary servitude          1    adult       0
+## 326              Alaska involuntary servitude          1    adult       0
+## 327             Arizona involuntary servitude          0    adult       0
+## 328            Arkansas involuntary servitude          2    adult       0
+## 329            Colorado involuntary servitude         22    adult       9
+## 330         Connecticut involuntary servitude          1    adult       0
+## 331            Delaware involuntary servitude          0    adult       0
+## 332             Florida involuntary servitude          7    adult       4
+## 333              Hawaii involuntary servitude          0    adult       0
+## 334            Illinois involuntary servitude          3    adult       0
+## 335             Indiana involuntary servitude          0    adult       0
+## 336              Kansas involuntary servitude          2    adult       1
+## 337           Louisiana involuntary servitude          2    adult       2
+## 338            Maryland involuntary servitude          0    adult       0
+## 339       Massachusetts involuntary servitude          3    adult       3
+## 340            Michigan involuntary servitude          2    adult       0
+## 341           Minnesota involuntary servitude          0    adult       0
+## 342         Mississippi involuntary servitude          0    adult       0
+## 343            Missouri involuntary servitude          0    adult       0
+## 344             Montana involuntary servitude          0    adult       0
+## 345              Nevada involuntary servitude          0    adult       0
+## 346        North Dakota involuntary servitude          1    adult       1
+## 347                Ohio involuntary servitude          0    adult       0
+## 348            Oklahoma involuntary servitude          4    adult       3
+## 349              Oregon involuntary servitude          0    adult       0
+## 350         Puerto Rico involuntary servitude          0    adult       0
+## 351        Rhode Island involuntary servitude          1    adult       0
+## 352      South Carolina involuntary servitude          7    adult       7
+## 353        South Dakota involuntary servitude          0    adult       0
+## 354           Tennessee involuntary servitude          0    adult       0
+## 355               Texas involuntary servitude        127    adult      27
+## 356 U.S. Virgin Islands involuntary servitude          0    adult       0
+## 357                Utah involuntary servitude          0    adult       0
+## 358             Vermont involuntary servitude          0    adult       0
+## 359          Washington involuntary servitude          1    adult       1
+## 360           Wisconsin involuntary servitude          1    adult       0
+## 361             Wyoming involuntary servitude          2    adult       1
+## 362              Alaska involuntary servitude          1    adult       0
+## 363             Arizona involuntary servitude          0    adult       0
+## 364            Arkansas involuntary servitude          2    adult       0
+## 365            Colorado involuntary servitude         22    adult       9
+## 366         Connecticut involuntary servitude          1    adult       0
+## 367            Delaware involuntary servitude          0    adult       0
+## 368             Florida involuntary servitude          7    adult       4
+## 369              Hawaii involuntary servitude          0    adult       0
+## 370            Illinois involuntary servitude          3    adult       0
+## 371             Indiana involuntary servitude          0    adult       0
+## 372              Kansas involuntary servitude          2    adult       1
+## 373           Louisiana involuntary servitude          2    adult       2
+## 374            Maryland involuntary servitude          0    adult       0
+## 375       Massachusetts involuntary servitude          3    adult       3
+## 376            Michigan involuntary servitude          2    adult       0
+## 377           Minnesota involuntary servitude          0    adult       0
+## 378         Mississippi involuntary servitude          0    adult       0
+## 379            Missouri involuntary servitude          0    adult       0
+## 380             Montana involuntary servitude          0    adult       0
+## 381              Nevada involuntary servitude          0    adult       0
+## 382        North Dakota involuntary servitude          1    adult       1
+## 383                Ohio involuntary servitude          0    adult       0
+## 384            Oklahoma involuntary servitude          4    adult       3
+## 385              Oregon involuntary servitude          0    adult       0
+## 386         Puerto Rico involuntary servitude          0    adult       0
+## 387        Rhode Island involuntary servitude          1    adult       0
+## 388      South Carolina involuntary servitude          7    adult       7
+## 389        South Dakota involuntary servitude          0    adult       0
+## 390           Tennessee involuntary servitude          0    adult       0
+## 391               Texas involuntary servitude        127    adult      27
+## 392 U.S. Virgin Islands involuntary servitude          0    adult       0
+## 393                Utah involuntary servitude          0    adult       0
+## 394             Vermont involuntary servitude          0    adult       0
+## 395          Washington involuntary servitude          1    adult       1
+## 396           Wisconsin involuntary servitude          1    adult       0
+## 397             Wyoming involuntary servitude          2    adult       1
+## 398             Alabama involuntary servitude          0    adult       0
+## 399              Alaska involuntary servitude          1    adult       0
+## 400             Arizona involuntary servitude          7    adult       4
+## 401            Arkansas involuntary servitude          0    adult       0
+## 402          California involuntary servitude          0    adult       0
+## 403            Colorado involuntary servitude          7    adult       0
+## 404         Connecticut involuntary servitude          0    adult       0
+## 405            Delaware involuntary servitude          0    adult       0
+## 406             Florida involuntary servitude         24    adult       7
+## 407             Georgia involuntary servitude          0    adult       0
+## 408                Guam involuntary servitude          0    adult       0
+## 409              Hawaii involuntary servitude          0    adult       0
+## 410               Idaho involuntary servitude          0    adult       0
+## 411            Illinois involuntary servitude          8    adult       0
+## 412             Indiana involuntary servitude          1    adult       0
+## 413              Kansas involuntary servitude          0    adult       0
+## 414            Kentucky involuntary servitude         14    adult       0
+## 415           Louisiana involuntary servitude          2    adult       2
+## 416               Maine involuntary servitude          0    adult       0
+## 417            Maryland involuntary servitude          0    adult       0
+## 418       Massachusetts involuntary servitude         11    adult       2
+## 419            Michigan involuntary servitude         11    adult       0
+## 420           Minnesota involuntary servitude          0    adult       0
+## 421         Mississippi involuntary servitude          0    adult       0
+## 422            Missouri involuntary servitude          3    adult       0
+## 423             Montana involuntary servitude          0    adult       0
+## 424            Nebraska involuntary servitude          0    adult       0
+## 425              Nevada involuntary servitude          0    adult       0
+## 426       New Hampshire involuntary servitude          0    adult       0
+## 427          New Mexico involuntary servitude          0    adult       0
+## 428            New York involuntary servitude          0    adult       0
+## 429      North Carolina involuntary servitude          0    adult       0
+## 430        North Dakota involuntary servitude          1    adult       0
+## 431                Ohio involuntary servitude          0    adult       0
+## 432            Oklahoma involuntary servitude          0    adult       0
+## 433              Oregon involuntary servitude          0    adult       0
+## 434         Puerto Rico involuntary servitude          0    adult       0
+## 435        Rhode Island involuntary servitude          1    adult       1
+## 436      South Carolina involuntary servitude          4    adult       0
+## 437        South Dakota involuntary servitude          0    adult       0
+## 438           Tennessee involuntary servitude          4    adult       0
+## 439               Texas involuntary servitude        119    adult      43
+## 440                Utah involuntary servitude          0    adult       0
+## 441             Vermont involuntary servitude          0    adult       0
+## 442          Washington involuntary servitude          1    adult       1
+## 443           Wisconsin involuntary servitude          6    adult       2
+## 444             Wyoming involuntary servitude          0    adult       0
+## 445              Alaska involuntary servitude          0 juvenile       0
+## 446             Arizona involuntary servitude          0 juvenile       0
+## 447          California involuntary servitude          0 juvenile       0
+## 448            Colorado involuntary servitude          2 juvenile       0
+## 449            Delaware involuntary servitude          0 juvenile       0
+## 450             Florida involuntary servitude          3 juvenile       0
+## 451                Guam involuntary servitude          0 juvenile       0
+## 452              Hawaii involuntary servitude          0 juvenile       0
+## 453               Idaho involuntary servitude          0 juvenile       0
+## 454            Illinois involuntary servitude         17 juvenile       0
+## 455             Indiana involuntary servitude          0 juvenile       0
+## 456              Kansas involuntary servitude          0 juvenile       0
+## 457       Massachusetts involuntary servitude          1 juvenile       0
+## 458            Michigan involuntary servitude          1 juvenile       0
+## 459           Minnesota involuntary servitude          1 juvenile       0
+## 460            Missouri involuntary servitude          1 juvenile       0
+## 461         Mississippi involuntary servitude          0 juvenile       0
+## 462             Montana involuntary servitude          0 juvenile       0
+## 463              Nevada involuntary servitude          0 juvenile       0
+## 464                Ohio involuntary servitude          0 juvenile       0
+## 465            Oklahoma involuntary servitude          0 juvenile       0
+## 466              Oregon involuntary servitude          0 juvenile       0
+## 467        South Dakota involuntary servitude          0 juvenile       0
+## 468           Tennessee involuntary servitude          1 juvenile       0
+## 469               Texas involuntary servitude        113 juvenile       3
+## 470                Utah involuntary servitude          0 juvenile       0
+## 471 U.S. Virgin Islands involuntary servitude          0 juvenile       0
+## 472          Washington involuntary servitude          0 juvenile       0
+## 473             Wyoming involuntary servitude          1 juvenile       0
+## 474              Alaska involuntary servitude          1 juvenile       0
+## 475             Arizona involuntary servitude          0 juvenile       0
+## 476            Arkansas involuntary servitude          2 juvenile       0
+## 477            Colorado involuntary servitude         22 juvenile       0
+## 478         Connecticut involuntary servitude          1 juvenile       0
+## 479            Delaware involuntary servitude          0 juvenile       0
+## 480             Florida involuntary servitude          7 juvenile       0
+## 481              Hawaii involuntary servitude          0 juvenile       0
+## 482            Illinois involuntary servitude          3 juvenile       0
+## 483             Indiana involuntary servitude          0 juvenile       0
+## 484              Kansas involuntary servitude          2 juvenile       0
+## 485           Louisiana involuntary servitude          2 juvenile       0
+## 486            Maryland involuntary servitude          0 juvenile       0
+## 487       Massachusetts involuntary servitude          3 juvenile       0
+## 488            Michigan involuntary servitude          2 juvenile       0
+## 489           Minnesota involuntary servitude          0 juvenile       0
+## 490         Mississippi involuntary servitude          0 juvenile       0
+## 491            Missouri involuntary servitude          0 juvenile       0
+## 492             Montana involuntary servitude          0 juvenile       0
+## 493              Nevada involuntary servitude          0 juvenile       0
+## 494        North Dakota involuntary servitude          1 juvenile       0
+## 495                Ohio involuntary servitude          0 juvenile       0
+## 496            Oklahoma involuntary servitude          4 juvenile       0
+## 497              Oregon involuntary servitude          0 juvenile       0
+## 498         Puerto Rico involuntary servitude          0 juvenile       0
+## 499        Rhode Island involuntary servitude          1 juvenile       0
+## 500      South Carolina involuntary servitude          7 juvenile       0
+## 501        South Dakota involuntary servitude          0 juvenile       0
+## 502           Tennessee involuntary servitude          0 juvenile       0
+## 503               Texas involuntary servitude        127 juvenile       0
+## 504 U.S. Virgin Islands involuntary servitude          0 juvenile       0
+## 505                Utah involuntary servitude          0 juvenile       0
+## 506             Vermont involuntary servitude          0 juvenile       0
+## 507          Washington involuntary servitude          1 juvenile       0
+## 508           Wisconsin involuntary servitude          1 juvenile       0
+## 509             Wyoming involuntary servitude          2 juvenile       0
+## 510              Alaska involuntary servitude          1 juvenile       0
+## 511             Arizona involuntary servitude          0 juvenile       0
+## 512            Arkansas involuntary servitude          2 juvenile       0
+## 513            Colorado involuntary servitude         22 juvenile       0
+## 514         Connecticut involuntary servitude          1 juvenile       0
+## 515            Delaware involuntary servitude          0 juvenile       0
+## 516             Florida involuntary servitude          7 juvenile       0
+## 517              Hawaii involuntary servitude          0 juvenile       0
+## 518            Illinois involuntary servitude          3 juvenile       0
+## 519             Indiana involuntary servitude          0 juvenile       0
+## 520              Kansas involuntary servitude          2 juvenile       0
+## 521           Louisiana involuntary servitude          2 juvenile       0
+## 522            Maryland involuntary servitude          0 juvenile       0
+## 523       Massachusetts involuntary servitude          3 juvenile       0
+## 524            Michigan involuntary servitude          2 juvenile       0
+## 525           Minnesota involuntary servitude          0 juvenile       0
+## 526         Mississippi involuntary servitude          0 juvenile       0
+## 527            Missouri involuntary servitude          0 juvenile       0
+## 528             Montana involuntary servitude          0 juvenile       0
+## 529              Nevada involuntary servitude          0 juvenile       0
+## 530        North Dakota involuntary servitude          1 juvenile       0
+## 531                Ohio involuntary servitude          0 juvenile       0
+## 532            Oklahoma involuntary servitude          4 juvenile       0
+## 533              Oregon involuntary servitude          0 juvenile       0
+## 534         Puerto Rico involuntary servitude          0 juvenile       0
+## 535        Rhode Island involuntary servitude          1 juvenile       0
+## 536      South Carolina involuntary servitude          7 juvenile       0
+## 537        South Dakota involuntary servitude          0 juvenile       0
+## 538           Tennessee involuntary servitude          0 juvenile       0
+## 539               Texas involuntary servitude        127 juvenile       0
+## 540 U.S. Virgin Islands involuntary servitude          0 juvenile       0
+## 541                Utah involuntary servitude          0 juvenile       0
+## 542             Vermont involuntary servitude          0 juvenile       0
+## 543          Washington involuntary servitude          1 juvenile       0
+## 544           Wisconsin involuntary servitude          1 juvenile       0
+## 545             Wyoming involuntary servitude          2 juvenile       0
+## 546             Alabama involuntary servitude          0 juvenile       0
+## 547              Alaska involuntary servitude          1 juvenile       0
+## 548             Arizona involuntary servitude          7 juvenile       0
+## 549            Arkansas involuntary servitude          0 juvenile       0
+## 550          California involuntary servitude          0 juvenile       0
+## 551            Colorado involuntary servitude          7 juvenile       0
+## 552         Connecticut involuntary servitude          0 juvenile       0
+## 553            Delaware involuntary servitude          0 juvenile       0
+## 554             Florida involuntary servitude         24 juvenile       0
+## 555             Georgia involuntary servitude          0 juvenile       0
+## 556                Guam involuntary servitude          0 juvenile       0
+## 557              Hawaii involuntary servitude          0 juvenile       0
+## 558               Idaho involuntary servitude          0 juvenile       0
+## 559            Illinois involuntary servitude          8 juvenile       0
+## 560             Indiana involuntary servitude          1 juvenile       0
+## 561              Kansas involuntary servitude          0 juvenile       0
+## 562            Kentucky involuntary servitude         14 juvenile       0
+## 563           Louisiana involuntary servitude          2 juvenile       0
+## 564               Maine involuntary servitude          0 juvenile       0
+## 565            Maryland involuntary servitude          0 juvenile       0
+## 566       Massachusetts involuntary servitude         11 juvenile       0
+## 567            Michigan involuntary servitude         11 juvenile       0
+## 568           Minnesota involuntary servitude          0 juvenile       0
+## 569         Mississippi involuntary servitude          0 juvenile       0
+## 570            Missouri involuntary servitude          3 juvenile       0
+## 571             Montana involuntary servitude          0 juvenile       0
+## 572            Nebraska involuntary servitude          0 juvenile       0
+## 573              Nevada involuntary servitude          0 juvenile       0
+## 574       New Hampshire involuntary servitude          0 juvenile       0
+## 575          New Mexico involuntary servitude          0 juvenile       0
+## 576            New York involuntary servitude          0 juvenile       0
+## 577      North Carolina involuntary servitude          0 juvenile       0
+## 578        North Dakota involuntary servitude          1 juvenile       0
+## 579                Ohio involuntary servitude          0 juvenile       0
+## 580            Oklahoma involuntary servitude          0 juvenile       0
+## 581              Oregon involuntary servitude          0 juvenile       0
+## 582         Puerto Rico involuntary servitude          0 juvenile       0
+## 583        Rhode Island involuntary servitude          1 juvenile       0
+## 584      South Carolina involuntary servitude          4 juvenile       0
+## 585        South Dakota involuntary servitude          0 juvenile       0
+## 586           Tennessee involuntary servitude          4 juvenile       0
+## 587               Texas involuntary servitude        119 juvenile      16
+## 588                Utah involuntary servitude          0 juvenile       0
+## 589             Vermont involuntary servitude          0 juvenile       0
+## 590          Washington involuntary servitude          1 juvenile       0
+## 591           Wisconsin involuntary servitude          6 juvenile       0
+## 592             Wyoming involuntary servitude          0 juvenile       0</code></pre>
+</div>
+<div id="combine-crime-data-and-population" class="section level1">
+<h1>Combine Crime Data and Population</h1>
+<p>We have a the human traficing dataframe and the population dataframe and we need to put them together. The human traficing dataframe needs a column for poplulation and then they can be merged.</p>
+<pre class="r"><code>colnames(state_regions_df)</code></pre>
+<pre><code>## [1] &quot;state&quot;              &quot;region&quot;             &quot;region_description&quot;</code></pre>
+<pre class="r"><code>colnames(ht_offenses_4_years_clean_df)</code></pre>
+<pre><code>## [1] &quot;year_data&quot;          &quot;year&quot;               &quot;region&quot;            
+## [4] &quot;region_description&quot; &quot;state&quot;              &quot;offense&quot;           
+## [7] &quot;occurrence&quot;         &quot;age&quot;                &quot;cleared&quot;</code></pre>
+<pre class="r"><code>colnames(population_gather_df)</code></pre>
+<pre><code>## [1] &quot;state&quot;      &quot;year&quot;       &quot;population&quot;</code></pre>
 </div>
 <div id="write-the-csv-file" class="section level1">
 <h1>Write the CSV file</h1>
