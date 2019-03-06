@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Human Trafficking Data Analysis
+## Retriving the Data
 
 The data has been cleaned and is ready for analysis.  First step will be to look at the data and determine what additional data will be needed.
 

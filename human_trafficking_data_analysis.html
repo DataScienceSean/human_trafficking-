@@ -192,606 +192,608 @@ $(document).ready(function () {
 </div>
 
 
-<div id="human-trafficking-data-analysis" class="section level2">
-<h2>Human Trafficking Data Analysis</h2>
+<div id="human-trafficking-data-analysis" class="section level1">
+<h1>Human Trafficking Data Analysis</h1>
+<div id="retriving-the-data" class="section level2">
+<h2>Retriving the Data</h2>
 <p>The data has been cleaned and is ready for analysis. First step will be to look at the data and determine what additional data will be needed.</p>
 <pre class="r"><code>ht_offenses_4_years_clean &lt;- read.csv(&quot;Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv&quot;)
 ht_offenses_4_years_clean_df &lt;- data.frame(ht_offenses_4_years_clean)
 ht_offenses_4_years_clean_df$X &lt;- NULL
 ht_offenses_4_years_clean_df</code></pre>
-<pre><code>##     year region region_description               state
-## 1   2014      9  Southwest/Pacific              Alaska
-## 2   2014      9  Southwest/Pacific             Arizona
-## 3   2014      9  Southwest/Pacific          California
-## 4   2014     10   Rockies/Mid-West            Colorado
-## 5   2014      3      Mideast South            Delaware
-## 6   2014      5    Gulf Coast East             Florida
-## 7   2014      9  Southwest/Pacific                Guam
-## 8   2014      9  Southwest/Pacific              Hawaii
-## 9   2014     12          Northeast               Idaho
-## 10  2014      7      North Central            Illinois
-## 11  2014      7      North Central             Indiana
-## 12  2014     10   Rockies/Mid-West              Kansas
-## 13  2014      1        New England       Massachusetts
-## 14  2014      6            Central            Michigan
-## 15  2014      7      North Central           Minnesota
-## 16  2014      8             Plains            Missouri
-## 17  2014      5    Gulf Coast East         Mississippi
-## 18  2014     12          Northeast             Montana
-## 19  2014      9  Southwest/Pacific              Nevada
-## 20  2014      6            Central                Ohio
-## 21  2014     10   Rockies/Mid-West            Oklahoma
-## 22  2014     12          Northeast              Oregon
-## 23  2014      8             Plains        South Dakota
-## 24  2014      6            Central           Tennessee
-## 25  2014     11    Gulf Coast West               Texas
-## 26  2014     10   Rockies/Mid-West                Utah
-## 27  2014      5    Gulf Coast East U.S. Virgin Islands
-## 28  2014     12          Northeast          Washington
-## 29  2014     10   Rockies/Mid-West             Wyoming
-## 30  2015      9  Southwest/Pacific              Alaska
-## 31  2015      9  Southwest/Pacific             Arizona
-## 32  2015      8             Plains            Arkansas
-## 33  2015     10   Rockies/Mid-West            Colorado
-## 34  2015      2      Mideast North         Connecticut
-## 35  2015      3      Mideast South            Delaware
-## 36  2015      5    Gulf Coast East             Florida
-## 37  2015      9  Southwest/Pacific              Hawaii
-## 38  2015      7      North Central            Illinois
-## 39  2015      7      North Central             Indiana
-## 40  2015     10   Rockies/Mid-West              Kansas
-## 41  2015     11    Gulf Coast West           Louisiana
-## 42  2015      4       Mid-Atlantic            Maryland
-## 43  2015      1        New England       Massachusetts
-## 44  2015      6            Central            Michigan
-## 45  2015      7      North Central           Minnesota
-## 46  2015      5    Gulf Coast East         Mississippi
-## 47  2015      8             Plains            Missouri
-## 48  2015     12          Northeast             Montana
-## 49  2015      9  Southwest/Pacific              Nevada
-## 50  2015      8             Plains        North Dakota
-## 51  2015      6            Central                Ohio
-## 52  2015     10   Rockies/Mid-West            Oklahoma
-## 53  2015     12          Northeast              Oregon
-## 54  2015      5    Gulf Coast East         Puerto Rico
-## 55  2015      1        New England        Rhode Island
-## 56  2015      4       Mid-Atlantic      South Carolina
-## 57  2015      8             Plains        South Dakota
-## 58  2015      6            Central           Tennessee
-## 59  2015     11    Gulf Coast West               Texas
-## 60  2015      5    Gulf Coast East U.S. Virgin Islands
-## 61  2015     10   Rockies/Mid-West                Utah
-## 62  2015      2      Mideast North             Vermont
-## 63  2015     12          Northeast          Washington
-## 64  2015      7      North Central           Wisconsin
-## 65  2015     10   Rockies/Mid-West             Wyoming
-## 66  2016      9  Southwest/Pacific              Alaska
-## 67  2016      9  Southwest/Pacific             Arizona
-## 68  2016      8             Plains            Arkansas
-## 69  2016     10   Rockies/Mid-West            Colorado
-## 70  2016      2      Mideast North         Connecticut
-## 71  2016      3      Mideast South            Delaware
-## 72  2016      5    Gulf Coast East             Florida
-## 73  2016      9  Southwest/Pacific              Hawaii
-## 74  2016      7      North Central            Illinois
-## 75  2016      7      North Central             Indiana
-## 76  2016     10   Rockies/Mid-West              Kansas
-## 77  2016     11    Gulf Coast West           Louisiana
-## 78  2016      4       Mid-Atlantic            Maryland
-## 79  2016      1        New England       Massachusetts
-## 80  2016      6            Central            Michigan
-## 81  2016      7      North Central           Minnesota
-## 82  2016      5    Gulf Coast East         Mississippi
-## 83  2016      8             Plains            Missouri
-## 84  2016     12          Northeast             Montana
-## 85  2016      9  Southwest/Pacific              Nevada
-## 86  2016      8             Plains        North Dakota
-## 87  2016      6            Central                Ohio
-## 88  2016     10   Rockies/Mid-West            Oklahoma
-## 89  2016     12          Northeast              Oregon
-## 90  2016      5    Gulf Coast East         Puerto Rico
-## 91  2016      1        New England        Rhode Island
-## 92  2016      4       Mid-Atlantic      South Carolina
-## 93  2016      8             Plains        South Dakota
-## 94  2016      6            Central           Tennessee
-## 95  2016     11    Gulf Coast West               Texas
-## 96  2016      5    Gulf Coast East U.S. Virgin Islands
-## 97  2016     10   Rockies/Mid-West                Utah
-## 98  2016      2      Mideast North             Vermont
-## 99  2016     12          Northeast          Washington
-## 100 2016      7      North Central           Wisconsin
-## 101 2016     10   Rockies/Mid-West             Wyoming
-## 102 2017      5    Gulf Coast East             Alabama
-## 103 2017      9  Southwest/Pacific              Alaska
-## 104 2017      9  Southwest/Pacific             Arizona
-## 105 2017      8             Plains            Arkansas
-## 106 2017      9  Southwest/Pacific          California
-## 107 2017     10   Rockies/Mid-West            Colorado
-## 108 2017      2      Mideast North         Connecticut
-## 109 2017      3      Mideast South            Delaware
-## 110 2017      5    Gulf Coast East             Florida
-## 111 2017      5    Gulf Coast East             Georgia
-## 112 2017      9  Southwest/Pacific                Guam
-## 113 2017      9  Southwest/Pacific              Hawaii
-## 114 2017     12          Northeast               Idaho
-## 115 2017      7      North Central            Illinois
-## 116 2017      7      North Central             Indiana
-## 117 2017     10   Rockies/Mid-West              Kansas
-## 118 2017      6            Central            Kentucky
-## 119 2017     11    Gulf Coast West           Louisiana
-## 120 2017      1        New England               Maine
-## 121 2017      4       Mid-Atlantic            Maryland
-## 122 2017      1        New England       Massachusetts
-## 123 2017      6            Central            Michigan
-## 124 2017      7      North Central           Minnesota
-## 125 2017      5    Gulf Coast East         Mississippi
-## 126 2017      8             Plains            Missouri
-## 127 2017     12          Northeast             Montana
-## 128 2017      8             Plains            Nebraska
-## 129 2017      9  Southwest/Pacific              Nevada
-## 130 2017      1        New England       New Hampshire
-## 131 2017     10   Rockies/Mid-West          New Mexico
-## 132 2017      2      Mideast North            New York
-## 133 2017      4       Mid-Atlantic      North Carolina
-## 134 2017      8             Plains        North Dakota
-## 135 2017      6            Central                Ohio
-## 136 2017     10   Rockies/Mid-West            Oklahoma
-## 137 2017     12          Northeast              Oregon
-## 138 2017      5    Gulf Coast East         Puerto Rico
-## 139 2017      1        New England        Rhode Island
-## 140 2017      4       Mid-Atlantic      South Carolina
-## 141 2017      8             Plains        South Dakota
-## 142 2017      6            Central           Tennessee
-## 143 2017     11    Gulf Coast West               Texas
-## 144 2017     10   Rockies/Mid-West                Utah
-## 145 2017      2      Mideast North             Vermont
-## 146 2017     12          Northeast          Washington
-## 147 2017      7      North Central           Wisconsin
-## 148 2017     10   Rockies/Mid-West             Wyoming
-## 149 2014      9  Southwest/Pacific              Alaska
-## 150 2014      9  Southwest/Pacific             Arizona
-## 151 2014      9  Southwest/Pacific          California
-## 152 2014     10   Rockies/Mid-West            Colorado
-## 153 2014      3      Mideast South            Delaware
-## 154 2014      5    Gulf Coast East             Florida
-## 155 2014      9  Southwest/Pacific                Guam
-## 156 2014      9  Southwest/Pacific              Hawaii
-## 157 2014     12          Northeast               Idaho
-## 158 2014      7      North Central            Illinois
-## 159 2014      7      North Central             Indiana
-## 160 2014     10   Rockies/Mid-West              Kansas
-## 161 2014      1        New England       Massachusetts
-## 162 2014      6            Central            Michigan
-## 163 2014      7      North Central           Minnesota
-## 164 2014      8             Plains            Missouri
-## 165 2014      5    Gulf Coast East         Mississippi
-## 166 2014     12          Northeast             Montana
-## 167 2014      9  Southwest/Pacific              Nevada
-## 168 2014      6            Central                Ohio
-## 169 2014     10   Rockies/Mid-West            Oklahoma
-## 170 2014     12          Northeast              Oregon
-## 171 2014      8             Plains        South Dakota
-## 172 2014      6            Central           Tennessee
-## 173 2014     11    Gulf Coast West               Texas
-## 174 2014     10   Rockies/Mid-West                Utah
-## 175 2014      5    Gulf Coast East U.S. Virgin Islands
-## 176 2014     12          Northeast          Washington
-## 177 2014     10   Rockies/Mid-West             Wyoming
-## 178 2015      9  Southwest/Pacific              Alaska
-## 179 2015      9  Southwest/Pacific             Arizona
-## 180 2015      8             Plains            Arkansas
-## 181 2015     10   Rockies/Mid-West            Colorado
-## 182 2015      2      Mideast North         Connecticut
-## 183 2015      3      Mideast South            Delaware
-## 184 2015      5    Gulf Coast East             Florida
-## 185 2015      9  Southwest/Pacific              Hawaii
-## 186 2015      7      North Central            Illinois
-## 187 2015      7      North Central             Indiana
-## 188 2015     10   Rockies/Mid-West              Kansas
-## 189 2015     11    Gulf Coast West           Louisiana
-## 190 2015      4       Mid-Atlantic            Maryland
-## 191 2015      1        New England       Massachusetts
-## 192 2015      6            Central            Michigan
-## 193 2015      7      North Central           Minnesota
-## 194 2015      5    Gulf Coast East         Mississippi
-## 195 2015      8             Plains            Missouri
-## 196 2015     12          Northeast             Montana
-## 197 2015      9  Southwest/Pacific              Nevada
-## 198 2015      8             Plains        North Dakota
-## 199 2015      6            Central                Ohio
-## 200 2015     10   Rockies/Mid-West            Oklahoma
-## 201 2015     12          Northeast              Oregon
-## 202 2015      5    Gulf Coast East         Puerto Rico
-## 203 2015      1        New England        Rhode Island
-## 204 2015      4       Mid-Atlantic      South Carolina
-## 205 2015      8             Plains        South Dakota
-## 206 2015      6            Central           Tennessee
-## 207 2015     11    Gulf Coast West               Texas
-## 208 2015      5    Gulf Coast East U.S. Virgin Islands
-## 209 2015     10   Rockies/Mid-West                Utah
-## 210 2015      2      Mideast North             Vermont
-## 211 2015     12          Northeast          Washington
-## 212 2015      7      North Central           Wisconsin
-## 213 2015     10   Rockies/Mid-West             Wyoming
-## 214 2016      9  Southwest/Pacific              Alaska
-## 215 2016      9  Southwest/Pacific             Arizona
-## 216 2016      8             Plains            Arkansas
-## 217 2016     10   Rockies/Mid-West            Colorado
-## 218 2016      2      Mideast North         Connecticut
-## 219 2016      3      Mideast South            Delaware
-## 220 2016      5    Gulf Coast East             Florida
-## 221 2016      9  Southwest/Pacific              Hawaii
-## 222 2016      7      North Central            Illinois
-## 223 2016      7      North Central             Indiana
-## 224 2016     10   Rockies/Mid-West              Kansas
-## 225 2016     11    Gulf Coast West           Louisiana
-## 226 2016      4       Mid-Atlantic            Maryland
-## 227 2016      1        New England       Massachusetts
-## 228 2016      6            Central            Michigan
-## 229 2016      7      North Central           Minnesota
-## 230 2016      5    Gulf Coast East         Mississippi
-## 231 2016      8             Plains            Missouri
-## 232 2016     12          Northeast             Montana
-## 233 2016      9  Southwest/Pacific              Nevada
-## 234 2016      8             Plains        North Dakota
-## 235 2016      6            Central                Ohio
-## 236 2016     10   Rockies/Mid-West            Oklahoma
-## 237 2016     12          Northeast              Oregon
-## 238 2016      5    Gulf Coast East         Puerto Rico
-## 239 2016      1        New England        Rhode Island
-## 240 2016      4       Mid-Atlantic      South Carolina
-## 241 2016      8             Plains        South Dakota
-## 242 2016      6            Central           Tennessee
-## 243 2016     11    Gulf Coast West               Texas
-## 244 2016      5    Gulf Coast East U.S. Virgin Islands
-## 245 2016     10   Rockies/Mid-West                Utah
-## 246 2016      2      Mideast North             Vermont
-## 247 2016     12          Northeast          Washington
-## 248 2016      7      North Central           Wisconsin
-## 249 2016     10   Rockies/Mid-West             Wyoming
-## 250 2017      5    Gulf Coast East             Alabama
-## 251 2017      9  Southwest/Pacific              Alaska
-## 252 2017      9  Southwest/Pacific             Arizona
-## 253 2017      8             Plains            Arkansas
-## 254 2017      9  Southwest/Pacific          California
-## 255 2017     10   Rockies/Mid-West            Colorado
-## 256 2017      2      Mideast North         Connecticut
-## 257 2017      3      Mideast South            Delaware
-## 258 2017      5    Gulf Coast East             Florida
-## 259 2017      5    Gulf Coast East             Georgia
-## 260 2017      9  Southwest/Pacific                Guam
-## 261 2017      9  Southwest/Pacific              Hawaii
-## 262 2017     12          Northeast               Idaho
-## 263 2017      7      North Central            Illinois
-## 264 2017      7      North Central             Indiana
-## 265 2017     10   Rockies/Mid-West              Kansas
-## 266 2017      6            Central            Kentucky
-## 267 2017     11    Gulf Coast West           Louisiana
-## 268 2017      1        New England               Maine
-## 269 2017      4       Mid-Atlantic            Maryland
-## 270 2017      1        New England       Massachusetts
-## 271 2017      6            Central            Michigan
-## 272 2017      7      North Central           Minnesota
-## 273 2017      5    Gulf Coast East         Mississippi
-## 274 2017      8             Plains            Missouri
-## 275 2017     12          Northeast             Montana
-## 276 2017      8             Plains            Nebraska
-## 277 2017      9  Southwest/Pacific              Nevada
-## 278 2017      1        New England       New Hampshire
-## 279 2017     10   Rockies/Mid-West          New Mexico
-## 280 2017      2      Mideast North            New York
-## 281 2017      4       Mid-Atlantic      North Carolina
-## 282 2017      8             Plains        North Dakota
-## 283 2017      6            Central                Ohio
-## 284 2017     10   Rockies/Mid-West            Oklahoma
-## 285 2017     12          Northeast              Oregon
-## 286 2017      5    Gulf Coast East         Puerto Rico
-## 287 2017      1        New England        Rhode Island
-## 288 2017      4       Mid-Atlantic      South Carolina
-## 289 2017      8             Plains        South Dakota
-## 290 2017      6            Central           Tennessee
-## 291 2017     11    Gulf Coast West               Texas
-## 292 2017     10   Rockies/Mid-West                Utah
-## 293 2017      2      Mideast North             Vermont
-## 294 2017     12          Northeast          Washington
-## 295 2017      7      North Central           Wisconsin
-## 296 2017     10   Rockies/Mid-West             Wyoming
-## 297 2014      9  Southwest/Pacific              Alaska
-## 298 2014      9  Southwest/Pacific             Arizona
-## 299 2014      9  Southwest/Pacific          California
-## 300 2014     10   Rockies/Mid-West            Colorado
-## 301 2014      3      Mideast South            Delaware
-## 302 2014      5    Gulf Coast East             Florida
-## 303 2014      9  Southwest/Pacific                Guam
-## 304 2014      9  Southwest/Pacific              Hawaii
-## 305 2014     12          Northeast               Idaho
-## 306 2014      7      North Central            Illinois
-## 307 2014      7      North Central             Indiana
-## 308 2014     10   Rockies/Mid-West              Kansas
-## 309 2014      1        New England       Massachusetts
-## 310 2014      6            Central            Michigan
-## 311 2014      7      North Central           Minnesota
-## 312 2014      8             Plains            Missouri
-## 313 2014      5    Gulf Coast East         Mississippi
-## 314 2014     12          Northeast             Montana
-## 315 2014      9  Southwest/Pacific              Nevada
-## 316 2014      6            Central                Ohio
-## 317 2014     10   Rockies/Mid-West            Oklahoma
-## 318 2014     12          Northeast              Oregon
-## 319 2014      8             Plains        South Dakota
-## 320 2014      6            Central           Tennessee
-## 321 2014     11    Gulf Coast West               Texas
-## 322 2014     10   Rockies/Mid-West                Utah
-## 323 2014      5    Gulf Coast East U.S. Virgin Islands
-## 324 2014     12          Northeast          Washington
-## 325 2014     10   Rockies/Mid-West             Wyoming
-## 326 2015      9  Southwest/Pacific              Alaska
-## 327 2015      9  Southwest/Pacific             Arizona
-## 328 2015      8             Plains            Arkansas
-## 329 2015     10   Rockies/Mid-West            Colorado
-## 330 2015      2      Mideast North         Connecticut
-## 331 2015      3      Mideast South            Delaware
-## 332 2015      5    Gulf Coast East             Florida
-## 333 2015      9  Southwest/Pacific              Hawaii
-## 334 2015      7      North Central            Illinois
-## 335 2015      7      North Central             Indiana
-## 336 2015     10   Rockies/Mid-West              Kansas
-## 337 2015     11    Gulf Coast West           Louisiana
-## 338 2015      4       Mid-Atlantic            Maryland
-## 339 2015      1        New England       Massachusetts
-## 340 2015      6            Central            Michigan
-## 341 2015      7      North Central           Minnesota
-## 342 2015      5    Gulf Coast East         Mississippi
-## 343 2015      8             Plains            Missouri
-## 344 2015     12          Northeast             Montana
-## 345 2015      9  Southwest/Pacific              Nevada
-## 346 2015      8             Plains        North Dakota
-## 347 2015      6            Central                Ohio
-## 348 2015     10   Rockies/Mid-West            Oklahoma
-## 349 2015     12          Northeast              Oregon
-## 350 2015      5    Gulf Coast East         Puerto Rico
-## 351 2015      1        New England        Rhode Island
-## 352 2015      4       Mid-Atlantic      South Carolina
-## 353 2015      8             Plains        South Dakota
-## 354 2015      6            Central           Tennessee
-## 355 2015     11    Gulf Coast West               Texas
-## 356 2015      5    Gulf Coast East U.S. Virgin Islands
-## 357 2015     10   Rockies/Mid-West                Utah
-## 358 2015      2      Mideast North             Vermont
-## 359 2015     12          Northeast          Washington
-## 360 2015      7      North Central           Wisconsin
-## 361 2015     10   Rockies/Mid-West             Wyoming
-## 362 2016      9  Southwest/Pacific              Alaska
-## 363 2016      9  Southwest/Pacific             Arizona
-## 364 2016      8             Plains            Arkansas
-## 365 2016     10   Rockies/Mid-West            Colorado
-## 366 2016      2      Mideast North         Connecticut
-## 367 2016      3      Mideast South            Delaware
-## 368 2016      5    Gulf Coast East             Florida
-## 369 2016      9  Southwest/Pacific              Hawaii
-## 370 2016      7      North Central            Illinois
-## 371 2016      7      North Central             Indiana
-## 372 2016     10   Rockies/Mid-West              Kansas
-## 373 2016     11    Gulf Coast West           Louisiana
-## 374 2016      4       Mid-Atlantic            Maryland
-## 375 2016      1        New England       Massachusetts
-## 376 2016      6            Central            Michigan
-## 377 2016      7      North Central           Minnesota
-## 378 2016      5    Gulf Coast East         Mississippi
-## 379 2016      8             Plains            Missouri
-## 380 2016     12          Northeast             Montana
-## 381 2016      9  Southwest/Pacific              Nevada
-## 382 2016      8             Plains        North Dakota
-## 383 2016      6            Central                Ohio
-## 384 2016     10   Rockies/Mid-West            Oklahoma
-## 385 2016     12          Northeast              Oregon
-## 386 2016      5    Gulf Coast East         Puerto Rico
-## 387 2016      1        New England        Rhode Island
-## 388 2016      4       Mid-Atlantic      South Carolina
-## 389 2016      8             Plains        South Dakota
-## 390 2016      6            Central           Tennessee
-## 391 2016     11    Gulf Coast West               Texas
-## 392 2016      5    Gulf Coast East U.S. Virgin Islands
-## 393 2016     10   Rockies/Mid-West                Utah
-## 394 2016      2      Mideast North             Vermont
-## 395 2016     12          Northeast          Washington
-## 396 2016      7      North Central           Wisconsin
-## 397 2016     10   Rockies/Mid-West             Wyoming
-## 398 2017      5    Gulf Coast East             Alabama
-## 399 2017      9  Southwest/Pacific              Alaska
-## 400 2017      9  Southwest/Pacific             Arizona
-## 401 2017      8             Plains            Arkansas
-## 402 2017      9  Southwest/Pacific          California
-## 403 2017     10   Rockies/Mid-West            Colorado
-## 404 2017      2      Mideast North         Connecticut
-## 405 2017      3      Mideast South            Delaware
-## 406 2017      5    Gulf Coast East             Florida
-## 407 2017      5    Gulf Coast East             Georgia
-## 408 2017      9  Southwest/Pacific                Guam
-## 409 2017      9  Southwest/Pacific              Hawaii
-## 410 2017     12          Northeast               Idaho
-## 411 2017      7      North Central            Illinois
-## 412 2017      7      North Central             Indiana
-## 413 2017     10   Rockies/Mid-West              Kansas
-## 414 2017      6            Central            Kentucky
-## 415 2017     11    Gulf Coast West           Louisiana
-## 416 2017      1        New England               Maine
-## 417 2017      4       Mid-Atlantic            Maryland
-## 418 2017      1        New England       Massachusetts
-## 419 2017      6            Central            Michigan
-## 420 2017      7      North Central           Minnesota
-## 421 2017      5    Gulf Coast East         Mississippi
-## 422 2017      8             Plains            Missouri
-## 423 2017     12          Northeast             Montana
-## 424 2017      8             Plains            Nebraska
-## 425 2017      9  Southwest/Pacific              Nevada
-## 426 2017      1        New England       New Hampshire
-## 427 2017     10   Rockies/Mid-West          New Mexico
-## 428 2017      2      Mideast North            New York
-## 429 2017      4       Mid-Atlantic      North Carolina
-## 430 2017      8             Plains        North Dakota
-## 431 2017      6            Central                Ohio
-## 432 2017     10   Rockies/Mid-West            Oklahoma
-## 433 2017     12          Northeast              Oregon
-## 434 2017      5    Gulf Coast East         Puerto Rico
-## 435 2017      1        New England        Rhode Island
-## 436 2017      4       Mid-Atlantic      South Carolina
-## 437 2017      8             Plains        South Dakota
-## 438 2017      6            Central           Tennessee
-## 439 2017     11    Gulf Coast West               Texas
-## 440 2017     10   Rockies/Mid-West                Utah
-## 441 2017      2      Mideast North             Vermont
-## 442 2017     12          Northeast          Washington
-## 443 2017      7      North Central           Wisconsin
-## 444 2017     10   Rockies/Mid-West             Wyoming
-## 445 2014      9  Southwest/Pacific              Alaska
-## 446 2014      9  Southwest/Pacific             Arizona
-## 447 2014      9  Southwest/Pacific          California
-## 448 2014     10   Rockies/Mid-West            Colorado
-## 449 2014      3      Mideast South            Delaware
-## 450 2014      5    Gulf Coast East             Florida
-## 451 2014      9  Southwest/Pacific                Guam
-## 452 2014      9  Southwest/Pacific              Hawaii
-## 453 2014     12          Northeast               Idaho
-## 454 2014      7      North Central            Illinois
-## 455 2014      7      North Central             Indiana
-## 456 2014     10   Rockies/Mid-West              Kansas
-## 457 2014      1        New England       Massachusetts
-## 458 2014      6            Central            Michigan
-## 459 2014      7      North Central           Minnesota
-## 460 2014      8             Plains            Missouri
-## 461 2014      5    Gulf Coast East         Mississippi
-## 462 2014     12          Northeast             Montana
-## 463 2014      9  Southwest/Pacific              Nevada
-## 464 2014      6            Central                Ohio
-## 465 2014     10   Rockies/Mid-West            Oklahoma
-## 466 2014     12          Northeast              Oregon
-## 467 2014      8             Plains        South Dakota
-## 468 2014      6            Central           Tennessee
-## 469 2014     11    Gulf Coast West               Texas
-## 470 2014     10   Rockies/Mid-West                Utah
-## 471 2014      5    Gulf Coast East U.S. Virgin Islands
-## 472 2014     12          Northeast          Washington
-## 473 2014     10   Rockies/Mid-West             Wyoming
-## 474 2015      9  Southwest/Pacific              Alaska
-## 475 2015      9  Southwest/Pacific             Arizona
-## 476 2015      8             Plains            Arkansas
-## 477 2015     10   Rockies/Mid-West            Colorado
-## 478 2015      2      Mideast North         Connecticut
-## 479 2015      3      Mideast South            Delaware
-## 480 2015      5    Gulf Coast East             Florida
-## 481 2015      9  Southwest/Pacific              Hawaii
-## 482 2015      7      North Central            Illinois
-## 483 2015      7      North Central             Indiana
-## 484 2015     10   Rockies/Mid-West              Kansas
-## 485 2015     11    Gulf Coast West           Louisiana
-## 486 2015      4       Mid-Atlantic            Maryland
-## 487 2015      1        New England       Massachusetts
-## 488 2015      6            Central            Michigan
-## 489 2015      7      North Central           Minnesota
-## 490 2015      5    Gulf Coast East         Mississippi
-## 491 2015      8             Plains            Missouri
-## 492 2015     12          Northeast             Montana
-## 493 2015      9  Southwest/Pacific              Nevada
-## 494 2015      8             Plains        North Dakota
-## 495 2015      6            Central                Ohio
-## 496 2015     10   Rockies/Mid-West            Oklahoma
-## 497 2015     12          Northeast              Oregon
-## 498 2015      5    Gulf Coast East         Puerto Rico
-## 499 2015      1        New England        Rhode Island
-## 500 2015      4       Mid-Atlantic      South Carolina
-## 501 2015      8             Plains        South Dakota
-## 502 2015      6            Central           Tennessee
-## 503 2015     11    Gulf Coast West               Texas
-## 504 2015      5    Gulf Coast East U.S. Virgin Islands
-## 505 2015     10   Rockies/Mid-West                Utah
-## 506 2015      2      Mideast North             Vermont
-## 507 2015     12          Northeast          Washington
-## 508 2015      7      North Central           Wisconsin
-## 509 2015     10   Rockies/Mid-West             Wyoming
-## 510 2016      9  Southwest/Pacific              Alaska
-## 511 2016      9  Southwest/Pacific             Arizona
-## 512 2016      8             Plains            Arkansas
-## 513 2016     10   Rockies/Mid-West            Colorado
-## 514 2016      2      Mideast North         Connecticut
-## 515 2016      3      Mideast South            Delaware
-## 516 2016      5    Gulf Coast East             Florida
-## 517 2016      9  Southwest/Pacific              Hawaii
-## 518 2016      7      North Central            Illinois
-## 519 2016      7      North Central             Indiana
-## 520 2016     10   Rockies/Mid-West              Kansas
-## 521 2016     11    Gulf Coast West           Louisiana
-## 522 2016      4       Mid-Atlantic            Maryland
-## 523 2016      1        New England       Massachusetts
-## 524 2016      6            Central            Michigan
-## 525 2016      7      North Central           Minnesota
-## 526 2016      5    Gulf Coast East         Mississippi
-## 527 2016      8             Plains            Missouri
-## 528 2016     12          Northeast             Montana
-## 529 2016      9  Southwest/Pacific              Nevada
-## 530 2016      8             Plains        North Dakota
-## 531 2016      6            Central                Ohio
-## 532 2016     10   Rockies/Mid-West            Oklahoma
-## 533 2016     12          Northeast              Oregon
-## 534 2016      5    Gulf Coast East         Puerto Rico
-## 535 2016      1        New England        Rhode Island
-## 536 2016      4       Mid-Atlantic      South Carolina
-## 537 2016      8             Plains        South Dakota
-## 538 2016      6            Central           Tennessee
-## 539 2016     11    Gulf Coast West               Texas
-## 540 2016      5    Gulf Coast East U.S. Virgin Islands
-## 541 2016     10   Rockies/Mid-West                Utah
-## 542 2016      2      Mideast North             Vermont
-## 543 2016     12          Northeast          Washington
-## 544 2016      7      North Central           Wisconsin
-## 545 2016     10   Rockies/Mid-West             Wyoming
-## 546 2017      5    Gulf Coast East             Alabama
-## 547 2017      9  Southwest/Pacific              Alaska
-## 548 2017      9  Southwest/Pacific             Arizona
-## 549 2017      8             Plains            Arkansas
-## 550 2017      9  Southwest/Pacific          California
-## 551 2017     10   Rockies/Mid-West            Colorado
-## 552 2017      2      Mideast North         Connecticut
-## 553 2017      3      Mideast South            Delaware
-## 554 2017      5    Gulf Coast East             Florida
-## 555 2017      5    Gulf Coast East             Georgia
-## 556 2017      9  Southwest/Pacific                Guam
-## 557 2017      9  Southwest/Pacific              Hawaii
-## 558 2017     12          Northeast               Idaho
-## 559 2017      7      North Central            Illinois
-## 560 2017      7      North Central             Indiana
-## 561 2017     10   Rockies/Mid-West              Kansas
-## 562 2017      6            Central            Kentucky
-## 563 2017     11    Gulf Coast West           Louisiana
-## 564 2017      1        New England               Maine
-## 565 2017      4       Mid-Atlantic            Maryland
-## 566 2017      1        New England       Massachusetts
-## 567 2017      6            Central            Michigan
-## 568 2017      7      North Central           Minnesota
-## 569 2017      5    Gulf Coast East         Mississippi
-## 570 2017      8             Plains            Missouri
-## 571 2017     12          Northeast             Montana
-## 572 2017      8             Plains            Nebraska
-## 573 2017      9  Southwest/Pacific              Nevada
-## 574 2017      1        New England       New Hampshire
-## 575 2017     10   Rockies/Mid-West          New Mexico
-## 576 2017      2      Mideast North            New York
-## 577 2017      4       Mid-Atlantic      North Carolina
-## 578 2017      8             Plains        North Dakota
-## 579 2017      6            Central                Ohio
-## 580 2017     10   Rockies/Mid-West            Oklahoma
-## 581 2017     12          Northeast              Oregon
-## 582 2017      5    Gulf Coast East         Puerto Rico
-## 583 2017      1        New England        Rhode Island
-## 584 2017      4       Mid-Atlantic      South Carolina
-## 585 2017      8             Plains        South Dakota
-## 586 2017      6            Central           Tennessee
-## 587 2017     11    Gulf Coast West               Texas
-## 588 2017     10   Rockies/Mid-West                Utah
-## 589 2017      2      Mideast North             Vermont
-## 590 2017     12          Northeast          Washington
-## 591 2017      7      North Central           Wisconsin
-## 592 2017     10   Rockies/Mid-West             Wyoming
+<pre><code>##     year_data year region region_description               state
+## 1           0 2014      9  Southwest/Pacific              Alaska
+## 2           0 2014      9  Southwest/Pacific             Arizona
+## 3           0 2014      9  Southwest/Pacific          California
+## 4           0 2014     10   Rockies/Mid-West            Colorado
+## 5           0 2014      3      Mideast South            Delaware
+## 6           0 2014      5    Gulf Coast East             Florida
+## 7           0 2014      9  Southwest/Pacific                Guam
+## 8           0 2014      9  Southwest/Pacific              Hawaii
+## 9           0 2014     12          Northeast               Idaho
+## 10          0 2014      7      North Central            Illinois
+## 11          0 2014      7      North Central             Indiana
+## 12          0 2014     10   Rockies/Mid-West              Kansas
+## 13          0 2014      1        New England       Massachusetts
+## 14          0 2014      6            Central            Michigan
+## 15          0 2014      7      North Central           Minnesota
+## 16          0 2014      8             Plains            Missouri
+## 17          0 2014      5    Gulf Coast East         Mississippi
+## 18          0 2014     12          Northeast             Montana
+## 19          0 2014      9  Southwest/Pacific              Nevada
+## 20          0 2014      6            Central                Ohio
+## 21          0 2014     10   Rockies/Mid-West            Oklahoma
+## 22          0 2014     12          Northeast              Oregon
+## 23          0 2014      8             Plains        South Dakota
+## 24          0 2014      6            Central           Tennessee
+## 25          0 2014     11    Gulf Coast West               Texas
+## 26          0 2014     10   Rockies/Mid-West                Utah
+## 27          0 2014      5    Gulf Coast East U.S. Virgin Islands
+## 28          0 2014     12          Northeast          Washington
+## 29          0 2014     10   Rockies/Mid-West             Wyoming
+## 30          1 2015      9  Southwest/Pacific              Alaska
+## 31          1 2015      9  Southwest/Pacific             Arizona
+## 32          1 2015      8             Plains            Arkansas
+## 33          1 2015     10   Rockies/Mid-West            Colorado
+## 34          1 2015      2      Mideast North         Connecticut
+## 35          1 2015      3      Mideast South            Delaware
+## 36          1 2015      5    Gulf Coast East             Florida
+## 37          1 2015      9  Southwest/Pacific              Hawaii
+## 38          1 2015      7      North Central            Illinois
+## 39          1 2015      7      North Central             Indiana
+## 40          1 2015     10   Rockies/Mid-West              Kansas
+## 41          1 2015     11    Gulf Coast West           Louisiana
+## 42          1 2015      4       Mid-Atlantic            Maryland
+## 43          1 2015      1        New England       Massachusetts
+## 44          1 2015      6            Central            Michigan
+## 45          1 2015      7      North Central           Minnesota
+## 46          1 2015      5    Gulf Coast East         Mississippi
+## 47          1 2015      8             Plains            Missouri
+## 48          1 2015     12          Northeast             Montana
+## 49          1 2015      9  Southwest/Pacific              Nevada
+## 50          1 2015      8             Plains        North Dakota
+## 51          1 2015      6            Central                Ohio
+## 52          1 2015     10   Rockies/Mid-West            Oklahoma
+## 53          1 2015     12          Northeast              Oregon
+## 54          1 2015      5    Gulf Coast East         Puerto Rico
+## 55          1 2015      1        New England        Rhode Island
+## 56          1 2015      4       Mid-Atlantic      South Carolina
+## 57          1 2015      8             Plains        South Dakota
+## 58          1 2015      6            Central           Tennessee
+## 59          1 2015     11    Gulf Coast West               Texas
+## 60          1 2015      5    Gulf Coast East U.S. Virgin Islands
+## 61          1 2015     10   Rockies/Mid-West                Utah
+## 62          1 2015      2      Mideast North             Vermont
+## 63          1 2015     12          Northeast          Washington
+## 64          1 2015      7      North Central           Wisconsin
+## 65          1 2015     10   Rockies/Mid-West             Wyoming
+## 66          2 2016      9  Southwest/Pacific              Alaska
+## 67          2 2016      9  Southwest/Pacific             Arizona
+## 68          2 2016      8             Plains            Arkansas
+## 69          2 2016     10   Rockies/Mid-West            Colorado
+## 70          2 2016      2      Mideast North         Connecticut
+## 71          2 2016      3      Mideast South            Delaware
+## 72          2 2016      5    Gulf Coast East             Florida
+## 73          2 2016      9  Southwest/Pacific              Hawaii
+## 74          2 2016      7      North Central            Illinois
+## 75          2 2016      7      North Central             Indiana
+## 76          2 2016     10   Rockies/Mid-West              Kansas
+## 77          2 2016     11    Gulf Coast West           Louisiana
+## 78          2 2016      4       Mid-Atlantic            Maryland
+## 79          2 2016      1        New England       Massachusetts
+## 80          2 2016      6            Central            Michigan
+## 81          2 2016      7      North Central           Minnesota
+## 82          2 2016      5    Gulf Coast East         Mississippi
+## 83          2 2016      8             Plains            Missouri
+## 84          2 2016     12          Northeast             Montana
+## 85          2 2016      9  Southwest/Pacific              Nevada
+## 86          2 2016      8             Plains        North Dakota
+## 87          2 2016      6            Central                Ohio
+## 88          2 2016     10   Rockies/Mid-West            Oklahoma
+## 89          2 2016     12          Northeast              Oregon
+## 90          2 2016      5    Gulf Coast East         Puerto Rico
+## 91          2 2016      1        New England        Rhode Island
+## 92          2 2016      4       Mid-Atlantic      South Carolina
+## 93          2 2016      8             Plains        South Dakota
+## 94          2 2016      6            Central           Tennessee
+## 95          2 2016     11    Gulf Coast West               Texas
+## 96          2 2016      5    Gulf Coast East U.S. Virgin Islands
+## 97          2 2016     10   Rockies/Mid-West                Utah
+## 98          2 2016      2      Mideast North             Vermont
+## 99          2 2016     12          Northeast          Washington
+## 100         2 2016      7      North Central           Wisconsin
+## 101         2 2016     10   Rockies/Mid-West             Wyoming
+## 102         3 2017      5    Gulf Coast East             Alabama
+## 103         3 2017      9  Southwest/Pacific              Alaska
+## 104         3 2017      9  Southwest/Pacific             Arizona
+## 105         3 2017      8             Plains            Arkansas
+## 106         3 2017      9  Southwest/Pacific          California
+## 107         3 2017     10   Rockies/Mid-West            Colorado
+## 108         3 2017      2      Mideast North         Connecticut
+## 109         3 2017      3      Mideast South            Delaware
+## 110         3 2017      5    Gulf Coast East             Florida
+## 111         3 2017      5    Gulf Coast East             Georgia
+## 112         3 2017      9  Southwest/Pacific                Guam
+## 113         3 2017      9  Southwest/Pacific              Hawaii
+## 114         3 2017     12          Northeast               Idaho
+## 115         3 2017      7      North Central            Illinois
+## 116         3 2017      7      North Central             Indiana
+## 117         3 2017     10   Rockies/Mid-West              Kansas
+## 118         3 2017      6            Central            Kentucky
+## 119         3 2017     11    Gulf Coast West           Louisiana
+## 120         3 2017      1        New England               Maine
+## 121         3 2017      4       Mid-Atlantic            Maryland
+## 122         3 2017      1        New England       Massachusetts
+## 123         3 2017      6            Central            Michigan
+## 124         3 2017      7      North Central           Minnesota
+## 125         3 2017      5    Gulf Coast East         Mississippi
+## 126         3 2017      8             Plains            Missouri
+## 127         3 2017     12          Northeast             Montana
+## 128         3 2017      8             Plains            Nebraska
+## 129         3 2017      9  Southwest/Pacific              Nevada
+## 130         3 2017      1        New England       New Hampshire
+## 131         3 2017     10   Rockies/Mid-West          New Mexico
+## 132         3 2017      2      Mideast North            New York
+## 133         3 2017      4       Mid-Atlantic      North Carolina
+## 134         3 2017      8             Plains        North Dakota
+## 135         3 2017      6            Central                Ohio
+## 136         3 2017     10   Rockies/Mid-West            Oklahoma
+## 137         3 2017     12          Northeast              Oregon
+## 138         3 2017      5    Gulf Coast East         Puerto Rico
+## 139         3 2017      1        New England        Rhode Island
+## 140         3 2017      4       Mid-Atlantic      South Carolina
+## 141         3 2017      8             Plains        South Dakota
+## 142         3 2017      6            Central           Tennessee
+## 143         3 2017     11    Gulf Coast West               Texas
+## 144         3 2017     10   Rockies/Mid-West                Utah
+## 145         3 2017      2      Mideast North             Vermont
+## 146         3 2017     12          Northeast          Washington
+## 147         3 2017      7      North Central           Wisconsin
+## 148         3 2017     10   Rockies/Mid-West             Wyoming
+## 149         0 2014      9  Southwest/Pacific              Alaska
+## 150         0 2014      9  Southwest/Pacific             Arizona
+## 151         0 2014      9  Southwest/Pacific          California
+## 152         0 2014     10   Rockies/Mid-West            Colorado
+## 153         0 2014      3      Mideast South            Delaware
+## 154         0 2014      5    Gulf Coast East             Florida
+## 155         0 2014      9  Southwest/Pacific                Guam
+## 156         0 2014      9  Southwest/Pacific              Hawaii
+## 157         0 2014     12          Northeast               Idaho
+## 158         0 2014      7      North Central            Illinois
+## 159         0 2014      7      North Central             Indiana
+## 160         0 2014     10   Rockies/Mid-West              Kansas
+## 161         0 2014      1        New England       Massachusetts
+## 162         0 2014      6            Central            Michigan
+## 163         0 2014      7      North Central           Minnesota
+## 164         0 2014      8             Plains            Missouri
+## 165         0 2014      5    Gulf Coast East         Mississippi
+## 166         0 2014     12          Northeast             Montana
+## 167         0 2014      9  Southwest/Pacific              Nevada
+## 168         0 2014      6            Central                Ohio
+## 169         0 2014     10   Rockies/Mid-West            Oklahoma
+## 170         0 2014     12          Northeast              Oregon
+## 171         0 2014      8             Plains        South Dakota
+## 172         0 2014      6            Central           Tennessee
+## 173         0 2014     11    Gulf Coast West               Texas
+## 174         0 2014     10   Rockies/Mid-West                Utah
+## 175         0 2014      5    Gulf Coast East U.S. Virgin Islands
+## 176         0 2014     12          Northeast          Washington
+## 177         0 2014     10   Rockies/Mid-West             Wyoming
+## 178         1 2015      9  Southwest/Pacific              Alaska
+## 179         1 2015      9  Southwest/Pacific             Arizona
+## 180         1 2015      8             Plains            Arkansas
+## 181         1 2015     10   Rockies/Mid-West            Colorado
+## 182         1 2015      2      Mideast North         Connecticut
+## 183         1 2015      3      Mideast South            Delaware
+## 184         1 2015      5    Gulf Coast East             Florida
+## 185         1 2015      9  Southwest/Pacific              Hawaii
+## 186         1 2015      7      North Central            Illinois
+## 187         1 2015      7      North Central             Indiana
+## 188         1 2015     10   Rockies/Mid-West              Kansas
+## 189         1 2015     11    Gulf Coast West           Louisiana
+## 190         1 2015      4       Mid-Atlantic            Maryland
+## 191         1 2015      1        New England       Massachusetts
+## 192         1 2015      6            Central            Michigan
+## 193         1 2015      7      North Central           Minnesota
+## 194         1 2015      5    Gulf Coast East         Mississippi
+## 195         1 2015      8             Plains            Missouri
+## 196         1 2015     12          Northeast             Montana
+## 197         1 2015      9  Southwest/Pacific              Nevada
+## 198         1 2015      8             Plains        North Dakota
+## 199         1 2015      6            Central                Ohio
+## 200         1 2015     10   Rockies/Mid-West            Oklahoma
+## 201         1 2015     12          Northeast              Oregon
+## 202         1 2015      5    Gulf Coast East         Puerto Rico
+## 203         1 2015      1        New England        Rhode Island
+## 204         1 2015      4       Mid-Atlantic      South Carolina
+## 205         1 2015      8             Plains        South Dakota
+## 206         1 2015      6            Central           Tennessee
+## 207         1 2015     11    Gulf Coast West               Texas
+## 208         1 2015      5    Gulf Coast East U.S. Virgin Islands
+## 209         1 2015     10   Rockies/Mid-West                Utah
+## 210         1 2015      2      Mideast North             Vermont
+## 211         1 2015     12          Northeast          Washington
+## 212         1 2015      7      North Central           Wisconsin
+## 213         1 2015     10   Rockies/Mid-West             Wyoming
+## 214         2 2016      9  Southwest/Pacific              Alaska
+## 215         2 2016      9  Southwest/Pacific             Arizona
+## 216         2 2016      8             Plains            Arkansas
+## 217         2 2016     10   Rockies/Mid-West            Colorado
+## 218         2 2016      2      Mideast North         Connecticut
+## 219         2 2016      3      Mideast South            Delaware
+## 220         2 2016      5    Gulf Coast East             Florida
+## 221         2 2016      9  Southwest/Pacific              Hawaii
+## 222         2 2016      7      North Central            Illinois
+## 223         2 2016      7      North Central             Indiana
+## 224         2 2016     10   Rockies/Mid-West              Kansas
+## 225         2 2016     11    Gulf Coast West           Louisiana
+## 226         2 2016      4       Mid-Atlantic            Maryland
+## 227         2 2016      1        New England       Massachusetts
+## 228         2 2016      6            Central            Michigan
+## 229         2 2016      7      North Central           Minnesota
+## 230         2 2016      5    Gulf Coast East         Mississippi
+## 231         2 2016      8             Plains            Missouri
+## 232         2 2016     12          Northeast             Montana
+## 233         2 2016      9  Southwest/Pacific              Nevada
+## 234         2 2016      8             Plains        North Dakota
+## 235         2 2016      6            Central                Ohio
+## 236         2 2016     10   Rockies/Mid-West            Oklahoma
+## 237         2 2016     12          Northeast              Oregon
+## 238         2 2016      5    Gulf Coast East         Puerto Rico
+## 239         2 2016      1        New England        Rhode Island
+## 240         2 2016      4       Mid-Atlantic      South Carolina
+## 241         2 2016      8             Plains        South Dakota
+## 242         2 2016      6            Central           Tennessee
+## 243         2 2016     11    Gulf Coast West               Texas
+## 244         2 2016      5    Gulf Coast East U.S. Virgin Islands
+## 245         2 2016     10   Rockies/Mid-West                Utah
+## 246         2 2016      2      Mideast North             Vermont
+## 247         2 2016     12          Northeast          Washington
+## 248         2 2016      7      North Central           Wisconsin
+## 249         2 2016     10   Rockies/Mid-West             Wyoming
+## 250         3 2017      5    Gulf Coast East             Alabama
+## 251         3 2017      9  Southwest/Pacific              Alaska
+## 252         3 2017      9  Southwest/Pacific             Arizona
+## 253         3 2017      8             Plains            Arkansas
+## 254         3 2017      9  Southwest/Pacific          California
+## 255         3 2017     10   Rockies/Mid-West            Colorado
+## 256         3 2017      2      Mideast North         Connecticut
+## 257         3 2017      3      Mideast South            Delaware
+## 258         3 2017      5    Gulf Coast East             Florida
+## 259         3 2017      5    Gulf Coast East             Georgia
+## 260         3 2017      9  Southwest/Pacific                Guam
+## 261         3 2017      9  Southwest/Pacific              Hawaii
+## 262         3 2017     12          Northeast               Idaho
+## 263         3 2017      7      North Central            Illinois
+## 264         3 2017      7      North Central             Indiana
+## 265         3 2017     10   Rockies/Mid-West              Kansas
+## 266         3 2017      6            Central            Kentucky
+## 267         3 2017     11    Gulf Coast West           Louisiana
+## 268         3 2017      1        New England               Maine
+## 269         3 2017      4       Mid-Atlantic            Maryland
+## 270         3 2017      1        New England       Massachusetts
+## 271         3 2017      6            Central            Michigan
+## 272         3 2017      7      North Central           Minnesota
+## 273         3 2017      5    Gulf Coast East         Mississippi
+## 274         3 2017      8             Plains            Missouri
+## 275         3 2017     12          Northeast             Montana
+## 276         3 2017      8             Plains            Nebraska
+## 277         3 2017      9  Southwest/Pacific              Nevada
+## 278         3 2017      1        New England       New Hampshire
+## 279         3 2017     10   Rockies/Mid-West          New Mexico
+## 280         3 2017      2      Mideast North            New York
+## 281         3 2017      4       Mid-Atlantic      North Carolina
+## 282         3 2017      8             Plains        North Dakota
+## 283         3 2017      6            Central                Ohio
+## 284         3 2017     10   Rockies/Mid-West            Oklahoma
+## 285         3 2017     12          Northeast              Oregon
+## 286         3 2017      5    Gulf Coast East         Puerto Rico
+## 287         3 2017      1        New England        Rhode Island
+## 288         3 2017      4       Mid-Atlantic      South Carolina
+## 289         3 2017      8             Plains        South Dakota
+## 290         3 2017      6            Central           Tennessee
+## 291         3 2017     11    Gulf Coast West               Texas
+## 292         3 2017     10   Rockies/Mid-West                Utah
+## 293         3 2017      2      Mideast North             Vermont
+## 294         3 2017     12          Northeast          Washington
+## 295         3 2017      7      North Central           Wisconsin
+## 296         3 2017     10   Rockies/Mid-West             Wyoming
+## 297         0 2014      9  Southwest/Pacific              Alaska
+## 298         0 2014      9  Southwest/Pacific             Arizona
+## 299         0 2014      9  Southwest/Pacific          California
+## 300         0 2014     10   Rockies/Mid-West            Colorado
+## 301         0 2014      3      Mideast South            Delaware
+## 302         0 2014      5    Gulf Coast East             Florida
+## 303         0 2014      9  Southwest/Pacific                Guam
+## 304         0 2014      9  Southwest/Pacific              Hawaii
+## 305         0 2014     12          Northeast               Idaho
+## 306         0 2014      7      North Central            Illinois
+## 307         0 2014      7      North Central             Indiana
+## 308         0 2014     10   Rockies/Mid-West              Kansas
+## 309         0 2014      1        New England       Massachusetts
+## 310         0 2014      6            Central            Michigan
+## 311         0 2014      7      North Central           Minnesota
+## 312         0 2014      8             Plains            Missouri
+## 313         0 2014      5    Gulf Coast East         Mississippi
+## 314         0 2014     12          Northeast             Montana
+## 315         0 2014      9  Southwest/Pacific              Nevada
+## 316         0 2014      6            Central                Ohio
+## 317         0 2014     10   Rockies/Mid-West            Oklahoma
+## 318         0 2014     12          Northeast              Oregon
+## 319         0 2014      8             Plains        South Dakota
+## 320         0 2014      6            Central           Tennessee
+## 321         0 2014     11    Gulf Coast West               Texas
+## 322         0 2014     10   Rockies/Mid-West                Utah
+## 323         0 2014      5    Gulf Coast East U.S. Virgin Islands
+## 324         0 2014     12          Northeast          Washington
+## 325         0 2014     10   Rockies/Mid-West             Wyoming
+## 326         1 2015      9  Southwest/Pacific              Alaska
+## 327         1 2015      9  Southwest/Pacific             Arizona
+## 328         1 2015      8             Plains            Arkansas
+## 329         1 2015     10   Rockies/Mid-West            Colorado
+## 330         1 2015      2      Mideast North         Connecticut
+## 331         1 2015      3      Mideast South            Delaware
+## 332         1 2015      5    Gulf Coast East             Florida
+## 333         1 2015      9  Southwest/Pacific              Hawaii
+## 334         1 2015      7      North Central            Illinois
+## 335         1 2015      7      North Central             Indiana
+## 336         1 2015     10   Rockies/Mid-West              Kansas
+## 337         1 2015     11    Gulf Coast West           Louisiana
+## 338         1 2015      4       Mid-Atlantic            Maryland
+## 339         1 2015      1        New England       Massachusetts
+## 340         1 2015      6            Central            Michigan
+## 341         1 2015      7      North Central           Minnesota
+## 342         1 2015      5    Gulf Coast East         Mississippi
+## 343         1 2015      8             Plains            Missouri
+## 344         1 2015     12          Northeast             Montana
+## 345         1 2015      9  Southwest/Pacific              Nevada
+## 346         1 2015      8             Plains        North Dakota
+## 347         1 2015      6            Central                Ohio
+## 348         1 2015     10   Rockies/Mid-West            Oklahoma
+## 349         1 2015     12          Northeast              Oregon
+## 350         1 2015      5    Gulf Coast East         Puerto Rico
+## 351         1 2015      1        New England        Rhode Island
+## 352         1 2015      4       Mid-Atlantic      South Carolina
+## 353         1 2015      8             Plains        South Dakota
+## 354         1 2015      6            Central           Tennessee
+## 355         1 2015     11    Gulf Coast West               Texas
+## 356         1 2015      5    Gulf Coast East U.S. Virgin Islands
+## 357         1 2015     10   Rockies/Mid-West                Utah
+## 358         1 2015      2      Mideast North             Vermont
+## 359         1 2015     12          Northeast          Washington
+## 360         1 2015      7      North Central           Wisconsin
+## 361         1 2015     10   Rockies/Mid-West             Wyoming
+## 362         2 2016      9  Southwest/Pacific              Alaska
+## 363         2 2016      9  Southwest/Pacific             Arizona
+## 364         2 2016      8             Plains            Arkansas
+## 365         2 2016     10   Rockies/Mid-West            Colorado
+## 366         2 2016      2      Mideast North         Connecticut
+## 367         2 2016      3      Mideast South            Delaware
+## 368         2 2016      5    Gulf Coast East             Florida
+## 369         2 2016      9  Southwest/Pacific              Hawaii
+## 370         2 2016      7      North Central            Illinois
+## 371         2 2016      7      North Central             Indiana
+## 372         2 2016     10   Rockies/Mid-West              Kansas
+## 373         2 2016     11    Gulf Coast West           Louisiana
+## 374         2 2016      4       Mid-Atlantic            Maryland
+## 375         2 2016      1        New England       Massachusetts
+## 376         2 2016      6            Central            Michigan
+## 377         2 2016      7      North Central           Minnesota
+## 378         2 2016      5    Gulf Coast East         Mississippi
+## 379         2 2016      8             Plains            Missouri
+## 380         2 2016     12          Northeast             Montana
+## 381         2 2016      9  Southwest/Pacific              Nevada
+## 382         2 2016      8             Plains        North Dakota
+## 383         2 2016      6            Central                Ohio
+## 384         2 2016     10   Rockies/Mid-West            Oklahoma
+## 385         2 2016     12          Northeast              Oregon
+## 386         2 2016      5    Gulf Coast East         Puerto Rico
+## 387         2 2016      1        New England        Rhode Island
+## 388         2 2016      4       Mid-Atlantic      South Carolina
+## 389         2 2016      8             Plains        South Dakota
+## 390         2 2016      6            Central           Tennessee
+## 391         2 2016     11    Gulf Coast West               Texas
+## 392         2 2016      5    Gulf Coast East U.S. Virgin Islands
+## 393         2 2016     10   Rockies/Mid-West                Utah
+## 394         2 2016      2      Mideast North             Vermont
+## 395         2 2016     12          Northeast          Washington
+## 396         2 2016      7      North Central           Wisconsin
+## 397         2 2016     10   Rockies/Mid-West             Wyoming
+## 398         3 2017      5    Gulf Coast East             Alabama
+## 399         3 2017      9  Southwest/Pacific              Alaska
+## 400         3 2017      9  Southwest/Pacific             Arizona
+## 401         3 2017      8             Plains            Arkansas
+## 402         3 2017      9  Southwest/Pacific          California
+## 403         3 2017     10   Rockies/Mid-West            Colorado
+## 404         3 2017      2      Mideast North         Connecticut
+## 405         3 2017      3      Mideast South            Delaware
+## 406         3 2017      5    Gulf Coast East             Florida
+## 407         3 2017      5    Gulf Coast East             Georgia
+## 408         3 2017      9  Southwest/Pacific                Guam
+## 409         3 2017      9  Southwest/Pacific              Hawaii
+## 410         3 2017     12          Northeast               Idaho
+## 411         3 2017      7      North Central            Illinois
+## 412         3 2017      7      North Central             Indiana
+## 413         3 2017     10   Rockies/Mid-West              Kansas
+## 414         3 2017      6            Central            Kentucky
+## 415         3 2017     11    Gulf Coast West           Louisiana
+## 416         3 2017      1        New England               Maine
+## 417         3 2017      4       Mid-Atlantic            Maryland
+## 418         3 2017      1        New England       Massachusetts
+## 419         3 2017      6            Central            Michigan
+## 420         3 2017      7      North Central           Minnesota
+## 421         3 2017      5    Gulf Coast East         Mississippi
+## 422         3 2017      8             Plains            Missouri
+## 423         3 2017     12          Northeast             Montana
+## 424         3 2017      8             Plains            Nebraska
+## 425         3 2017      9  Southwest/Pacific              Nevada
+## 426         3 2017      1        New England       New Hampshire
+## 427         3 2017     10   Rockies/Mid-West          New Mexico
+## 428         3 2017      2      Mideast North            New York
+## 429         3 2017      4       Mid-Atlantic      North Carolina
+## 430         3 2017      8             Plains        North Dakota
+## 431         3 2017      6            Central                Ohio
+## 432         3 2017     10   Rockies/Mid-West            Oklahoma
+## 433         3 2017     12          Northeast              Oregon
+## 434         3 2017      5    Gulf Coast East         Puerto Rico
+## 435         3 2017      1        New England        Rhode Island
+## 436         3 2017      4       Mid-Atlantic      South Carolina
+## 437         3 2017      8             Plains        South Dakota
+## 438         3 2017      6            Central           Tennessee
+## 439         3 2017     11    Gulf Coast West               Texas
+## 440         3 2017     10   Rockies/Mid-West                Utah
+## 441         3 2017      2      Mideast North             Vermont
+## 442         3 2017     12          Northeast          Washington
+## 443         3 2017      7      North Central           Wisconsin
+## 444         3 2017     10   Rockies/Mid-West             Wyoming
+## 445         0 2014      9  Southwest/Pacific              Alaska
+## 446         0 2014      9  Southwest/Pacific             Arizona
+## 447         0 2014      9  Southwest/Pacific          California
+## 448         0 2014     10   Rockies/Mid-West            Colorado
+## 449         0 2014      3      Mideast South            Delaware
+## 450         0 2014      5    Gulf Coast East             Florida
+## 451         0 2014      9  Southwest/Pacific                Guam
+## 452         0 2014      9  Southwest/Pacific              Hawaii
+## 453         0 2014     12          Northeast               Idaho
+## 454         0 2014      7      North Central            Illinois
+## 455         0 2014      7      North Central             Indiana
+## 456         0 2014     10   Rockies/Mid-West              Kansas
+## 457         0 2014      1        New England       Massachusetts
+## 458         0 2014      6            Central            Michigan
+## 459         0 2014      7      North Central           Minnesota
+## 460         0 2014      8             Plains            Missouri
+## 461         0 2014      5    Gulf Coast East         Mississippi
+## 462         0 2014     12          Northeast             Montana
+## 463         0 2014      9  Southwest/Pacific              Nevada
+## 464         0 2014      6            Central                Ohio
+## 465         0 2014     10   Rockies/Mid-West            Oklahoma
+## 466         0 2014     12          Northeast              Oregon
+## 467         0 2014      8             Plains        South Dakota
+## 468         0 2014      6            Central           Tennessee
+## 469         0 2014     11    Gulf Coast West               Texas
+## 470         0 2014     10   Rockies/Mid-West                Utah
+## 471         0 2014      5    Gulf Coast East U.S. Virgin Islands
+## 472         0 2014     12          Northeast          Washington
+## 473         0 2014     10   Rockies/Mid-West             Wyoming
+## 474         1 2015      9  Southwest/Pacific              Alaska
+## 475         1 2015      9  Southwest/Pacific             Arizona
+## 476         1 2015      8             Plains            Arkansas
+## 477         1 2015     10   Rockies/Mid-West            Colorado
+## 478         1 2015      2      Mideast North         Connecticut
+## 479         1 2015      3      Mideast South            Delaware
+## 480         1 2015      5    Gulf Coast East             Florida
+## 481         1 2015      9  Southwest/Pacific              Hawaii
+## 482         1 2015      7      North Central            Illinois
+## 483         1 2015      7      North Central             Indiana
+## 484         1 2015     10   Rockies/Mid-West              Kansas
+## 485         1 2015     11    Gulf Coast West           Louisiana
+## 486         1 2015      4       Mid-Atlantic            Maryland
+## 487         1 2015      1        New England       Massachusetts
+## 488         1 2015      6            Central            Michigan
+## 489         1 2015      7      North Central           Minnesota
+## 490         1 2015      5    Gulf Coast East         Mississippi
+## 491         1 2015      8             Plains            Missouri
+## 492         1 2015     12          Northeast             Montana
+## 493         1 2015      9  Southwest/Pacific              Nevada
+## 494         1 2015      8             Plains        North Dakota
+## 495         1 2015      6            Central                Ohio
+## 496         1 2015     10   Rockies/Mid-West            Oklahoma
+## 497         1 2015     12          Northeast              Oregon
+## 498         1 2015      5    Gulf Coast East         Puerto Rico
+## 499         1 2015      1        New England        Rhode Island
+## 500         1 2015      4       Mid-Atlantic      South Carolina
+## 501         1 2015      8             Plains        South Dakota
+## 502         1 2015      6            Central           Tennessee
+## 503         1 2015     11    Gulf Coast West               Texas
+## 504         1 2015      5    Gulf Coast East U.S. Virgin Islands
+## 505         1 2015     10   Rockies/Mid-West                Utah
+## 506         1 2015      2      Mideast North             Vermont
+## 507         1 2015     12          Northeast          Washington
+## 508         1 2015      7      North Central           Wisconsin
+## 509         1 2015     10   Rockies/Mid-West             Wyoming
+## 510         2 2016      9  Southwest/Pacific              Alaska
+## 511         2 2016      9  Southwest/Pacific             Arizona
+## 512         2 2016      8             Plains            Arkansas
+## 513         2 2016     10   Rockies/Mid-West            Colorado
+## 514         2 2016      2      Mideast North         Connecticut
+## 515         2 2016      3      Mideast South            Delaware
+## 516         2 2016      5    Gulf Coast East             Florida
+## 517         2 2016      9  Southwest/Pacific              Hawaii
+## 518         2 2016      7      North Central            Illinois
+## 519         2 2016      7      North Central             Indiana
+## 520         2 2016     10   Rockies/Mid-West              Kansas
+## 521         2 2016     11    Gulf Coast West           Louisiana
+## 522         2 2016      4       Mid-Atlantic            Maryland
+## 523         2 2016      1        New England       Massachusetts
+## 524         2 2016      6            Central            Michigan
+## 525         2 2016      7      North Central           Minnesota
+## 526         2 2016      5    Gulf Coast East         Mississippi
+## 527         2 2016      8             Plains            Missouri
+## 528         2 2016     12          Northeast             Montana
+## 529         2 2016      9  Southwest/Pacific              Nevada
+## 530         2 2016      8             Plains        North Dakota
+## 531         2 2016      6            Central                Ohio
+## 532         2 2016     10   Rockies/Mid-West            Oklahoma
+## 533         2 2016     12          Northeast              Oregon
+## 534         2 2016      5    Gulf Coast East         Puerto Rico
+## 535         2 2016      1        New England        Rhode Island
+## 536         2 2016      4       Mid-Atlantic      South Carolina
+## 537         2 2016      8             Plains        South Dakota
+## 538         2 2016      6            Central           Tennessee
+## 539         2 2016     11    Gulf Coast West               Texas
+## 540         2 2016      5    Gulf Coast East U.S. Virgin Islands
+## 541         2 2016     10   Rockies/Mid-West                Utah
+## 542         2 2016      2      Mideast North             Vermont
+## 543         2 2016     12          Northeast          Washington
+## 544         2 2016      7      North Central           Wisconsin
+## 545         2 2016     10   Rockies/Mid-West             Wyoming
+## 546         3 2017      5    Gulf Coast East             Alabama
+## 547         3 2017      9  Southwest/Pacific              Alaska
+## 548         3 2017      9  Southwest/Pacific             Arizona
+## 549         3 2017      8             Plains            Arkansas
+## 550         3 2017      9  Southwest/Pacific          California
+## 551         3 2017     10   Rockies/Mid-West            Colorado
+## 552         3 2017      2      Mideast North         Connecticut
+## 553         3 2017      3      Mideast South            Delaware
+## 554         3 2017      5    Gulf Coast East             Florida
+## 555         3 2017      5    Gulf Coast East             Georgia
+## 556         3 2017      9  Southwest/Pacific                Guam
+## 557         3 2017      9  Southwest/Pacific              Hawaii
+## 558         3 2017     12          Northeast               Idaho
+## 559         3 2017      7      North Central            Illinois
+## 560         3 2017      7      North Central             Indiana
+## 561         3 2017     10   Rockies/Mid-West              Kansas
+## 562         3 2017      6            Central            Kentucky
+## 563         3 2017     11    Gulf Coast West           Louisiana
+## 564         3 2017      1        New England               Maine
+## 565         3 2017      4       Mid-Atlantic            Maryland
+## 566         3 2017      1        New England       Massachusetts
+## 567         3 2017      6            Central            Michigan
+## 568         3 2017      7      North Central           Minnesota
+## 569         3 2017      5    Gulf Coast East         Mississippi
+## 570         3 2017      8             Plains            Missouri
+## 571         3 2017     12          Northeast             Montana
+## 572         3 2017      8             Plains            Nebraska
+## 573         3 2017      9  Southwest/Pacific              Nevada
+## 574         3 2017      1        New England       New Hampshire
+## 575         3 2017     10   Rockies/Mid-West          New Mexico
+## 576         3 2017      2      Mideast North            New York
+## 577         3 2017      4       Mid-Atlantic      North Carolina
+## 578         3 2017      8             Plains        North Dakota
+## 579         3 2017      6            Central                Ohio
+## 580         3 2017     10   Rockies/Mid-West            Oklahoma
+## 581         3 2017     12          Northeast              Oregon
+## 582         3 2017      5    Gulf Coast East         Puerto Rico
+## 583         3 2017      1        New England        Rhode Island
+## 584         3 2017      4       Mid-Atlantic      South Carolina
+## 585         3 2017      8             Plains        South Dakota
+## 586         3 2017      6            Central           Tennessee
+## 587         3 2017     11    Gulf Coast West               Texas
+## 588         3 2017     10   Rockies/Mid-West                Utah
+## 589         3 2017      2      Mideast North             Vermont
+## 590         3 2017     12          Northeast          Washington
+## 591         3 2017      7      North Central           Wisconsin
+## 592         3 2017     10   Rockies/Mid-West             Wyoming
 ##                   offense occurrence      age cleared
 ## 1      commercial sex act         11    adult       3
 ## 2      commercial sex act         15    adult       8
@@ -1385,6 +1387,7 @@ ht_offenses_4_years_clean_df</code></pre>
 ## 590 involuntary servitude          1 juvenile       0
 ## 591 involuntary servitude          6 juvenile       0
 ## 592 involuntary servitude          0 juvenile       0</code></pre>
+</div>
 </div>
 
 

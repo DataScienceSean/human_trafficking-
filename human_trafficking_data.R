@@ -191,6 +191,14 @@ ht_offenses_4_years_clean_df$state <- gsub("\\*", "", ht_offenses_4_years_clean_
 ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, region = state)
 ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, region_description = state)
 
+state_regions <- read.csv(file ="state_regions.csv", header = TRUE, sep =",")
+state_regions
+
+if (ht_offenses_4_years_clean_df$region == state_regions$state) {
+  ht_offenses_4_years_clean_df$region <- gsub(ht_offenses_4_years_clean_df$region, state_regions$region, ht_offenses_4_years_clean_df$region)
+  ht_offenses_4_years_clean_df$region_description <- gsub(ht_offenses_4_years_clean_df$region_description, state_regions$region_description, ht_offenses_4_years_clean_df$region_description)
+}
+
 #Replace State Name with Region number and Region Description
 ht_offenses_4_years_clean_df$region <- gsub("Maine", "1", ht_offenses_4_years_clean_df$region)
 ht_offenses_4_years_clean_df$region_description <- gsub("Maine", "New England", ht_offenses_4_years_clean_df$region_description)
