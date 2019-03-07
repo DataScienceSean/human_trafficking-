@@ -263,11 +263,11 @@ ht_offenses_4_years_clean_df$state <- gsub("\\*", "", ht_offenses_4_years_clean_
 Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data.  The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns. The regions and descriptions are in a file state_region.csv.  We will import that data into a dataframe, Create evquivilant columns in the current dataframe.
 
 ```{r include=TRUE}
-ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, region = state)
-ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, region_description = state)
+
 
 state_regions <- read.csv(file = "state_regions.csv")
 state_regions_df <- data.frame(state_regions)
+colnames(state_regions_df)
 ```
 The columns in the state_regions_df are factors and the matching columns in ht_offenses_4_years_clean_df are Characters.
 
@@ -279,6 +279,9 @@ state_regions_df$region_description <- as.character(state_regions_df$region_desc
 
 This code will join the two dataframes.
 
+```{r Include=TRUE}
+ht_offenses_4_years_clean_df <- left_join(ht_offenses_4_years_clean_df, state_regions_df, by = "state")
+```
 
 This Code adds a column for years that will be more usful in regression analysis.
 
@@ -328,6 +331,7 @@ This code creates a new dataframe where the columns for years are gathered into 
 ```{r include=TRUE}
 population_gather <- gather(population_df, year, population, -state)
 population_gather_df <- data.frame(population_gather)
+population_gather_df$year <- as.numeric(population_gather_df$year)
 ```
 Since I may want to use both of these dataframes in the future I am writing them to a csv file.
 
@@ -342,9 +346,7 @@ We have a the human traficing dataframe and the population dataframe and we need
 The human traficing dataframe needs a column for poplulation and then they can be merged.
 
 ```{r inclue=TRUE}
-colnames(state_regions_df)
-colnames(ht_offenses_4_years_clean_df)
-colnames(population_gather_df)
+ht_offenses_4_years_clean_df <- left_join(ht_offenses_4_years_clean_df, population_gather_df, by = c("state", "year"))
 ```
 
 # Write the CSV file

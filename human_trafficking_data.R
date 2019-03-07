@@ -303,6 +303,8 @@ ht_offenses_4_years_clean_df$region_description <- gsub("Idaho", "Northeast", ht
 ht_offenses_4_years_clean_df$region <- gsub("Montana", "12", ht_offenses_4_years_clean_df$region)
 ht_offenses_4_years_clean_df$region_description <- gsub("Montana", "Northeast", ht_offenses_4_years_clean_df$region_description)
 
+help("gather")
+
 # Reorders the Column Names
 ht_offenses_4_years_clean_df <- select(ht_offenses_4_years_clean_df, year, region, region_description, state, offense, occurrence, age, cleared,everything())
 
