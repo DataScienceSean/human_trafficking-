@@ -91,7 +91,7 @@ ht_offenses_clearing_2017
 ht_offenses_clearing_2017_df <- data.frame(ht_offenses_clearing_2017)
 
 # There are no column names, so I am adding the column names.
-colnames(ht_offenses_clearing_2017_df) <- c("State", "commercial_sex_act_offense", "commercial_sex_act_cleared", "commercial_sex_act_cleared_under_18", "involuntary_servitude_offense", "involuntary_servitude_cleared", "involuntary_servitude_cleared_under_18","total_offenses", "total_cleared","total_under_18")
+colnames(ht_offenses_clearing_2017_df) <- c("state", "commercial_sex_act_offense", "commercial_sex_act_cleared", "commercial_sex_act_cleared_under_18", "involuntary_servitude_offense", "involuntary_servitude_cleared", "involuntary_servitude_cleared_under_18","total_offenses", "total_cleared","total_under_18")
 
 # There are 4 rows in the file that were used a data information in the excel file that are not needed.  I am deleting these rows.
 ht_offenses_clearing_2017_df <- ht_offenses_clearing_2017_df[-c(1, 2, 3, 4),]
@@ -194,10 +194,6 @@ ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, region_desc
 state_regions <- read.csv(file ="state_regions.csv", header = TRUE, sep =",")
 state_regions
 
-if (ht_offenses_4_years_clean_df$region == state_regions$state) {
-  ht_offenses_4_years_clean_df$region <- gsub(ht_offenses_4_years_clean_df$region, state_regions$region, ht_offenses_4_years_clean_df$region)
-  ht_offenses_4_years_clean_df$region_description <- gsub(ht_offenses_4_years_clean_df$region_description, state_regions$region_description, ht_offenses_4_years_clean_df$region_description)
-}
 
 #Replace State Name with Region number and Region Description
 ht_offenses_4_years_clean_df$region <- gsub("Maine", "1", ht_offenses_4_years_clean_df$region)

@@ -1,7 +1,7 @@
 ---
 title: "Data Cleaning"
 author: "Sean F. Larsen"
-date: "February 27, 2019"
+date: "March 6, 2019"
 output: html_document
 ---
 
@@ -347,6 +347,7 @@ The human traficing dataframe needs a column for poplulation and then they can b
 
 ```{r inclue=TRUE}
 ht_offenses_4_years_clean_df <- left_join(ht_offenses_4_years_clean_df, population_gather_df, by = c("state", "year"))
+ht_offenses_4_years_clean_df
 ```
 
 # Write the CSV file
