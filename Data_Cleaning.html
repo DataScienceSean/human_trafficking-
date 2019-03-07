@@ -186,7 +186,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Data Cleaning</h1>
 <h4 class="author"><em>Sean F. Larsen</em></h4>
-<h4 class="date"><em>March 6, 2019</em></h4>
+<h4 class="date"><em>March, 2019</em></h4>
 
 </div>
 
@@ -410,6 +410,11 @@ write.csv(population_gather_df, file = &quot;population_by_sate_by_year_long.csv
 <pre class="r"><code>ht_offenses_4_years_clean_df &lt;- left_join(ht_offenses_4_years_clean_df, population_gather_df, by = c(&quot;state&quot;, &quot;year&quot;))</code></pre>
 <pre><code>## Warning: Column `state` joining character vector and factor, coercing into
 ## character vector</code></pre>
+<pre class="r"><code>colnames(ht_offenses_4_years_clean_df)</code></pre>
+<pre><code>##  [1] &quot;year_data&quot;          &quot;year&quot;               &quot;region&quot;            
+##  [4] &quot;region_description&quot; &quot;state&quot;              &quot;offense&quot;           
+##  [7] &quot;occurrence&quot;         &quot;age&quot;                &quot;cleared&quot;           
+## [10] &quot;population&quot;</code></pre>
 <pre class="r"><code>ht_offenses_4_years_clean_df</code></pre>
 <pre><code>##     year_data year region region_description               state
 ## 1           0 2014      9  Southwest/Pacific              Alaska

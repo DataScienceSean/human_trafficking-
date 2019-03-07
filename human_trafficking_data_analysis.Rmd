@@ -31,4 +31,3 @@ ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, occ_per_100
 ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, clr_per_100k = cleared / population * 100000)
 ```
 
-First Attempt at a Plot

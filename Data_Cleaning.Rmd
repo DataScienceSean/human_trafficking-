@@ -1,7 +1,7 @@
 ---
 title: "Data Cleaning"
 author: "Sean F. Larsen"
-date: "March 6, 2019"
+date: "March, 2019"
 output: html_document
 ---
 
@@ -347,7 +347,17 @@ The human traficing dataframe needs a column for poplulation and then they can b
 
 ```{r inclue=TRUE}
 ht_offenses_4_years_clean_df <- left_join(ht_offenses_4_years_clean_df, population_gather_df, by = c("state", "year"))
-ht_offenses_4_years_clean_df
+```
+
+## Crime Stats
+
+In the United States Crime Statisitics are ussually descibed as instance per 100,000 people in a population.
+This code will add a column dividing the instances of the crimes by the population and multiplying by 100,000.
+This is the number that will be used in the analysis.
+
+```{r include = TRUE}
+ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, occ_per_100k = occurrence / population * 1000000)
+ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, clr_per_100k = cleared / population * 1000000)
 ```
 
 # Write the CSV file
