@@ -7,27 +7,21 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library("ggplot2")
 library("dplyr")
+library("tidyr")
 ```
 
 ## Retriving the Data
 
 The data has been cleaned and is ready for analysis.  First step will be to look at the data and determine what additional data will be needed.
 
-```{r include=TRUE}
+```{r include=FALSE}
 ht_offenses_4_years_clean <- read.csv("Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv")
 ht_offenses_4_years_clean_df <- data.frame(ht_offenses_4_years_clean)
 ht_offenses_4_years_clean_df$X <- NULL
 ```
 
-## Crime Stats
-
-In the United States Crime Statisitics are ussually descibed as instance per 100,000 people in a population.
-This code will add a column dividing the instances of the crimes by the population and multiplying by 100,000.
-This is the number that will be used in the analysis.
-
-```{r include = TRUE}
-ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, occ_per_100k = occurrence / population * 100000)
-ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, clr_per_100k = cleared / population * 100000)
+```{r include=TRUE}
+sp_df <- filter(ht_offenses_4_years_clean_df, region_description == "Southwest/Pacific", offense == "commercial sex act", occ_per_100k > 0)
 ```
-

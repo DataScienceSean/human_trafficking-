@@ -195,15 +195,7 @@ $(document).ready(function () {
 <div id="retriving-the-data" class="section level2">
 <h2>Retriving the Data</h2>
 <p>The data has been cleaned and is ready for analysis. First step will be to look at the data and determine what additional data will be needed.</p>
-<pre class="r"><code>ht_offenses_4_years_clean &lt;- read.csv(&quot;Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv&quot;)
-ht_offenses_4_years_clean_df &lt;- data.frame(ht_offenses_4_years_clean)
-ht_offenses_4_years_clean_df$X &lt;- NULL</code></pre>
-</div>
-<div id="crime-stats" class="section level2">
-<h2>Crime Stats</h2>
-<p>In the United States Crime Statisitics are ussually descibed as instance per 100,000 people in a population. This code will add a column dividing the instances of the crimes by the population and multiplying by 100,000. This is the number that will be used in the analysis.</p>
-<pre class="r"><code>ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, occ_per_100k = occurrence / population * 100000)
-ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, clr_per_100k = cleared / population * 100000)</code></pre>
+<pre class="r"><code>sp_df &lt;- filter(ht_offenses_4_years_clean_df, region_description == &quot;Southwest/Pacific&quot;, offense == &quot;commercial sex act&quot;, occ_per_100k &gt; 0)</code></pre>
 </div>
 
 
