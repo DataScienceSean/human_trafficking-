@@ -22,9 +22,11 @@ ht_offenses_4_years_clean_df <- data.frame(ht_offenses_4_years_clean)
 ht_offenses_4_years_clean_df$X <- NULL
 ```
 
-```{r include=TRUE}
+```{r}
 sp_df <- filter(ht_offenses_4_years_clean_df, region_description == "Southwest/Pacific", offense == "commercial sex act", occ_per_100k > 0)
-sp_df
-ggplot(sp_df, aes(x = year, y = occ_per_100k), col = state)
-geom_histogram(binwidth = 5)
+ggplot(sp_df, aes(x = year, y = occ_per_100k)) + geom_smooth()
+ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_smooth()
+ggplot(sp_df, aes(x = year, y = occ_per_100k)) + geom_point()
+ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_point()
+
 ```
