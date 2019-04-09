@@ -23,5 +23,8 @@ ht_offenses_4_years_clean_df$X <- NULL
 ```
 
 ```{r include=TRUE}
-sp_df <- filter(ht_offenses_4_years_clean_df, region_description == "Southwest/Pacific", offense == "commercial sex act", occ_per_100k > 0)
+sp_df <- filter(ht_offenses_4_years_clean_df, region_description == "Southwest/Pacific", offense == "commercial sex act", occ_per_100k > 0, year)
+sp_df
+ggplot(sp_df, aes(x = year, y = occ_per_100k ))
+geom_bar()
 ```
