@@ -32,8 +32,7 @@ When I prepared the data and read the different pieces of information, I had exp
 sp_df <- filter(ht_offenses_4_years_clean_df, region_description == "Southwest/Pacific", offense == "commercial sex act", occ_per_100k > 0)
 ggplot(sp_df, aes(x = year, y = occ_per_100k)) + geom_smooth()
 ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_smooth()
-ggplot(sp_df, aes(x = year, y = occ_per_100k)) + geom_point()
-ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_point()
-ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_point()
+ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_jitter()
+ggplot(sp_df, aes(x = state, fill = occ_per_100k)) + geom_bar(position = "dodge")
 
 ```
