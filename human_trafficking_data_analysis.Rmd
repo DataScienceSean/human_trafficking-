@@ -22,11 +22,18 @@ ht_offenses_4_years_clean_df <- data.frame(ht_offenses_4_years_clean)
 ht_offenses_4_years_clean_df$X <- NULL
 ```
 
+## Expectations
+
+It is a travisty that here were are in the 21st century and human traficing is a growing problem.  It was once considered a third would problem of under developed nations.  With the proliferation of pornography and the political and economic instability of developing nations, here we are. Individulas of wealthy nations taking willfuly taking advantage of those who need help more than ever.
+
+When I prepared the data and read the different pieces of information, I had expected to see an increaseing treadline.  I had epected to see regions with increased activity, and my analyis would point to areas that FBI and other law enforcement agencies could focus resources.  However the data seems inconsitant. Since I only have  4 years worth of data, and state agencies report crime based severity, at this point it doesn't seem possible to make any predicitve analysis with this data. 
+
 ```{r}
 sp_df <- filter(ht_offenses_4_years_clean_df, region_description == "Southwest/Pacific", offense == "commercial sex act", occ_per_100k > 0)
 ggplot(sp_df, aes(x = year, y = occ_per_100k)) + geom_smooth()
 ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_smooth()
 ggplot(sp_df, aes(x = year, y = occ_per_100k)) + geom_point()
+ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_point()
 ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_point()
 
 ```
