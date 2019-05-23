@@ -10,6 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 library("ggplot2")
 library("dplyr")
 library("tidyr")
+library("treemapify")
+library("reshape2")
+library("plyr")
 ```
 
 ## Retriving the Data
@@ -30,9 +33,17 @@ When I prepared the data and read the different pieces of information, I had exp
 
 ```{r}
 sp_df <- filter(ht_offenses_4_years_clean_df, region_description == "Southwest/Pacific", offense == "commercial sex act", occ_per_100k > 0)
-ggplot(sp_df, aes(x = year, y = occ_per_100k)) + geom_smooth()
+ggplot(sp_df, aes(x = year, y = occ_per_100k, ylab = "Occurance per 100k people")) + geom_smooth()
 ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_smooth()
-ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_jitter()
-ggplot(sp_df, aes(x = state, fill = occ_per_100k)) + geom_bar(position = "dodge")
+ggplot(sp_df, aes(x = year, y = occ_per_100k, col = state)) + geom_point()
+ggplot(sp_df, aes(x = occ_per_100k, fill = state)) + geom_histogram(binwidth = 50, position = "dodge")
+ggplot(sp_df, aes(x = state, y = occ_per_100k)) + geom_bar(stat = "identity", fill ="grey50")
+```
 
+## Treemap
+This is a treemap to attempt to show hi areas of occurances.
+
+```{r echo=TRUE}
+
+ggplot(ht_offenses_4_years_clean_df, aes(subgroup = state, area = occ_per_100k, fill = occ_per_100k)) + geom_treemap() + geom_treemap_text(aes(label = state), fontface = "italic", colour = "white", place = "centre", grow = F, reflow = T) + facet_wrap(year~.)
 ```
