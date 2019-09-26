@@ -1,0 +1,46 @@
+---
+title: "Is Human Trafficking Really A Problem?"
+author: "Sean F. Larsen"
+date: "September 24, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(treemapify)
+library(breakDown)
+library(reshape2)
+library(plyr)
+```
+
+## Is Human Trafficking Really a Problem?
+```{r include=FALSE}
+ht_offenses_4_years_clean <- read.csv("Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv")
+ht_offenses_4_years_clean_df <- data.frame(ht_offenses_4_years_clean)
+ht_offenses_4_years_clean_df$X <- NULL
+```
+
+A pastime of many of my friends is to scan their facebook feed for something new, unusual, or shocking. Not too long ago, as I was browsing, I saw a post that surprised me. A friend posted a picture of a sign glued to the inside wall of a bathroom stall.  “Get Help! If you are a victim of Human Trafficking call this number.”  I wondered if human trafficking was really that bad and if it was essential to have that sign in a bathroom stall.
+
+![](https://i.redd.it/z5xyp90dd8a31.jpg){width=350px}
+
+<br />
+Not too long after that, a friend shared a video of the actor Ashton Kutcher testifying before congress about the global problem of human trafficking.<br />
+<https://www.nbcmiami.com/multimedia/Kutcher-Testifies-Ending-Modern-Slavery-Human-Trafficking-413862723.html>
+
+Ashton founded a non-profit organization called Thorn to combat human trafficking and has a website dedicated to helping end child sexual abuse from the internet.<br />
+<https://www.thorn.org/>
+
+With a quick search, I found hundreds of organizations dedicated to ending human trafficking.  I also found story after story and countless news article of some hero who saved someone or some group from human trafficking. If this was so prevalent, why wasn’t the mainstream media covering this?  Admittedly most of these stories were from foreign countries, but there were articles from Las Vegas and surprisingly North Dakota and Minnisota.  So this begs the question, how prevalent is human trafficking in the United States?
+
+## How Prevalent is Human Trafficking in the United States?
+
+Even though many of these articles date back to as far as 2005, the FBI only began recording incidents of human trafficking in January of 2013.  The US Department of Justice maintains a database called the Uniform Crime Reporting Program. According to the Department of Justice website “ The FBI’s Uniform Crime Reporting (UCR) Program is a nationwide, cooperative statistical effort of nearly 18,000 cities, university and college, county, state, tribal, and federal law enforcement agencies voluntarily reporting data on crimes brought to their attention.” In other words, a lot of people involved in Law Enforcement are reporting instances of human trafficking, and it is voluntary.  Some organizations might misreport or not report at all.
+
+```{r echo=FALSE}
+```
+
+
