@@ -1,7 +1,7 @@
 ---
 title: "Is Human Trafficking Really A Problem?"
 author: "Sean F. Larsen"
-date: "September 24, 2019"
+date: "December 3, 2019"
 output: html_document
 ---
 
@@ -40,7 +40,15 @@ With a quick search, I found hundreds of organizations dedicated to ending human
 
 Even though many of these articles date back to as far as 2005, the FBI only began recording incidents of human trafficking in January of 2013.  The US Department of Justice maintains a database called the Uniform Crime Reporting Program. According to the Department of Justice website “ The FBI’s Uniform Crime Reporting (UCR) Program is a nationwide, cooperative statistical effort of nearly 18,000 cities, university and college, county, state, tribal, and federal law enforcement agencies voluntarily reporting data on crimes brought to their attention.” In other words, a lot of people involved in Law Enforcement are reporting instances of human trafficking, and it is voluntary.  Some organizations might misreport or not report at all.
 
+Lets look at two charts.  The first chart shows total report cases of human trafficing.  The second chart shows the occurrence of human trafficking for every 100,000 people in the United States.
+
 ```{r echo=FALSE}
+total_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occurrence > 0)
+ggplot(total_plot, aes(x = year, y = occurrence)) + geom_bar(stat = "identity", fill ="blue") + ggtitle("Total Occurrences of Human Trafficking \nFrom 2014 Through 2017") + labs(y= "Occurrences", x = "Year")+ geom_text(aes(label = paste0(round(sum(occurrence), digits=0)), size = 4))
+
+occ_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occ_per_100k > 0)
+ggplot(occ_plot, aes(x = year, y = occ_per_100k)) + geom_bar(stat = "identity", fill ="red") + ggtitle("Occurrence of Human Trafficking \nFor Every 100,000 People in the United States") + labs(y= "Occurrences Per 100k People", x = "Year") + geom_text(aes(label = paste0(round(sum(occ_per_100k), digits=0)), size = 4))
+                                                                                                                                                                                                                                                           
 ```
 
 
