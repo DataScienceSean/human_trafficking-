@@ -1,6 +1,7 @@
 library("readxl")
 library("dplyr")
 library("tidyr")
+install.packages("breakDown")
 
 # Human Trafficking files were loaded from the FBI Uniform Crime Report Crimes in the United States data site.
 # 2014 data was derived from the following site https://ucr.fbi.gov/crime-in-the-u.s/2014/crime-in-the-u.s.-2014/additional-reports/human-trafficking-report/human-trafficking.pdf
@@ -302,7 +303,9 @@ ht_offenses_4_years_clean_df$region_description <- gsub("Montana", "Northeast", 
 help("gather")
 
 # Reorders the Column Names
-ht_offenses_4_years_clean_df <- select(ht_offenses_4_years_clean_df, year, region, region_description, state, offense, occurrence, age, cleared,everything())
+head(ht_offenses_4_years_clean_df) <- select(ht_offenses_4_years_clean_df, year, region, region_description, state, offense, occurrence, age, cleared,everything())
 
 # Writing data to a csv file
 write.csv(ht_offenses_4_years_clean_df, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv")
+
+install.packages("reshape2")

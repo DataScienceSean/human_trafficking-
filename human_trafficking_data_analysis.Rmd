@@ -7,12 +7,13 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library("ggplot2")
-library("dplyr")
-library("tidyr")
-library("treemapify")
-library("reshape2")
-library("plyr")
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(treemapify)
+library(breakDown)
+library(reshape2)
+library(plyr)
 ```
 
 ## Retriving the Data
@@ -44,6 +45,8 @@ ggplot(sp_df, aes(x = state, y = occ_per_100k)) + geom_bar(stat = "identity", fi
 This is a treemap to attempt to show hi areas of occurances.
 
 ```{r echo=TRUE}
+tree_data <- data.frame(ht_offenses_4_years_clean_df$state, round(ht_offenses_4_years_clean_df$occ_per_100k, digits = 0), ht_offenses_4_years_clean_df$year)
+colnames(tree_data) <- c("state", "occ_per_100k", "year")
 
-ggplot(ht_offenses_4_years_clean_df, aes(subgroup = state, area = occ_per_100k, fill = occ_per_100k)) + geom_treemap() + geom_treemap_text(aes(label = state), fontface = "italic", colour = "white", place = "centre", grow = F, reflow = T) + facet_wrap(year~.)
+ggplot(tree_data, aes(area = occ_per_100k, fill = occ_per_100k)) + geom_treemap() + geom_treemap_text(aes(label = state), fontface = "italic", colour = "white", place = "centre", grow = F, reflow = T) + facet_wrap(year~.)
 ```
