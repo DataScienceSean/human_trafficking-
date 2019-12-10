@@ -38,6 +38,8 @@ ht_offenses_clearing_2014_df <- ht_offenses_clearing_2014_df[-c(1, 2, 3, 4),]
 ht_offenses_clearing_2014_df <- mutate(ht_offenses_clearing_2014_df,"year" = 2014)
 ht_offenses_clearing_2014_df <- select(ht_offenses_clearing_2014_df, year, everything())
 
+ht_offenses_4_years_clean_df
+
 # Writing data to a csv file
 write.csv(ht_offenses_clearing_2014_df, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2014.csv")
 
@@ -309,3 +311,5 @@ head(ht_offenses_4_years_clean_df) <- select(ht_offenses_4_years_clean_df, year,
 write.csv(ht_offenses_4_years_clean_df, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv")
 
 install.packages("reshape2")
+
+ht_offenses_4_years_clean_df

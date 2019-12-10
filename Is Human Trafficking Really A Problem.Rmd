@@ -44,11 +44,16 @@ Lets look at two charts.  The first chart shows total report cases of human traf
 
 ```{r echo=FALSE}
 total_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occurrence > 0)
-ggplot(total_plot, aes(x = year, y = occurrence)) + geom_bar(stat = "identity", fill ="blue") + ggtitle("Total Occurrences of Human Trafficking \nFrom 2014 Through 2017") + labs(y= "Occurrences", x = "Year")+ geom_text(aes(label = paste0(round(sum(occurrence), digits=0)), size = 4))
+ggplot(total_plot, aes(x = year, y = occurrence)) + geom_bar(stat = "identity", fill ="blue") + ggtitle("Total Occurrences of Human Trafficking \nFrom 2014 Through 2017") + labs(y= "Occurrences", x = "Year")
 
 occ_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occ_per_100k > 0)
-ggplot(occ_plot, aes(x = year, y = occ_per_100k)) + geom_bar(stat = "identity", fill ="red") + ggtitle("Occurrence of Human Trafficking \nFor Every 100,000 People in the United States") + labs(y= "Occurrences Per 100k People", x = "Year") + geom_text(aes(label = paste0(round(sum(occ_per_100k), digits=0)), size = 4))
-                                                                                                                                                                                                                                                           
+ggplot(occ_plot, aes(x = year, y = occ_per_100k)) + geom_bar(stat = "identity", fill ="red") + ggtitle("Occurrence of Human Trafficking \nFor Every 100,000 People in the United States") + labs(y= "Occurrences Per 100k People", x = "Year")
+
 ```
+
+
+2014 is the first year and the instance is significantly lower than other year and is most likely the result of under reporting.  We can see that for the years 2015 through 2017, Human Trafficking is defiantly and issue, but appears to be in a slight decline.  However, more information is need to determine this.
+
+In 2014 there were 600 recorded occurences of human trafficking.  In 2015 there were 1,488 occurences, 2016	there were 2,014 occurrences, and in 2017 there were 1,988.
 
 
