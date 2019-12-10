@@ -111,7 +111,7 @@ ht_offenses_clearing_2017_df <- select(ht_offenses_clearing_2017_df, year, every
 
 ## Writing the data to a file
 
-Now the data hass been set-up, I will rewrite each of the CSV files.
+Now the data has been set-up, I will rewrite each of the CSV files.
 
 ```{r include=FALSE}
 write.csv(ht_offenses_clearing_2014, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2014.csv")
@@ -263,8 +263,6 @@ ht_offenses_4_years_clean_df$state <- gsub("\\*", "", ht_offenses_4_years_clean_
 Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data.  The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns. The regions and descriptions are in a file state_region.csv.  We will import that data into a dataframe, Create evquivilant columns in the current dataframe.
 
 ```{r include=TRUE}
-
-
 state_regions <- read.csv(file = "state_regions.csv")
 state_regions_df <- data.frame(state_regions)
 colnames(state_regions_df)
@@ -332,6 +330,7 @@ This code creates a new dataframe where the columns for years are gathered into 
 population_gather <- gather(population_df, year, population, -state)
 population_gather_df <- data.frame(population_gather)
 population_gather_df$year <- as.numeric(population_gather_df$year)
+population_gather_df$population <- as.numeric(population_gather_df$population)
 ```
 Since I may want to use both of these dataframes in the future I am writing them to a csv file.
 
@@ -347,6 +346,7 @@ The human traficing dataframe needs a column for poplulation and then they can b
 
 ```{r inclue=TRUE}
 ht_offenses_4_years_clean_df <- left_join(ht_offenses_4_years_clean_df, population_gather_df, by = c("state", "year"))
+
 ```
 
 ## Crime Stats
@@ -365,5 +365,6 @@ ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, clr_per_100
 This code writes the final data to a new CSV file.
 ```{r include=TRUE}
 write.csv(ht_offenses_4_years_clean_df, file = "Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017_clean.csv")
+
 ```
 
