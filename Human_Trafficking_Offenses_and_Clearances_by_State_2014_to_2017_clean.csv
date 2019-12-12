@@ -150,460 +150,456 @@
 "149","3",2017,"12","Northeast","Washington","commercial sex act",29,"adult",6,7294680,3.97549995339069,0.822517231736005
 "150","3",2017,"7","North Central","Wisconsin","commercial sex act",59,"adult",16,5772958,10.2200639602782,2.77154276888902
 "151","3",2017,"10","Rockies/Mid-West","Wyoming","commercial sex act",2,"adult",1,584290,3.42295777781581,1.71147888890791
-"152","3",2017,NA,NA," Data submitted through the Bureau of Indian Affairs.","commercial sex act",NA,"adult",NA,NA,NA,NA
-"153","0",2014,"9","Southwest/Pacific","Alaska","commercial sex act",11,"juvenile",0,737045,14.9244618713918,0
-"154","0",2014,"9","Southwest/Pacific","Arizona","commercial sex act",15,"juvenile",0,6634999,2.26073884864188,0
-"155","0",2014,"9","Southwest/Pacific","California","commercial sex act",0,"juvenile",0,38280824,0,0
-"156","0",2014,"10","Rockies/Mid-West","Colorado","commercial sex act",11,"juvenile",0,5270482,2.08709563945005,0
-"157","0",2014,"3","Mideast South","Delaware","commercial sex act",0,"juvenile",0,923638,0,0
-"158","0",2014,"5","Gulf Coast East","Florida","commercial sex act",57,"juvenile",0,19563166,2.91363882512677,0
-"159","0",2014,"9","Southwest/Pacific","Guam","commercial sex act",0,"juvenile",0,160375,0,0
-"160","0",2014,"9","Southwest/Pacific","Hawaii","commercial sex act",0,"juvenile",0,1408453,0,0
-"161","0",2014,"12","Northeast","Idaho","commercial sex act",0,"juvenile",0,1611530,0,0
-"162","0",2014,"7","North Central","Illinois","commercial sex act",50,"juvenile",0,12898269,3.87648916300319,0
-"163","0",2014,"7","North Central","Indiana","commercial sex act",0,"juvenile",0,6568367,0,0
-"164","0",2014,"10","Rockies/Mid-West","Kansas","commercial sex act",1,"juvenile",0,2893510,0.345601017449395,0
-"165","0",2014,"1","New England","Massachusetts","commercial sex act",6,"juvenile",0,6713944,0.893662502993769,0
-"166","0",2014,"6","Central","Michigan","commercial sex act",2,"juvenile",0,9913349,0.201748168050979,0
-"167","0",2014,"7","North Central","Minnesota","commercial sex act",22,"juvenile",0,5413693,4.06376940842416,0
-"168","0",2014,"8","Plains","Missouri","commercial sex act",5,"juvenile",1,6040658,0.827724396911727,0.165544879382345
-"169","0",2014,"5","Gulf Coast East","Mississippi","commercial sex act",0,"juvenile",0,2988797,0,0
-"170","0",2014,"12","Northeast","Montana","commercial sex act",1,"juvenile",0,1013564,0.986617519959272,0
-"171","0",2014,"9","Southwest/Pacific","Nevada","commercial sex act",0,"juvenile",0,2776972,0,0
-"172","0",2014,"6","Central","Ohio","commercial sex act",0,"juvenile",0,11576576,0,0
-"173","0",2014,"10","Rockies/Mid-West","Oklahoma","commercial sex act",10,"juvenile",0,3853205,2.59524214258001,0
-"174","0",2014,"12","Northeast","Oregon","commercial sex act",0,"juvenile",0,3922908,0,0
-"175","0",2014,"8","Plains","South Dakota","commercial sex act",0,"juvenile",0,842270,0,0
-"176","0",2014,"6","Central","Tennessee","commercial sex act",29,"juvenile",0,6493432,4.46605123453976,0
-"177","0",2014,"11","Gulf Coast West","Texas","commercial sex act",78,"juvenile",5,26489464,2.94456694178485,0.188754291140055
-"178","0",2014,"10","Rockies/Mid-West","Utah","commercial sex act",0,"juvenile",0,2897927,0,0
-"179","0",2014,"5","Gulf Coast East","U.S. Virgin Islands","commercial sex act",0,"juvenile",0,108044,0,0
-"180","0",2014,"12","Northeast","Washington","commercial sex act",2,"juvenile",0,6962906,0.287236392391338,0
-"181","0",2014,"10","Rockies/Mid-West","Wyoming","commercial sex act",0,"juvenile",0,582123,0,0
-"182","1",2015,"9","Southwest/Pacific","Alaska","commercial sex act",10,"juvenile",0,736307,13.5812914993338,0
-"183","1",2015,"9","Southwest/Pacific","Arizona","commercial sex act",5,"juvenile",0,6733840,0.742518384755206,0
-"184","1",2015,"8","Plains","Arkansas","commercial sex act",5,"juvenile",0,2967726,1.68479165529432,0
-"185","1",2015,"10","Rockies/Mid-West","Colorado","commercial sex act",11,"juvenile",0,5351218,2.05560677961541,0
-"186","1",2015,"2","Mideast North","Connecticut","commercial sex act",0,"juvenile",0,3594783,0,0
-"187","1",2015,"3","Mideast South","Delaware","commercial sex act",0,"juvenile",0,932596,0,0
-"188","1",2015,"5","Gulf Coast East","Florida","commercial sex act",44,"juvenile",0,19860330,2.21547174694479,0
-"189","1",2015,"9","Southwest/Pacific","Guam","commercial sex act",0,"juvenile",0,160967,0,0
-"190","1",2015,"9","Southwest/Pacific","Hawaii","commercial sex act",3,"juvenile",0,1414862,2.12034813289211,0
-"191","1",2015,"12","Northeast","Idaho","commercial sex act",0,"juvenile",0,1631479,0,0
-"192","1",2015,"7","North Central","Illinois","commercial sex act",53,"juvenile",0,12888962,4.11204564029283,0
-"193","1",2015,"7","North Central","Indiana","commercial sex act",0,"juvenile",0,6593533,0,0
-"194","1",2015,"10","Rockies/Mid-West","Kansas","commercial sex act",0,"juvenile",0,2900896,0,0
-"195","1",2015,"11","Gulf Coast West","Louisiana","commercial sex act",51,"juvenile",1,4644204,10.9814297563156,0.21532215208462
-"196","1",2015,"1","New England","Maine","commercial sex act",0,"juvenile",0,1330760,0,0
-"197","1",2015,"4","Mid-Atlantic","Maryland","commercial sex act",27,"juvenile",0,5958165,4.53159655699364,0
-"198","1",2015,"1","New England","Massachusetts","commercial sex act",0,"juvenile",0,6763652,0,0
-"199","1",2015,"6","Central","Michigan","commercial sex act",3,"juvenile",0,9930589,0.302096884686296,0
-"200","1",2015,"7","North Central","Minnesota","commercial sex act",119,"juvenile",0,5451522,21.8287663518555,0
-"201","1",2015,"5","Gulf Coast East","Mississippi","commercial sex act",0,"juvenile",0,2990623,0,0
-"202","1",2015,"8","Plains","Missouri","commercial sex act",13,"juvenile",0,6056293,2.14652758708999,0
-"203","1",2015,"12","Northeast","Montana","commercial sex act",0,"juvenile",0,1021891,0,0
-"204","1",2015,"8","Plains","Nebraska","commercial sex act",0,"juvenile",0,1879522,0,0
-"205","1",2015,"9","Southwest/Pacific","Nevada","commercial sex act",214,"juvenile",1,2819012,75.9131213347087,0.354734211844433
-"206","1",2015,"2","Mideast North","New York","commercial sex act",0,"juvenile",0,19656330,0,0
-"207","1",2015,"4","Mid-Atlantic","North Carolina","commercial sex act",0,"juvenile",0,9933944,0,0
-"208","1",2015,"6","Central","Ohio","commercial sex act",3,"juvenile",0,11602973,0.258554423939451,0
-"209","1",2015,"10","Rockies/Mid-West","Oklahoma","commercial sex act",38,"juvenile",1,3878367,9.79793815283597,0.25784047770621
-"210","1",2015,"12","Northeast","Oregon","commercial sex act",0,"juvenile",0,3964106,0,0
-"211","1",2015,"5","Gulf Coast East","Puerto Rico","commercial sex act",0,"juvenile",0,3534874,0,0
-"212","1",2015,"1","New England","Rhode Island","commercial sex act",0,"juvenile",0,1056017,0,0
-"213","1",2015,"4","Mid-Atlantic","South Carolina","commercial sex act",10,"juvenile",0,4823793,2.07305744670221,0
-"214","1",2015,"8","Plains","South Dakota","commercial sex act",0,"juvenile",0,849088,0,0
-"215","1",2015,"6","Central","Tennessee","commercial sex act",32,"juvenile",0,6540826,4.89234845874206,0
-"216","1",2015,"11","Gulf Coast West","Texas","commercial sex act",98,"juvenile",0,26977142,3.63270505081672,0
-"217","1",2015,"5","Gulf Coast East","U.S. Virgin Islands","commercial sex act",0,"juvenile",0,107884,0,0
-"218","1",2015,"10","Rockies/Mid-West","Utah","commercial sex act",0,"juvenile",0,2937399,0,0
-"219","1",2015,"12","Northeast","Washington","commercial sex act",1,"juvenile",0,7052439,0.14179491662388,0
-"220","1",2015,"7","North Central","Wisconsin","commercial sex act",4,"juvenile",0,5751974,0.695413435457114,0
-"221","1",2015,"10","Rockies/Mid-West","Wyoming","commercial sex act",0,"juvenile",0,582548,0,0
-"222","2",2016,"9","Southwest/Pacific","Alaska","commercial sex act",11,"juvenile",0,737547,14.914303766404,0
-"223","2",2016,"9","Southwest/Pacific","Arizona","commercial sex act",19,"juvenile",0,6833596,2.78038092974768,0
-"224","2",2016,"8","Plains","Arkansas","commercial sex act",4,"juvenile",0,2978407,1.34299979821428,0
-"225","2",2016,"10","Rockies/Mid-West","Colorado","commercial sex act",12,"juvenile",0,5452107,2.20098394987479,0
-"226","2",2016,"2","Mideast North","Connecticut","commercial sex act",1,"juvenile",0,3587509,0.278744945308848,0
-"227","2",2016,"3","Mideast South","Delaware","commercial sex act",0,"juvenile",0,941413,0,0
-"228","2",2016,"5","Gulf Coast East","Florida","commercial sex act",98,"juvenile",0,20224249,4.8456681877285,0
-"229","2",2016,"9","Southwest/Pacific","Hawaii","commercial sex act",2,"juvenile",0,1422484,1.40599120974296,0
-"230","2",2016,"7","North Central","Illinois","commercial sex act",21,"juvenile",0,12864342,1.63241928736036,0
-"231","2",2016,"7","North Central","Indiana","commercial sex act",4,"juvenile",2,6608296,0.605299762601433,0.302649881300717
-"232","2",2016,"10","Rockies/Mid-West","Kansas","commercial sex act",0,"juvenile",0,2909502,0,0
-"233","2",2016,"11","Gulf Coast West","Louisiana","commercial sex act",121,"juvenile",2,4664851,25.938663421404,0.428738238370314
-"234","2",2016,"4","Mid-Atlantic","Maryland","commercial sex act",17,"juvenile",0,5986717,2.83961977825242,0
-"235","2",2016,"1","New England","Massachusetts","commercial sex act",0,"juvenile",0,6795891,0,0
-"236","2",2016,"6","Central","Michigan","commercial sex act",1,"juvenile",0,9932573,0.100678847263443,0
-"237","2",2016,"7","North Central","Minnesota","commercial sex act",235,"juvenile",1,5482503,42.8636336359506,0.182398441004045
-"238","2",2016,"5","Gulf Coast East","Mississippi","commercial sex act",0,"juvenile",0,2988693,0,0
-"239","2",2016,"8","Plains","Missouri","commercial sex act",16,"juvenile",3,6071745,2.63515677947608,0.494091896151765
-"240","2",2016,"12","Northeast","Montana","commercial sex act",1,"juvenile",0,1030503,0.970399892091532,0
-"241","2",2016,"9","Southwest/Pacific","Nevada","commercial sex act",140,"juvenile",35,2868666,48.8031719273,12.200792981825
-"242","2",2016,"8","Plains","North Dakota","commercial sex act",4,"juvenile",0,754022,5.30488500335534,0
-"243","2",2016,"6","Central","Ohio","commercial sex act",1,"juvenile",0,11617850,0.0860744457881622,0
-"244","2",2016,"10","Rockies/Mid-West","Oklahoma","commercial sex act",42,"juvenile",1,3909831,10.7421522822853,0.255765530530604
-"245","2",2016,"12","Northeast","Oregon","commercial sex act",0,"juvenile",0,4016918,0,0
-"246","2",2016,"5","Gulf Coast East","Puerto Rico","commercial sex act",0,"juvenile",0,3473166,0,0
-"247","2",2016,"1","New England","Rhode Island","commercial sex act",5,"juvenile",0,1056173,4.73407292176566,0
-"248","2",2016,"4","Mid-Atlantic","South Carolina","commercial sex act",15,"juvenile",2,4892253,3.06607201222014,0.408809601629352
-"249","2",2016,"8","Plains","South Dakota","commercial sex act",0,"juvenile",0,853933,0,0
-"250","2",2016,"6","Central","Tennessee","commercial sex act",55,"juvenile",0,6590808,8.34495558056008,0
-"251","2",2016,"11","Gulf Coast West","Texas","commercial sex act",130,"juvenile",2,27486814,4.72954049894615,0.0727621615222484
-"252","2",2016,"5","Gulf Coast East","U.S. Virgin Islands","commercial sex act",0,"juvenile",0,107710,0,0
-"253","2",2016,"10","Rockies/Mid-West","Utah","commercial sex act",0,"juvenile",0,2982497,0,0
-"254","2",2016,"2","Mideast North","Vermont","commercial sex act",2,"juvenile",0,625197,3.19899167782315,0
-"255","2",2016,"12","Northeast","Washington","commercial sex act",13,"juvenile",0,7163543,1.81474446373813,0
-"256","2",2016,"7","North Central","Wisconsin","commercial sex act",34,"juvenile",1,5761406,5.90133727774088,0.173568743462967
-"257","2",2016,"10","Rockies/Mid-West","Wyoming","commercial sex act",3,"juvenile",0,585668,5.12235601057254,0
-"258","3",2017,"5","Gulf Coast East","Alabama","commercial sex act",0,"juvenile",0,4864745,0,0
-"259","3",2017,"9","Southwest/Pacific","Alaska","commercial sex act",2,"juvenile",0,741504,2.69722078370447,0
-"260","3",2017,"9","Southwest/Pacific","Arizona","commercial sex act",92,"juvenile",3,6945452,13.2460781530129,0.431937331076509
-"261","3",2017,"8","Plains","Arkansas","commercial sex act",0,"juvenile",0,2990410,0,0
-"262","3",2017,"9","Southwest/Pacific","California","commercial sex act",0,"juvenile",0,39209127,0,0
-"263","3",2017,"10","Rockies/Mid-West","Colorado","commercial sex act",49,"juvenile",0,5540921,8.84329518504234,0
-"264","3",2017,"2","Mideast North","Connecticut","commercial sex act",8,"juvenile",0,3578674,2.23546486771357,0
-"265","3",2017,"3","Mideast South","Delaware","commercial sex act",5,"juvenile",0,949216,5.26750497252469,0
-"266","3",2017,"5","Gulf Coast East","Florida","commercial sex act",65,"juvenile",0,20629982,3.15075408209275,0
-"267","3",2017,"5","Gulf Coast East","Georgia","commercial sex act",0,"juvenile",0,10304763,0,0
-"268","3",2017,"9","Southwest/Pacific","Guam","commercial sex act",0,"juvenile",0,162896,0,0
-"269","3",2017,"9","Southwest/Pacific","Hawaii","commercial sex act",2,"juvenile",0,1428105,1.40045724929189,0
-"270","3",2017,"12","Northeast","Idaho","commercial sex act",0,"juvenile",0,1682930,0,0
-"271","3",2017,"7","North Central","Illinois","commercial sex act",26,"juvenile",0,12826895,2.02699094363835,0
-"272","3",2017,"7","North Central","Indiana","commercial sex act",2,"juvenile",0,6633344,0.30150705285298,0
-"273","3",2017,"10","Rockies/Mid-West","Kansas","commercial sex act",3,"juvenile",0,2911263,1.03048058523053,0
-"274","3",2017,"6","Central","Kentucky","commercial sex act",8,"juvenile",0,4438229,1.80252078024816,0
-"275","3",2017,"11","Gulf Coast West","Louisiana","commercial sex act",59,"juvenile",0,4678215,12.6116478186659,0
-"276","3",2017,"1","New England","Maine","commercial sex act",2,"juvenile",0,1331370,1.50221200718057,0
-"277","3",2017,"4","Mid-Atlantic","Maryland","commercial sex act",0,"juvenile",0,6004692,0,0
-"278","3",2017,"1","New England","Massachusetts","commercial sex act",17,"juvenile",0,6826022,2.49046955899058,0
-"279","3",2017,"6","Central","Michigan","commercial sex act",11,"juvenile",0,9951890,1.10531768337472,0
-"280","3",2017,"7","North Central","Minnesota","commercial sex act",173,"juvenile",1,5523409,31.3212365769039,0.181047610271121
-"281","3",2017,"5","Gulf Coast East","Mississippi","commercial sex act",0,"juvenile",0,2988298,0,0
-"282","3",2017,"8","Plains","Missouri","commercial sex act",25,"juvenile",1,6087203,4.10697655392797,0.164279062157119
-"283","3",2017,"12","Northeast","Montana","commercial sex act",2,"juvenile",0,1040863,1.9214824621492,0
-"284","3",2017,"8","Plains","Nebraska","commercial sex act",0,"juvenile",0,1905924,0,0
-"285","3",2017,"9","Southwest/Pacific","Nevada","commercial sex act",5,"juvenile",0,2919772,1.71246247994706,0
-"286","3",2017,"1","New England","New Hampshire","commercial sex act",2,"juvenile",0,1342373,1.48989885821601,0
-"287","3",2017,"10","Rockies/Mid-West","New Mexico","commercial sex act",0,"juvenile",0,2092789,0,0
-"288","3",2017,"2","Mideast North","New York","commercial sex act",0,"juvenile",0,19641589,0,0
-"289","3",2017,"4","Mid-Atlantic","North Carolina","commercial sex act",0,"juvenile",0,10156679,0,0
-"290","3",2017,"8","Plains","North Dakota","commercial sex act",10,"juvenile",0,754353,13.2563932270436,0
-"291","3",2017,"6","Central","Ohio","commercial sex act",0,"juvenile",0,11635003,0,0
-"292","3",2017,"10","Rockies/Mid-West","Oklahoma","commercial sex act",25,"juvenile",2,3926769,6.36655734014402,0.509324587211522
-"293","3",2017,"12","Northeast","Oregon","commercial sex act",1,"juvenile",0,4091404,0.244414875675929,0
-"294","3",2017,"5","Gulf Coast East","Puerto Rico","commercial sex act",0,"juvenile",0,3406495,0,0
-"295","3",2017,"1","New England","Rhode Island","commercial sex act",12,"juvenile",0,1057063,11.3522089033482,0
-"296","3",2017,"4","Mid-Atlantic","South Carolina","commercial sex act",26,"juvenile",1,4958235,5.2438014737099,0.201684672065765
-"297","3",2017,"8","Plains","South Dakota","commercial sex act",3,"juvenile",0,862890,3.47668880158537,0
-"298","3",2017,"6","Central","Tennessee","commercial sex act",75,"juvenile",1,6645011,11.2866630318595,0.150488840424794
-"299","3",2017,"11","Gulf Coast West","Texas","commercial sex act",193,"juvenile",4,27937492,6.90827938313146,0.143176774779927
-"300","3",2017,"10","Rockies/Mid-West","Utah","commercial sex act",1,"juvenile",0,3042613,0.328664867993399,0
-"301","3",2017,"12","Northeast","Washington","commercial sex act",29,"juvenile",0,7294680,3.97549995339069,0
-"302","3",2017,"7","North Central","Wisconsin","commercial sex act",59,"juvenile",0,5772958,10.2200639602782,0
-"303","3",2017,"10","Rockies/Mid-West","Wyoming","commercial sex act",2,"juvenile",1,584290,3.42295777781581,1.71147888890791
-"304","3",2017,NA,NA," Data submitted through the Bureau of Indian Affairs.","commercial sex act",NA,"juvenile",NA,NA,NA,NA
-"305","0",2014,"9","Southwest/Pacific","Alaska","involuntary servitude",0,"adult",0,737045,0,0
-"306","0",2014,"9","Southwest/Pacific","Arizona","involuntary servitude",0,"adult",0,6634999,0,0
-"307","0",2014,"9","Southwest/Pacific","California","involuntary servitude",0,"adult",0,38280824,0,0
-"308","0",2014,"10","Rockies/Mid-West","Colorado","involuntary servitude",2,"adult",0,5270482,0.379471934445464,0
-"309","0",2014,"3","Mideast South","Delaware","involuntary servitude",0,"adult",0,923638,0,0
-"310","0",2014,"5","Gulf Coast East","Florida","involuntary servitude",3,"adult",3,19563166,0.153349411848777,0.153349411848777
-"311","0",2014,"9","Southwest/Pacific","Guam","involuntary servitude",0,"adult",0,160375,0,0
-"312","0",2014,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"adult",0,1408453,0,0
-"313","0",2014,"12","Northeast","Idaho","involuntary servitude",0,"adult",0,1611530,0,0
-"314","0",2014,"7","North Central","Illinois","involuntary servitude",17,"adult",0,12898269,1.31800631542108,0
-"315","0",2014,"7","North Central","Indiana","involuntary servitude",0,"adult",0,6568367,0,0
-"316","0",2014,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"adult",0,2893510,0,0
-"317","0",2014,"1","New England","Massachusetts","involuntary servitude",1,"adult",0,6713944,0.148943750498962,0
-"318","0",2014,"6","Central","Michigan","involuntary servitude",1,"adult",0,9913349,0.100874084025489,0
-"319","0",2014,"7","North Central","Minnesota","involuntary servitude",1,"adult",1,5413693,0.184716791292007,0.184716791292007
-"320","0",2014,"8","Plains","Missouri","involuntary servitude",1,"adult",0,6040658,0.165544879382345,0
-"321","0",2014,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"adult",0,2988797,0,0
-"322","0",2014,"12","Northeast","Montana","involuntary servitude",0,"adult",0,1013564,0,0
-"323","0",2014,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"adult",0,2776972,0,0
-"324","0",2014,"6","Central","Ohio","involuntary servitude",0,"adult",0,11576576,0,0
-"325","0",2014,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",0,"adult",0,3853205,0,0
-"326","0",2014,"12","Northeast","Oregon","involuntary servitude",0,"adult",0,3922908,0,0
-"327","0",2014,"8","Plains","South Dakota","involuntary servitude",0,"adult",0,842270,0,0
-"328","0",2014,"6","Central","Tennessee","involuntary servitude",1,"adult",0,6493432,0.154001766708268,0
-"329","0",2014,"11","Gulf Coast West","Texas","involuntary servitude",113,"adult",14,26489464,4.26584697976524,0.528512015192153
-"330","0",2014,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"adult",0,2897927,0,0
-"331","0",2014,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"adult",0,108044,0,0
-"332","0",2014,"12","Northeast","Washington","involuntary servitude",0,"adult",0,6962906,0,0
-"333","0",2014,"10","Rockies/Mid-West","Wyoming","involuntary servitude",1,"adult",0,582123,1.71785000764443,0
-"334","1",2015,"9","Southwest/Pacific","Alaska","involuntary servitude",0,"adult",0,736307,0,0
-"335","1",2015,"9","Southwest/Pacific","Arizona","involuntary servitude",1,"adult",0,6733840,0.148503676951041,0
-"336","1",2015,"8","Plains","Arkansas","involuntary servitude",0,"adult",0,2967726,0,0
-"337","1",2015,"10","Rockies/Mid-West","Colorado","involuntary servitude",6,"adult",2,5351218,1.1212400616084,0.373746687202801
-"338","1",2015,"2","Mideast North","Connecticut","involuntary servitude",0,"adult",0,3594783,0,0
-"339","1",2015,"3","Mideast South","Delaware","involuntary servitude",0,"adult",0,932596,0,0
-"340","1",2015,"5","Gulf Coast East","Florida","involuntary servitude",2,"adult",0,19860330,0.100703261224763,0
-"341","1",2015,"9","Southwest/Pacific","Guam","involuntary servitude",0,"adult",0,160967,0,0
-"342","1",2015,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"adult",0,1414862,0,0
-"343","1",2015,"12","Northeast","Idaho","involuntary servitude",0,"adult",0,1631479,0,0
-"344","1",2015,"7","North Central","Illinois","involuntary servitude",8,"adult",0,12888962,0.620686134383824,0
-"345","1",2015,"7","North Central","Indiana","involuntary servitude",0,"adult",0,6593533,0,0
-"346","1",2015,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"adult",0,2900896,0,0
-"347","1",2015,"11","Gulf Coast West","Louisiana","involuntary servitude",0,"adult",0,4644204,0,0
-"348","1",2015,"1","New England","Maine","involuntary servitude",0,"adult",0,1330760,0,0
-"349","1",2015,"4","Mid-Atlantic","Maryland","involuntary servitude",1,"adult",1,5958165,0.167836909518283,0.167836909518283
-"350","1",2015,"1","New England","Massachusetts","involuntary servitude",2,"adult",1,6763652,0.295698241127722,0.147849120563861
-"351","1",2015,"6","Central","Michigan","involuntary servitude",0,"adult",0,9930589,0,0
-"352","1",2015,"7","North Central","Minnesota","involuntary servitude",0,"adult",0,5451522,0,0
-"353","1",2015,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"adult",0,2990623,0,0
-"354","1",2015,"8","Plains","Missouri","involuntary servitude",0,"adult",0,6056293,0,0
-"355","1",2015,"12","Northeast","Montana","involuntary servitude",0,"adult",0,1021891,0,0
-"356","1",2015,"8","Plains","Nebraska","involuntary servitude",0,"adult",0,1879522,0,0
-"357","1",2015,"9","Southwest/Pacific","Nevada","involuntary servitude",2,"adult",0,2819012,0.709468423688867,0
-"358","1",2015,"2","Mideast North","New York","involuntary servitude",0,"adult",0,19656330,0,0
-"359","1",2015,"4","Mid-Atlantic","North Carolina","involuntary servitude",0,"adult",0,9933944,0,0
-"360","1",2015,"6","Central","Ohio","involuntary servitude",0,"adult",0,11602973,0,0
-"361","1",2015,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",2,"adult",1,3878367,0.51568095541242,0.25784047770621
-"362","1",2015,"12","Northeast","Oregon","involuntary servitude",0,"adult",0,3964106,0,0
-"363","1",2015,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"adult",0,3534874,0,0
-"364","1",2015,"1","New England","Rhode Island","involuntary servitude",0,"adult",0,1056017,0,0
-"365","1",2015,"4","Mid-Atlantic","South Carolina","involuntary servitude",4,"adult",0,4823793,0.829222978680885,0
-"366","1",2015,"8","Plains","South Dakota","involuntary servitude",0,"adult",0,849088,0,0
-"367","1",2015,"6","Central","Tennessee","involuntary servitude",3,"adult",1,6540826,0.458657668007068,0.152885889335689
-"368","1",2015,"11","Gulf Coast West","Texas","involuntary servitude",187,"adult",71,26977142,6.93179433166048,2.63185774089783
-"369","1",2015,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"adult",0,107884,0,0
-"370","1",2015,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"adult",0,2937399,0,0
-"371","1",2015,"12","Northeast","Washington","involuntary servitude",0,"adult",0,7052439,0,0
-"372","1",2015,"7","North Central","Wisconsin","involuntary servitude",0,"adult",0,5751974,0,0
-"373","1",2015,"10","Rockies/Mid-West","Wyoming","involuntary servitude",1,"adult",0,582548,1.7165967439593,0
-"374","2",2016,"9","Southwest/Pacific","Alaska","involuntary servitude",1,"adult",0,737547,1.35584579694582,0
-"375","2",2016,"9","Southwest/Pacific","Arizona","involuntary servitude",0,"adult",0,6833596,0,0
-"376","2",2016,"8","Plains","Arkansas","involuntary servitude",2,"adult",0,2978407,0.67149989910714,0
-"377","2",2016,"10","Rockies/Mid-West","Colorado","involuntary servitude",22,"adult",9,5452107,4.03513724143712,1.65073796240609
-"378","2",2016,"2","Mideast North","Connecticut","involuntary servitude",1,"adult",0,3587509,0.278744945308848,0
-"379","2",2016,"3","Mideast South","Delaware","involuntary servitude",0,"adult",0,941413,0,0
-"380","2",2016,"5","Gulf Coast East","Florida","involuntary servitude",7,"adult",4,20224249,0.346119156266322,0.197782375009327
-"381","2",2016,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"adult",0,1422484,0,0
-"382","2",2016,"7","North Central","Illinois","involuntary servitude",3,"adult",0,12864342,0.233202755337195,0
-"383","2",2016,"7","North Central","Indiana","involuntary servitude",0,"adult",0,6608296,0,0
-"384","2",2016,"10","Rockies/Mid-West","Kansas","involuntary servitude",2,"adult",1,2909502,0.687402861383151,0.343701430691575
-"385","2",2016,"11","Gulf Coast West","Louisiana","involuntary servitude",2,"adult",2,4664851,0.428738238370314,0.428738238370314
-"386","2",2016,"4","Mid-Atlantic","Maryland","involuntary servitude",0,"adult",0,5986717,0,0
-"387","2",2016,"1","New England","Massachusetts","involuntary servitude",3,"adult",3,6795891,0.441443219145216,0.441443219145216
-"388","2",2016,"6","Central","Michigan","involuntary servitude",2,"adult",0,9932573,0.201357694526886,0
-"389","2",2016,"7","North Central","Minnesota","involuntary servitude",0,"adult",0,5482503,0,0
-"390","2",2016,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"adult",0,2988693,0,0
-"391","2",2016,"8","Plains","Missouri","involuntary servitude",0,"adult",0,6071745,0,0
-"392","2",2016,"12","Northeast","Montana","involuntary servitude",0,"adult",0,1030503,0,0
-"393","2",2016,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"adult",0,2868666,0,0
-"394","2",2016,"8","Plains","North Dakota","involuntary servitude",1,"adult",1,754022,1.32622125083883,1.32622125083883
-"395","2",2016,"6","Central","Ohio","involuntary servitude",0,"adult",0,11617850,0,0
-"396","2",2016,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",4,"adult",3,3909831,1.02306212212241,0.76729659159181
-"397","2",2016,"12","Northeast","Oregon","involuntary servitude",0,"adult",0,4016918,0,0
-"398","2",2016,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"adult",0,3473166,0,0
-"399","2",2016,"1","New England","Rhode Island","involuntary servitude",1,"adult",0,1056173,0.946814584353132,0
-"400","2",2016,"4","Mid-Atlantic","South Carolina","involuntary servitude",7,"adult",7,4892253,1.43083360570273,1.43083360570273
-"401","2",2016,"8","Plains","South Dakota","involuntary servitude",0,"adult",0,853933,0,0
-"402","2",2016,"6","Central","Tennessee","involuntary servitude",0,"adult",0,6590808,0,0
-"403","2",2016,"11","Gulf Coast West","Texas","involuntary servitude",127,"adult",27,27486814,4.62039725666278,0.982289180550354
-"404","2",2016,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"adult",0,107710,0,0
-"405","2",2016,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"adult",0,2982497,0,0
-"406","2",2016,"2","Mideast North","Vermont","involuntary servitude",0,"adult",0,625197,0,0
-"407","2",2016,"12","Northeast","Washington","involuntary servitude",1,"adult",1,7163543,0.139595727979856,0.139595727979856
-"408","2",2016,"7","North Central","Wisconsin","involuntary servitude",1,"adult",0,5761406,0.173568743462967,0
-"409","2",2016,"10","Rockies/Mid-West","Wyoming","involuntary servitude",2,"adult",1,585668,3.41490400704836,1.70745200352418
-"410","3",2017,"5","Gulf Coast East","Alabama","involuntary servitude",0,"adult",0,4864745,0,0
-"411","3",2017,"9","Southwest/Pacific","Alaska","involuntary servitude",1,"adult",0,741504,1.34861039185224,0
-"412","3",2017,"9","Southwest/Pacific","Arizona","involuntary servitude",7,"adult",4,6945452,1.00785377251185,0.575916441435345
-"413","3",2017,"8","Plains","Arkansas","involuntary servitude",0,"adult",0,2990410,0,0
-"414","3",2017,"9","Southwest/Pacific","California","involuntary servitude",0,"adult",0,39209127,0,0
-"415","3",2017,"10","Rockies/Mid-West","Colorado","involuntary servitude",7,"adult",0,5540921,1.26332788357748,0
-"416","3",2017,"2","Mideast North","Connecticut","involuntary servitude",0,"adult",0,3578674,0,0
-"417","3",2017,"3","Mideast South","Delaware","involuntary servitude",0,"adult",0,949216,0,0
-"418","3",2017,"5","Gulf Coast East","Florida","involuntary servitude",24,"adult",7,20629982,1.16335535338809,0.339311978071527
-"419","3",2017,"5","Gulf Coast East","Georgia","involuntary servitude",0,"adult",0,10304763,0,0
-"420","3",2017,"9","Southwest/Pacific","Guam","involuntary servitude",0,"adult",0,162896,0,0
-"421","3",2017,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"adult",0,1428105,0,0
-"422","3",2017,"12","Northeast","Idaho","involuntary servitude",0,"adult",0,1682930,0,0
-"423","3",2017,"7","North Central","Illinois","involuntary servitude",8,"adult",0,12826895,0.623689521119491,0
-"424","3",2017,"7","North Central","Indiana","involuntary servitude",1,"adult",0,6633344,0.15075352642649,0
-"425","3",2017,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"adult",0,2911263,0,0
-"426","3",2017,"6","Central","Kentucky","involuntary servitude",14,"adult",0,4438229,3.15441136543428,0
-"427","3",2017,"11","Gulf Coast West","Louisiana","involuntary servitude",2,"adult",2,4678215,0.427513485378504,0.427513485378504
-"428","3",2017,"1","New England","Maine","involuntary servitude",0,"adult",0,1331370,0,0
-"429","3",2017,"4","Mid-Atlantic","Maryland","involuntary servitude",0,"adult",0,6004692,0,0
-"430","3",2017,"1","New England","Massachusetts","involuntary servitude",11,"adult",2,6826022,1.61148030287626,0.292996418704774
-"431","3",2017,"6","Central","Michigan","involuntary servitude",11,"adult",0,9951890,1.10531768337472,0
-"432","3",2017,"7","North Central","Minnesota","involuntary servitude",0,"adult",0,5523409,0,0
-"433","3",2017,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"adult",0,2988298,0,0
-"434","3",2017,"8","Plains","Missouri","involuntary servitude",3,"adult",0,6087203,0.492837186471356,0
-"435","3",2017,"12","Northeast","Montana","involuntary servitude",0,"adult",0,1040863,0,0
-"436","3",2017,"8","Plains","Nebraska","involuntary servitude",0,"adult",0,1905924,0,0
-"437","3",2017,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"adult",0,2919772,0,0
-"438","3",2017,"1","New England","New Hampshire","involuntary servitude",0,"adult",0,1342373,0,0
-"439","3",2017,"10","Rockies/Mid-West","New Mexico","involuntary servitude",0,"adult",0,2092789,0,0
-"440","3",2017,"2","Mideast North","New York","involuntary servitude",0,"adult",0,19641589,0,0
-"441","3",2017,"4","Mid-Atlantic","North Carolina","involuntary servitude",0,"adult",0,10156679,0,0
-"442","3",2017,"8","Plains","North Dakota","involuntary servitude",1,"adult",0,754353,1.32563932270436,0
-"443","3",2017,"6","Central","Ohio","involuntary servitude",0,"adult",0,11635003,0,0
-"444","3",2017,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",0,"adult",0,3926769,0,0
-"445","3",2017,"12","Northeast","Oregon","involuntary servitude",0,"adult",0,4091404,0,0
-"446","3",2017,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"adult",0,3406495,0,0
-"447","3",2017,"1","New England","Rhode Island","involuntary servitude",1,"adult",1,1057063,0.946017408612353,0.946017408612353
-"448","3",2017,"4","Mid-Atlantic","South Carolina","involuntary servitude",4,"adult",0,4958235,0.806738688263061,0
-"449","3",2017,"8","Plains","South Dakota","involuntary servitude",0,"adult",0,862890,0,0
-"450","3",2017,"6","Central","Tennessee","involuntary servitude",4,"adult",0,6645011,0.601955361699176,0
-"451","3",2017,"11","Gulf Coast West","Texas","involuntary servitude",119,"adult",43,27937492,4.25950904970281,1.53915032888421
-"452","3",2017,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"adult",0,3042613,0,0
-"453","3",2017,"12","Northeast","Washington","involuntary servitude",1,"adult",1,7294680,0.137086205289334,0.137086205289334
-"454","3",2017,"7","North Central","Wisconsin","involuntary servitude",6,"adult",2,5772958,1.03932853833338,0.346442846111127
-"455","3",2017,"10","Rockies/Mid-West","Wyoming","involuntary servitude",0,"adult",0,584290,0,0
-"456","3",2017,NA,NA," Data submitted through the Bureau of Indian Affairs.","involuntary servitude",NA,"adult",NA,NA,NA,NA
-"457","0",2014,"9","Southwest/Pacific","Alaska","involuntary servitude",0,"juvenile",0,737045,0,0
-"458","0",2014,"9","Southwest/Pacific","Arizona","involuntary servitude",0,"juvenile",0,6634999,0,0
-"459","0",2014,"9","Southwest/Pacific","California","involuntary servitude",0,"juvenile",0,38280824,0,0
-"460","0",2014,"10","Rockies/Mid-West","Colorado","involuntary servitude",2,"juvenile",0,5270482,0.379471934445464,0
-"461","0",2014,"3","Mideast South","Delaware","involuntary servitude",0,"juvenile",0,923638,0,0
-"462","0",2014,"5","Gulf Coast East","Florida","involuntary servitude",3,"juvenile",0,19563166,0.153349411848777,0
-"463","0",2014,"9","Southwest/Pacific","Guam","involuntary servitude",0,"juvenile",0,160375,0,0
-"464","0",2014,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"juvenile",0,1408453,0,0
-"465","0",2014,"12","Northeast","Idaho","involuntary servitude",0,"juvenile",0,1611530,0,0
-"466","0",2014,"7","North Central","Illinois","involuntary servitude",17,"juvenile",0,12898269,1.31800631542108,0
-"467","0",2014,"7","North Central","Indiana","involuntary servitude",0,"juvenile",0,6568367,0,0
-"468","0",2014,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"juvenile",0,2893510,0,0
-"469","0",2014,"1","New England","Massachusetts","involuntary servitude",1,"juvenile",0,6713944,0.148943750498962,0
-"470","0",2014,"6","Central","Michigan","involuntary servitude",1,"juvenile",0,9913349,0.100874084025489,0
-"471","0",2014,"7","North Central","Minnesota","involuntary servitude",1,"juvenile",0,5413693,0.184716791292007,0
-"472","0",2014,"8","Plains","Missouri","involuntary servitude",1,"juvenile",0,6040658,0.165544879382345,0
-"473","0",2014,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"juvenile",0,2988797,0,0
-"474","0",2014,"12","Northeast","Montana","involuntary servitude",0,"juvenile",0,1013564,0,0
-"475","0",2014,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"juvenile",0,2776972,0,0
-"476","0",2014,"6","Central","Ohio","involuntary servitude",0,"juvenile",0,11576576,0,0
-"477","0",2014,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",0,"juvenile",0,3853205,0,0
-"478","0",2014,"12","Northeast","Oregon","involuntary servitude",0,"juvenile",0,3922908,0,0
-"479","0",2014,"8","Plains","South Dakota","involuntary servitude",0,"juvenile",0,842270,0,0
-"480","0",2014,"6","Central","Tennessee","involuntary servitude",1,"juvenile",0,6493432,0.154001766708268,0
-"481","0",2014,"11","Gulf Coast West","Texas","involuntary servitude",113,"juvenile",3,26489464,4.26584697976524,0.113252574684033
-"482","0",2014,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"juvenile",0,2897927,0,0
-"483","0",2014,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"juvenile",0,108044,0,0
-"484","0",2014,"12","Northeast","Washington","involuntary servitude",0,"juvenile",0,6962906,0,0
-"485","0",2014,"10","Rockies/Mid-West","Wyoming","involuntary servitude",1,"juvenile",0,582123,1.71785000764443,0
-"486","1",2015,"9","Southwest/Pacific","Alaska","involuntary servitude",0,"juvenile",0,736307,0,0
-"487","1",2015,"9","Southwest/Pacific","Arizona","involuntary servitude",1,"juvenile",0,6733840,0.148503676951041,0
-"488","1",2015,"8","Plains","Arkansas","involuntary servitude",0,"juvenile",0,2967726,0,0
-"489","1",2015,"10","Rockies/Mid-West","Colorado","involuntary servitude",6,"juvenile",0,5351218,1.1212400616084,0
-"490","1",2015,"2","Mideast North","Connecticut","involuntary servitude",0,"juvenile",0,3594783,0,0
-"491","1",2015,"3","Mideast South","Delaware","involuntary servitude",0,"juvenile",0,932596,0,0
-"492","1",2015,"5","Gulf Coast East","Florida","involuntary servitude",2,"juvenile",0,19860330,0.100703261224763,0
-"493","1",2015,"9","Southwest/Pacific","Guam","involuntary servitude",0,"juvenile",0,160967,0,0
-"494","1",2015,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"juvenile",0,1414862,0,0
-"495","1",2015,"12","Northeast","Idaho","involuntary servitude",0,"juvenile",0,1631479,0,0
-"496","1",2015,"7","North Central","Illinois","involuntary servitude",8,"juvenile",0,12888962,0.620686134383824,0
-"497","1",2015,"7","North Central","Indiana","involuntary servitude",0,"juvenile",0,6593533,0,0
-"498","1",2015,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"juvenile",0,2900896,0,0
-"499","1",2015,"11","Gulf Coast West","Louisiana","involuntary servitude",0,"juvenile",0,4644204,0,0
-"500","1",2015,"1","New England","Maine","involuntary servitude",0,"juvenile",0,1330760,0,0
-"501","1",2015,"4","Mid-Atlantic","Maryland","involuntary servitude",1,"juvenile",0,5958165,0.167836909518283,0
-"502","1",2015,"1","New England","Massachusetts","involuntary servitude",2,"juvenile",0,6763652,0.295698241127722,0
-"503","1",2015,"6","Central","Michigan","involuntary servitude",0,"juvenile",0,9930589,0,0
-"504","1",2015,"7","North Central","Minnesota","involuntary servitude",0,"juvenile",0,5451522,0,0
-"505","1",2015,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"juvenile",0,2990623,0,0
-"506","1",2015,"8","Plains","Missouri","involuntary servitude",0,"juvenile",0,6056293,0,0
-"507","1",2015,"12","Northeast","Montana","involuntary servitude",0,"juvenile",0,1021891,0,0
-"508","1",2015,"8","Plains","Nebraska","involuntary servitude",0,"juvenile",0,1879522,0,0
-"509","1",2015,"9","Southwest/Pacific","Nevada","involuntary servitude",2,"juvenile",0,2819012,0.709468423688867,0
-"510","1",2015,"2","Mideast North","New York","involuntary servitude",0,"juvenile",0,19656330,0,0
-"511","1",2015,"4","Mid-Atlantic","North Carolina","involuntary servitude",0,"juvenile",0,9933944,0,0
-"512","1",2015,"6","Central","Ohio","involuntary servitude",0,"juvenile",0,11602973,0,0
-"513","1",2015,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",2,"juvenile",0,3878367,0.51568095541242,0
-"514","1",2015,"12","Northeast","Oregon","involuntary servitude",0,"juvenile",0,3964106,0,0
-"515","1",2015,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"juvenile",0,3534874,0,0
-"516","1",2015,"1","New England","Rhode Island","involuntary servitude",0,"juvenile",0,1056017,0,0
-"517","1",2015,"4","Mid-Atlantic","South Carolina","involuntary servitude",4,"juvenile",0,4823793,0.829222978680885,0
-"518","1",2015,"8","Plains","South Dakota","involuntary servitude",0,"juvenile",0,849088,0,0
-"519","1",2015,"6","Central","Tennessee","involuntary servitude",3,"juvenile",0,6540826,0.458657668007068,0
-"520","1",2015,"11","Gulf Coast West","Texas","involuntary servitude",187,"juvenile",0,26977142,6.93179433166048,0
-"521","1",2015,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"juvenile",0,107884,0,0
-"522","1",2015,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"juvenile",0,2937399,0,0
-"523","1",2015,"12","Northeast","Washington","involuntary servitude",0,"juvenile",0,7052439,0,0
-"524","1",2015,"7","North Central","Wisconsin","involuntary servitude",0,"juvenile",0,5751974,0,0
-"525","1",2015,"10","Rockies/Mid-West","Wyoming","involuntary servitude",1,"juvenile",0,582548,1.7165967439593,0
-"526","2",2016,"9","Southwest/Pacific","Alaska","involuntary servitude",1,"juvenile",0,737547,1.35584579694582,0
-"527","2",2016,"9","Southwest/Pacific","Arizona","involuntary servitude",0,"juvenile",0,6833596,0,0
-"528","2",2016,"8","Plains","Arkansas","involuntary servitude",2,"juvenile",0,2978407,0.67149989910714,0
-"529","2",2016,"10","Rockies/Mid-West","Colorado","involuntary servitude",22,"juvenile",0,5452107,4.03513724143712,0
-"530","2",2016,"2","Mideast North","Connecticut","involuntary servitude",1,"juvenile",0,3587509,0.278744945308848,0
-"531","2",2016,"3","Mideast South","Delaware","involuntary servitude",0,"juvenile",0,941413,0,0
-"532","2",2016,"5","Gulf Coast East","Florida","involuntary servitude",7,"juvenile",0,20224249,0.346119156266322,0
-"533","2",2016,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"juvenile",0,1422484,0,0
-"534","2",2016,"7","North Central","Illinois","involuntary servitude",3,"juvenile",0,12864342,0.233202755337195,0
-"535","2",2016,"7","North Central","Indiana","involuntary servitude",0,"juvenile",0,6608296,0,0
-"536","2",2016,"10","Rockies/Mid-West","Kansas","involuntary servitude",2,"juvenile",0,2909502,0.687402861383151,0
-"537","2",2016,"11","Gulf Coast West","Louisiana","involuntary servitude",2,"juvenile",0,4664851,0.428738238370314,0
-"538","2",2016,"4","Mid-Atlantic","Maryland","involuntary servitude",0,"juvenile",0,5986717,0,0
-"539","2",2016,"1","New England","Massachusetts","involuntary servitude",3,"juvenile",0,6795891,0.441443219145216,0
-"540","2",2016,"6","Central","Michigan","involuntary servitude",2,"juvenile",0,9932573,0.201357694526886,0
-"541","2",2016,"7","North Central","Minnesota","involuntary servitude",0,"juvenile",0,5482503,0,0
-"542","2",2016,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"juvenile",0,2988693,0,0
-"543","2",2016,"8","Plains","Missouri","involuntary servitude",0,"juvenile",0,6071745,0,0
-"544","2",2016,"12","Northeast","Montana","involuntary servitude",0,"juvenile",0,1030503,0,0
-"545","2",2016,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"juvenile",0,2868666,0,0
-"546","2",2016,"8","Plains","North Dakota","involuntary servitude",1,"juvenile",0,754022,1.32622125083883,0
-"547","2",2016,"6","Central","Ohio","involuntary servitude",0,"juvenile",0,11617850,0,0
-"548","2",2016,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",4,"juvenile",0,3909831,1.02306212212241,0
-"549","2",2016,"12","Northeast","Oregon","involuntary servitude",0,"juvenile",0,4016918,0,0
-"550","2",2016,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"juvenile",0,3473166,0,0
-"551","2",2016,"1","New England","Rhode Island","involuntary servitude",1,"juvenile",0,1056173,0.946814584353132,0
-"552","2",2016,"4","Mid-Atlantic","South Carolina","involuntary servitude",7,"juvenile",0,4892253,1.43083360570273,0
-"553","2",2016,"8","Plains","South Dakota","involuntary servitude",0,"juvenile",0,853933,0,0
-"554","2",2016,"6","Central","Tennessee","involuntary servitude",0,"juvenile",0,6590808,0,0
-"555","2",2016,"11","Gulf Coast West","Texas","involuntary servitude",127,"juvenile",0,27486814,4.62039725666278,0
-"556","2",2016,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"juvenile",0,107710,0,0
-"557","2",2016,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"juvenile",0,2982497,0,0
-"558","2",2016,"2","Mideast North","Vermont","involuntary servitude",0,"juvenile",0,625197,0,0
-"559","2",2016,"12","Northeast","Washington","involuntary servitude",1,"juvenile",0,7163543,0.139595727979856,0
-"560","2",2016,"7","North Central","Wisconsin","involuntary servitude",1,"juvenile",0,5761406,0.173568743462967,0
-"561","2",2016,"10","Rockies/Mid-West","Wyoming","involuntary servitude",2,"juvenile",0,585668,3.41490400704836,0
-"562","3",2017,"5","Gulf Coast East","Alabama","involuntary servitude",0,"juvenile",0,4864745,0,0
-"563","3",2017,"9","Southwest/Pacific","Alaska","involuntary servitude",1,"juvenile",0,741504,1.34861039185224,0
-"564","3",2017,"9","Southwest/Pacific","Arizona","involuntary servitude",7,"juvenile",0,6945452,1.00785377251185,0
-"565","3",2017,"8","Plains","Arkansas","involuntary servitude",0,"juvenile",0,2990410,0,0
-"566","3",2017,"9","Southwest/Pacific","California","involuntary servitude",0,"juvenile",0,39209127,0,0
-"567","3",2017,"10","Rockies/Mid-West","Colorado","involuntary servitude",7,"juvenile",0,5540921,1.26332788357748,0
-"568","3",2017,"2","Mideast North","Connecticut","involuntary servitude",0,"juvenile",0,3578674,0,0
-"569","3",2017,"3","Mideast South","Delaware","involuntary servitude",0,"juvenile",0,949216,0,0
-"570","3",2017,"5","Gulf Coast East","Florida","involuntary servitude",24,"juvenile",0,20629982,1.16335535338809,0
-"571","3",2017,"5","Gulf Coast East","Georgia","involuntary servitude",0,"juvenile",0,10304763,0,0
-"572","3",2017,"9","Southwest/Pacific","Guam","involuntary servitude",0,"juvenile",0,162896,0,0
-"573","3",2017,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"juvenile",0,1428105,0,0
-"574","3",2017,"12","Northeast","Idaho","involuntary servitude",0,"juvenile",0,1682930,0,0
-"575","3",2017,"7","North Central","Illinois","involuntary servitude",8,"juvenile",0,12826895,0.623689521119491,0
-"576","3",2017,"7","North Central","Indiana","involuntary servitude",1,"juvenile",0,6633344,0.15075352642649,0
-"577","3",2017,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"juvenile",0,2911263,0,0
-"578","3",2017,"6","Central","Kentucky","involuntary servitude",14,"juvenile",0,4438229,3.15441136543428,0
-"579","3",2017,"11","Gulf Coast West","Louisiana","involuntary servitude",2,"juvenile",0,4678215,0.427513485378504,0
-"580","3",2017,"1","New England","Maine","involuntary servitude",0,"juvenile",0,1331370,0,0
-"581","3",2017,"4","Mid-Atlantic","Maryland","involuntary servitude",0,"juvenile",0,6004692,0,0
-"582","3",2017,"1","New England","Massachusetts","involuntary servitude",11,"juvenile",0,6826022,1.61148030287626,0
-"583","3",2017,"6","Central","Michigan","involuntary servitude",11,"juvenile",0,9951890,1.10531768337472,0
-"584","3",2017,"7","North Central","Minnesota","involuntary servitude",0,"juvenile",0,5523409,0,0
-"585","3",2017,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"juvenile",0,2988298,0,0
-"586","3",2017,"8","Plains","Missouri","involuntary servitude",3,"juvenile",0,6087203,0.492837186471356,0
-"587","3",2017,"12","Northeast","Montana","involuntary servitude",0,"juvenile",0,1040863,0,0
-"588","3",2017,"8","Plains","Nebraska","involuntary servitude",0,"juvenile",0,1905924,0,0
-"589","3",2017,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"juvenile",0,2919772,0,0
-"590","3",2017,"1","New England","New Hampshire","involuntary servitude",0,"juvenile",0,1342373,0,0
-"591","3",2017,"10","Rockies/Mid-West","New Mexico","involuntary servitude",0,"juvenile",0,2092789,0,0
-"592","3",2017,"2","Mideast North","New York","involuntary servitude",0,"juvenile",0,19641589,0,0
-"593","3",2017,"4","Mid-Atlantic","North Carolina","involuntary servitude",0,"juvenile",0,10156679,0,0
-"594","3",2017,"8","Plains","North Dakota","involuntary servitude",1,"juvenile",0,754353,1.32563932270436,0
-"595","3",2017,"6","Central","Ohio","involuntary servitude",0,"juvenile",0,11635003,0,0
-"596","3",2017,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",0,"juvenile",0,3926769,0,0
-"597","3",2017,"12","Northeast","Oregon","involuntary servitude",0,"juvenile",0,4091404,0,0
-"598","3",2017,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"juvenile",0,3406495,0,0
-"599","3",2017,"1","New England","Rhode Island","involuntary servitude",1,"juvenile",0,1057063,0.946017408612353,0
-"600","3",2017,"4","Mid-Atlantic","South Carolina","involuntary servitude",4,"juvenile",0,4958235,0.806738688263061,0
-"601","3",2017,"8","Plains","South Dakota","involuntary servitude",0,"juvenile",0,862890,0,0
-"602","3",2017,"6","Central","Tennessee","involuntary servitude",4,"juvenile",0,6645011,0.601955361699176,0
-"603","3",2017,"11","Gulf Coast West","Texas","involuntary servitude",119,"juvenile",16,27937492,4.25950904970281,0.572707099119706
-"604","3",2017,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"juvenile",0,3042613,0,0
-"605","3",2017,"12","Northeast","Washington","involuntary servitude",1,"juvenile",0,7294680,0.137086205289334,0
-"606","3",2017,"7","North Central","Wisconsin","involuntary servitude",6,"juvenile",0,5772958,1.03932853833338,0
-"607","3",2017,"10","Rockies/Mid-West","Wyoming","involuntary servitude",0,"juvenile",0,584290,0,0
-"608","3",2017,NA,NA," Data submitted through the Bureau of Indian Affairs.","involuntary servitude",NA,"juvenile",NA,NA,NA,NA
+"152","0",2014,"9","Southwest/Pacific","Alaska","commercial sex act",11,"juvenile",0,737045,14.9244618713918,0
+"153","0",2014,"9","Southwest/Pacific","Arizona","commercial sex act",15,"juvenile",0,6634999,2.26073884864188,0
+"154","0",2014,"9","Southwest/Pacific","California","commercial sex act",0,"juvenile",0,38280824,0,0
+"155","0",2014,"10","Rockies/Mid-West","Colorado","commercial sex act",11,"juvenile",0,5270482,2.08709563945005,0
+"156","0",2014,"3","Mideast South","Delaware","commercial sex act",0,"juvenile",0,923638,0,0
+"157","0",2014,"5","Gulf Coast East","Florida","commercial sex act",57,"juvenile",0,19563166,2.91363882512677,0
+"158","0",2014,"9","Southwest/Pacific","Guam","commercial sex act",0,"juvenile",0,160375,0,0
+"159","0",2014,"9","Southwest/Pacific","Hawaii","commercial sex act",0,"juvenile",0,1408453,0,0
+"160","0",2014,"12","Northeast","Idaho","commercial sex act",0,"juvenile",0,1611530,0,0
+"161","0",2014,"7","North Central","Illinois","commercial sex act",50,"juvenile",0,12898269,3.87648916300319,0
+"162","0",2014,"7","North Central","Indiana","commercial sex act",0,"juvenile",0,6568367,0,0
+"163","0",2014,"10","Rockies/Mid-West","Kansas","commercial sex act",1,"juvenile",0,2893510,0.345601017449395,0
+"164","0",2014,"1","New England","Massachusetts","commercial sex act",6,"juvenile",0,6713944,0.893662502993769,0
+"165","0",2014,"6","Central","Michigan","commercial sex act",2,"juvenile",0,9913349,0.201748168050979,0
+"166","0",2014,"7","North Central","Minnesota","commercial sex act",22,"juvenile",0,5413693,4.06376940842416,0
+"167","0",2014,"8","Plains","Missouri","commercial sex act",5,"juvenile",1,6040658,0.827724396911727,0.165544879382345
+"168","0",2014,"5","Gulf Coast East","Mississippi","commercial sex act",0,"juvenile",0,2988797,0,0
+"169","0",2014,"12","Northeast","Montana","commercial sex act",1,"juvenile",0,1013564,0.986617519959272,0
+"170","0",2014,"9","Southwest/Pacific","Nevada","commercial sex act",0,"juvenile",0,2776972,0,0
+"171","0",2014,"6","Central","Ohio","commercial sex act",0,"juvenile",0,11576576,0,0
+"172","0",2014,"10","Rockies/Mid-West","Oklahoma","commercial sex act",10,"juvenile",0,3853205,2.59524214258001,0
+"173","0",2014,"12","Northeast","Oregon","commercial sex act",0,"juvenile",0,3922908,0,0
+"174","0",2014,"8","Plains","South Dakota","commercial sex act",0,"juvenile",0,842270,0,0
+"175","0",2014,"6","Central","Tennessee","commercial sex act",29,"juvenile",0,6493432,4.46605123453976,0
+"176","0",2014,"11","Gulf Coast West","Texas","commercial sex act",78,"juvenile",5,26489464,2.94456694178485,0.188754291140055
+"177","0",2014,"10","Rockies/Mid-West","Utah","commercial sex act",0,"juvenile",0,2897927,0,0
+"178","0",2014,"5","Gulf Coast East","U.S. Virgin Islands","commercial sex act",0,"juvenile",0,108044,0,0
+"179","0",2014,"12","Northeast","Washington","commercial sex act",2,"juvenile",0,6962906,0.287236392391338,0
+"180","0",2014,"10","Rockies/Mid-West","Wyoming","commercial sex act",0,"juvenile",0,582123,0,0
+"181","1",2015,"9","Southwest/Pacific","Alaska","commercial sex act",10,"juvenile",0,736307,13.5812914993338,0
+"182","1",2015,"9","Southwest/Pacific","Arizona","commercial sex act",5,"juvenile",0,6733840,0.742518384755206,0
+"183","1",2015,"8","Plains","Arkansas","commercial sex act",5,"juvenile",0,2967726,1.68479165529432,0
+"184","1",2015,"10","Rockies/Mid-West","Colorado","commercial sex act",11,"juvenile",0,5351218,2.05560677961541,0
+"185","1",2015,"2","Mideast North","Connecticut","commercial sex act",0,"juvenile",0,3594783,0,0
+"186","1",2015,"3","Mideast South","Delaware","commercial sex act",0,"juvenile",0,932596,0,0
+"187","1",2015,"5","Gulf Coast East","Florida","commercial sex act",44,"juvenile",0,19860330,2.21547174694479,0
+"188","1",2015,"9","Southwest/Pacific","Guam","commercial sex act",0,"juvenile",0,160967,0,0
+"189","1",2015,"9","Southwest/Pacific","Hawaii","commercial sex act",3,"juvenile",0,1414862,2.12034813289211,0
+"190","1",2015,"12","Northeast","Idaho","commercial sex act",0,"juvenile",0,1631479,0,0
+"191","1",2015,"7","North Central","Illinois","commercial sex act",53,"juvenile",0,12888962,4.11204564029283,0
+"192","1",2015,"7","North Central","Indiana","commercial sex act",0,"juvenile",0,6593533,0,0
+"193","1",2015,"10","Rockies/Mid-West","Kansas","commercial sex act",0,"juvenile",0,2900896,0,0
+"194","1",2015,"11","Gulf Coast West","Louisiana","commercial sex act",51,"juvenile",1,4644204,10.9814297563156,0.21532215208462
+"195","1",2015,"1","New England","Maine","commercial sex act",0,"juvenile",0,1330760,0,0
+"196","1",2015,"4","Mid-Atlantic","Maryland","commercial sex act",27,"juvenile",0,5958165,4.53159655699364,0
+"197","1",2015,"1","New England","Massachusetts","commercial sex act",0,"juvenile",0,6763652,0,0
+"198","1",2015,"6","Central","Michigan","commercial sex act",3,"juvenile",0,9930589,0.302096884686296,0
+"199","1",2015,"7","North Central","Minnesota","commercial sex act",119,"juvenile",0,5451522,21.8287663518555,0
+"200","1",2015,"5","Gulf Coast East","Mississippi","commercial sex act",0,"juvenile",0,2990623,0,0
+"201","1",2015,"8","Plains","Missouri","commercial sex act",13,"juvenile",0,6056293,2.14652758708999,0
+"202","1",2015,"12","Northeast","Montana","commercial sex act",0,"juvenile",0,1021891,0,0
+"203","1",2015,"8","Plains","Nebraska","commercial sex act",0,"juvenile",0,1879522,0,0
+"204","1",2015,"9","Southwest/Pacific","Nevada","commercial sex act",214,"juvenile",1,2819012,75.9131213347087,0.354734211844433
+"205","1",2015,"2","Mideast North","New York","commercial sex act",0,"juvenile",0,19656330,0,0
+"206","1",2015,"4","Mid-Atlantic","North Carolina","commercial sex act",0,"juvenile",0,9933944,0,0
+"207","1",2015,"6","Central","Ohio","commercial sex act",3,"juvenile",0,11602973,0.258554423939451,0
+"208","1",2015,"10","Rockies/Mid-West","Oklahoma","commercial sex act",38,"juvenile",1,3878367,9.79793815283597,0.25784047770621
+"209","1",2015,"12","Northeast","Oregon","commercial sex act",0,"juvenile",0,3964106,0,0
+"210","1",2015,"5","Gulf Coast East","Puerto Rico","commercial sex act",0,"juvenile",0,3534874,0,0
+"211","1",2015,"1","New England","Rhode Island","commercial sex act",0,"juvenile",0,1056017,0,0
+"212","1",2015,"4","Mid-Atlantic","South Carolina","commercial sex act",10,"juvenile",0,4823793,2.07305744670221,0
+"213","1",2015,"8","Plains","South Dakota","commercial sex act",0,"juvenile",0,849088,0,0
+"214","1",2015,"6","Central","Tennessee","commercial sex act",32,"juvenile",0,6540826,4.89234845874206,0
+"215","1",2015,"11","Gulf Coast West","Texas","commercial sex act",98,"juvenile",0,26977142,3.63270505081672,0
+"216","1",2015,"5","Gulf Coast East","U.S. Virgin Islands","commercial sex act",0,"juvenile",0,107884,0,0
+"217","1",2015,"10","Rockies/Mid-West","Utah","commercial sex act",0,"juvenile",0,2937399,0,0
+"218","1",2015,"12","Northeast","Washington","commercial sex act",1,"juvenile",0,7052439,0.14179491662388,0
+"219","1",2015,"7","North Central","Wisconsin","commercial sex act",4,"juvenile",0,5751974,0.695413435457114,0
+"220","1",2015,"10","Rockies/Mid-West","Wyoming","commercial sex act",0,"juvenile",0,582548,0,0
+"221","2",2016,"9","Southwest/Pacific","Alaska","commercial sex act",11,"juvenile",0,737547,14.914303766404,0
+"222","2",2016,"9","Southwest/Pacific","Arizona","commercial sex act",19,"juvenile",0,6833596,2.78038092974768,0
+"223","2",2016,"8","Plains","Arkansas","commercial sex act",4,"juvenile",0,2978407,1.34299979821428,0
+"224","2",2016,"10","Rockies/Mid-West","Colorado","commercial sex act",12,"juvenile",0,5452107,2.20098394987479,0
+"225","2",2016,"2","Mideast North","Connecticut","commercial sex act",1,"juvenile",0,3587509,0.278744945308848,0
+"226","2",2016,"3","Mideast South","Delaware","commercial sex act",0,"juvenile",0,941413,0,0
+"227","2",2016,"5","Gulf Coast East","Florida","commercial sex act",98,"juvenile",0,20224249,4.8456681877285,0
+"228","2",2016,"9","Southwest/Pacific","Hawaii","commercial sex act",2,"juvenile",0,1422484,1.40599120974296,0
+"229","2",2016,"7","North Central","Illinois","commercial sex act",21,"juvenile",0,12864342,1.63241928736036,0
+"230","2",2016,"7","North Central","Indiana","commercial sex act",4,"juvenile",2,6608296,0.605299762601433,0.302649881300717
+"231","2",2016,"10","Rockies/Mid-West","Kansas","commercial sex act",0,"juvenile",0,2909502,0,0
+"232","2",2016,"11","Gulf Coast West","Louisiana","commercial sex act",121,"juvenile",2,4664851,25.938663421404,0.428738238370314
+"233","2",2016,"4","Mid-Atlantic","Maryland","commercial sex act",17,"juvenile",0,5986717,2.83961977825242,0
+"234","2",2016,"1","New England","Massachusetts","commercial sex act",0,"juvenile",0,6795891,0,0
+"235","2",2016,"6","Central","Michigan","commercial sex act",1,"juvenile",0,9932573,0.100678847263443,0
+"236","2",2016,"7","North Central","Minnesota","commercial sex act",235,"juvenile",1,5482503,42.8636336359506,0.182398441004045
+"237","2",2016,"5","Gulf Coast East","Mississippi","commercial sex act",0,"juvenile",0,2988693,0,0
+"238","2",2016,"8","Plains","Missouri","commercial sex act",16,"juvenile",3,6071745,2.63515677947608,0.494091896151765
+"239","2",2016,"12","Northeast","Montana","commercial sex act",1,"juvenile",0,1030503,0.970399892091532,0
+"240","2",2016,"9","Southwest/Pacific","Nevada","commercial sex act",140,"juvenile",35,2868666,48.8031719273,12.200792981825
+"241","2",2016,"8","Plains","North Dakota","commercial sex act",4,"juvenile",0,754022,5.30488500335534,0
+"242","2",2016,"6","Central","Ohio","commercial sex act",1,"juvenile",0,11617850,0.0860744457881622,0
+"243","2",2016,"10","Rockies/Mid-West","Oklahoma","commercial sex act",42,"juvenile",1,3909831,10.7421522822853,0.255765530530604
+"244","2",2016,"12","Northeast","Oregon","commercial sex act",0,"juvenile",0,4016918,0,0
+"245","2",2016,"5","Gulf Coast East","Puerto Rico","commercial sex act",0,"juvenile",0,3473166,0,0
+"246","2",2016,"1","New England","Rhode Island","commercial sex act",5,"juvenile",0,1056173,4.73407292176566,0
+"247","2",2016,"4","Mid-Atlantic","South Carolina","commercial sex act",15,"juvenile",2,4892253,3.06607201222014,0.408809601629352
+"248","2",2016,"8","Plains","South Dakota","commercial sex act",0,"juvenile",0,853933,0,0
+"249","2",2016,"6","Central","Tennessee","commercial sex act",55,"juvenile",0,6590808,8.34495558056008,0
+"250","2",2016,"11","Gulf Coast West","Texas","commercial sex act",130,"juvenile",2,27486814,4.72954049894615,0.0727621615222484
+"251","2",2016,"5","Gulf Coast East","U.S. Virgin Islands","commercial sex act",0,"juvenile",0,107710,0,0
+"252","2",2016,"10","Rockies/Mid-West","Utah","commercial sex act",0,"juvenile",0,2982497,0,0
+"253","2",2016,"2","Mideast North","Vermont","commercial sex act",2,"juvenile",0,625197,3.19899167782315,0
+"254","2",2016,"12","Northeast","Washington","commercial sex act",13,"juvenile",0,7163543,1.81474446373813,0
+"255","2",2016,"7","North Central","Wisconsin","commercial sex act",34,"juvenile",1,5761406,5.90133727774088,0.173568743462967
+"256","2",2016,"10","Rockies/Mid-West","Wyoming","commercial sex act",3,"juvenile",0,585668,5.12235601057254,0
+"257","3",2017,"5","Gulf Coast East","Alabama","commercial sex act",0,"juvenile",0,4864745,0,0
+"258","3",2017,"9","Southwest/Pacific","Alaska","commercial sex act",2,"juvenile",0,741504,2.69722078370447,0
+"259","3",2017,"9","Southwest/Pacific","Arizona","commercial sex act",92,"juvenile",3,6945452,13.2460781530129,0.431937331076509
+"260","3",2017,"8","Plains","Arkansas","commercial sex act",0,"juvenile",0,2990410,0,0
+"261","3",2017,"9","Southwest/Pacific","California","commercial sex act",0,"juvenile",0,39209127,0,0
+"262","3",2017,"10","Rockies/Mid-West","Colorado","commercial sex act",49,"juvenile",0,5540921,8.84329518504234,0
+"263","3",2017,"2","Mideast North","Connecticut","commercial sex act",8,"juvenile",0,3578674,2.23546486771357,0
+"264","3",2017,"3","Mideast South","Delaware","commercial sex act",5,"juvenile",0,949216,5.26750497252469,0
+"265","3",2017,"5","Gulf Coast East","Florida","commercial sex act",65,"juvenile",0,20629982,3.15075408209275,0
+"266","3",2017,"5","Gulf Coast East","Georgia","commercial sex act",0,"juvenile",0,10304763,0,0
+"267","3",2017,"9","Southwest/Pacific","Guam","commercial sex act",0,"juvenile",0,162896,0,0
+"268","3",2017,"9","Southwest/Pacific","Hawaii","commercial sex act",2,"juvenile",0,1428105,1.40045724929189,0
+"269","3",2017,"12","Northeast","Idaho","commercial sex act",0,"juvenile",0,1682930,0,0
+"270","3",2017,"7","North Central","Illinois","commercial sex act",26,"juvenile",0,12826895,2.02699094363835,0
+"271","3",2017,"7","North Central","Indiana","commercial sex act",2,"juvenile",0,6633344,0.30150705285298,0
+"272","3",2017,"10","Rockies/Mid-West","Kansas","commercial sex act",3,"juvenile",0,2911263,1.03048058523053,0
+"273","3",2017,"6","Central","Kentucky","commercial sex act",8,"juvenile",0,4438229,1.80252078024816,0
+"274","3",2017,"11","Gulf Coast West","Louisiana","commercial sex act",59,"juvenile",0,4678215,12.6116478186659,0
+"275","3",2017,"1","New England","Maine","commercial sex act",2,"juvenile",0,1331370,1.50221200718057,0
+"276","3",2017,"4","Mid-Atlantic","Maryland","commercial sex act",0,"juvenile",0,6004692,0,0
+"277","3",2017,"1","New England","Massachusetts","commercial sex act",17,"juvenile",0,6826022,2.49046955899058,0
+"278","3",2017,"6","Central","Michigan","commercial sex act",11,"juvenile",0,9951890,1.10531768337472,0
+"279","3",2017,"7","North Central","Minnesota","commercial sex act",173,"juvenile",1,5523409,31.3212365769039,0.181047610271121
+"280","3",2017,"5","Gulf Coast East","Mississippi","commercial sex act",0,"juvenile",0,2988298,0,0
+"281","3",2017,"8","Plains","Missouri","commercial sex act",25,"juvenile",1,6087203,4.10697655392797,0.164279062157119
+"282","3",2017,"12","Northeast","Montana","commercial sex act",2,"juvenile",0,1040863,1.9214824621492,0
+"283","3",2017,"8","Plains","Nebraska","commercial sex act",0,"juvenile",0,1905924,0,0
+"284","3",2017,"9","Southwest/Pacific","Nevada","commercial sex act",5,"juvenile",0,2919772,1.71246247994706,0
+"285","3",2017,"1","New England","New Hampshire","commercial sex act",2,"juvenile",0,1342373,1.48989885821601,0
+"286","3",2017,"10","Rockies/Mid-West","New Mexico","commercial sex act",0,"juvenile",0,2092789,0,0
+"287","3",2017,"2","Mideast North","New York","commercial sex act",0,"juvenile",0,19641589,0,0
+"288","3",2017,"4","Mid-Atlantic","North Carolina","commercial sex act",0,"juvenile",0,10156679,0,0
+"289","3",2017,"8","Plains","North Dakota","commercial sex act",10,"juvenile",0,754353,13.2563932270436,0
+"290","3",2017,"6","Central","Ohio","commercial sex act",0,"juvenile",0,11635003,0,0
+"291","3",2017,"10","Rockies/Mid-West","Oklahoma","commercial sex act",25,"juvenile",2,3926769,6.36655734014402,0.509324587211522
+"292","3",2017,"12","Northeast","Oregon","commercial sex act",1,"juvenile",0,4091404,0.244414875675929,0
+"293","3",2017,"5","Gulf Coast East","Puerto Rico","commercial sex act",0,"juvenile",0,3406495,0,0
+"294","3",2017,"1","New England","Rhode Island","commercial sex act",12,"juvenile",0,1057063,11.3522089033482,0
+"295","3",2017,"4","Mid-Atlantic","South Carolina","commercial sex act",26,"juvenile",1,4958235,5.2438014737099,0.201684672065765
+"296","3",2017,"8","Plains","South Dakota","commercial sex act",3,"juvenile",0,862890,3.47668880158537,0
+"297","3",2017,"6","Central","Tennessee","commercial sex act",75,"juvenile",1,6645011,11.2866630318595,0.150488840424794
+"298","3",2017,"11","Gulf Coast West","Texas","commercial sex act",193,"juvenile",4,27937492,6.90827938313146,0.143176774779927
+"299","3",2017,"10","Rockies/Mid-West","Utah","commercial sex act",1,"juvenile",0,3042613,0.328664867993399,0
+"300","3",2017,"12","Northeast","Washington","commercial sex act",29,"juvenile",0,7294680,3.97549995339069,0
+"301","3",2017,"7","North Central","Wisconsin","commercial sex act",59,"juvenile",0,5772958,10.2200639602782,0
+"302","3",2017,"10","Rockies/Mid-West","Wyoming","commercial sex act",2,"juvenile",1,584290,3.42295777781581,1.71147888890791
+"303","0",2014,"9","Southwest/Pacific","Alaska","involuntary servitude",0,"adult",0,737045,0,0
+"304","0",2014,"9","Southwest/Pacific","Arizona","involuntary servitude",0,"adult",0,6634999,0,0
+"305","0",2014,"9","Southwest/Pacific","California","involuntary servitude",0,"adult",0,38280824,0,0
+"306","0",2014,"10","Rockies/Mid-West","Colorado","involuntary servitude",2,"adult",0,5270482,0.379471934445464,0
+"307","0",2014,"3","Mideast South","Delaware","involuntary servitude",0,"adult",0,923638,0,0
+"308","0",2014,"5","Gulf Coast East","Florida","involuntary servitude",3,"adult",3,19563166,0.153349411848777,0.153349411848777
+"309","0",2014,"9","Southwest/Pacific","Guam","involuntary servitude",0,"adult",0,160375,0,0
+"310","0",2014,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"adult",0,1408453,0,0
+"311","0",2014,"12","Northeast","Idaho","involuntary servitude",0,"adult",0,1611530,0,0
+"312","0",2014,"7","North Central","Illinois","involuntary servitude",17,"adult",0,12898269,1.31800631542108,0
+"313","0",2014,"7","North Central","Indiana","involuntary servitude",0,"adult",0,6568367,0,0
+"314","0",2014,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"adult",0,2893510,0,0
+"315","0",2014,"1","New England","Massachusetts","involuntary servitude",1,"adult",0,6713944,0.148943750498962,0
+"316","0",2014,"6","Central","Michigan","involuntary servitude",1,"adult",0,9913349,0.100874084025489,0
+"317","0",2014,"7","North Central","Minnesota","involuntary servitude",1,"adult",1,5413693,0.184716791292007,0.184716791292007
+"318","0",2014,"8","Plains","Missouri","involuntary servitude",1,"adult",0,6040658,0.165544879382345,0
+"319","0",2014,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"adult",0,2988797,0,0
+"320","0",2014,"12","Northeast","Montana","involuntary servitude",0,"adult",0,1013564,0,0
+"321","0",2014,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"adult",0,2776972,0,0
+"322","0",2014,"6","Central","Ohio","involuntary servitude",0,"adult",0,11576576,0,0
+"323","0",2014,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",0,"adult",0,3853205,0,0
+"324","0",2014,"12","Northeast","Oregon","involuntary servitude",0,"adult",0,3922908,0,0
+"325","0",2014,"8","Plains","South Dakota","involuntary servitude",0,"adult",0,842270,0,0
+"326","0",2014,"6","Central","Tennessee","involuntary servitude",1,"adult",0,6493432,0.154001766708268,0
+"327","0",2014,"11","Gulf Coast West","Texas","involuntary servitude",113,"adult",14,26489464,4.26584697976524,0.528512015192153
+"328","0",2014,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"adult",0,2897927,0,0
+"329","0",2014,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"adult",0,108044,0,0
+"330","0",2014,"12","Northeast","Washington","involuntary servitude",0,"adult",0,6962906,0,0
+"331","0",2014,"10","Rockies/Mid-West","Wyoming","involuntary servitude",1,"adult",0,582123,1.71785000764443,0
+"332","1",2015,"9","Southwest/Pacific","Alaska","involuntary servitude",0,"adult",0,736307,0,0
+"333","1",2015,"9","Southwest/Pacific","Arizona","involuntary servitude",1,"adult",0,6733840,0.148503676951041,0
+"334","1",2015,"8","Plains","Arkansas","involuntary servitude",0,"adult",0,2967726,0,0
+"335","1",2015,"10","Rockies/Mid-West","Colorado","involuntary servitude",6,"adult",2,5351218,1.1212400616084,0.373746687202801
+"336","1",2015,"2","Mideast North","Connecticut","involuntary servitude",0,"adult",0,3594783,0,0
+"337","1",2015,"3","Mideast South","Delaware","involuntary servitude",0,"adult",0,932596,0,0
+"338","1",2015,"5","Gulf Coast East","Florida","involuntary servitude",2,"adult",0,19860330,0.100703261224763,0
+"339","1",2015,"9","Southwest/Pacific","Guam","involuntary servitude",0,"adult",0,160967,0,0
+"340","1",2015,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"adult",0,1414862,0,0
+"341","1",2015,"12","Northeast","Idaho","involuntary servitude",0,"adult",0,1631479,0,0
+"342","1",2015,"7","North Central","Illinois","involuntary servitude",8,"adult",0,12888962,0.620686134383824,0
+"343","1",2015,"7","North Central","Indiana","involuntary servitude",0,"adult",0,6593533,0,0
+"344","1",2015,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"adult",0,2900896,0,0
+"345","1",2015,"11","Gulf Coast West","Louisiana","involuntary servitude",0,"adult",0,4644204,0,0
+"346","1",2015,"1","New England","Maine","involuntary servitude",0,"adult",0,1330760,0,0
+"347","1",2015,"4","Mid-Atlantic","Maryland","involuntary servitude",1,"adult",1,5958165,0.167836909518283,0.167836909518283
+"348","1",2015,"1","New England","Massachusetts","involuntary servitude",2,"adult",1,6763652,0.295698241127722,0.147849120563861
+"349","1",2015,"6","Central","Michigan","involuntary servitude",0,"adult",0,9930589,0,0
+"350","1",2015,"7","North Central","Minnesota","involuntary servitude",0,"adult",0,5451522,0,0
+"351","1",2015,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"adult",0,2990623,0,0
+"352","1",2015,"8","Plains","Missouri","involuntary servitude",0,"adult",0,6056293,0,0
+"353","1",2015,"12","Northeast","Montana","involuntary servitude",0,"adult",0,1021891,0,0
+"354","1",2015,"8","Plains","Nebraska","involuntary servitude",0,"adult",0,1879522,0,0
+"355","1",2015,"9","Southwest/Pacific","Nevada","involuntary servitude",2,"adult",0,2819012,0.709468423688867,0
+"356","1",2015,"2","Mideast North","New York","involuntary servitude",0,"adult",0,19656330,0,0
+"357","1",2015,"4","Mid-Atlantic","North Carolina","involuntary servitude",0,"adult",0,9933944,0,0
+"358","1",2015,"6","Central","Ohio","involuntary servitude",0,"adult",0,11602973,0,0
+"359","1",2015,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",2,"adult",1,3878367,0.51568095541242,0.25784047770621
+"360","1",2015,"12","Northeast","Oregon","involuntary servitude",0,"adult",0,3964106,0,0
+"361","1",2015,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"adult",0,3534874,0,0
+"362","1",2015,"1","New England","Rhode Island","involuntary servitude",0,"adult",0,1056017,0,0
+"363","1",2015,"4","Mid-Atlantic","South Carolina","involuntary servitude",4,"adult",0,4823793,0.829222978680885,0
+"364","1",2015,"8","Plains","South Dakota","involuntary servitude",0,"adult",0,849088,0,0
+"365","1",2015,"6","Central","Tennessee","involuntary servitude",3,"adult",1,6540826,0.458657668007068,0.152885889335689
+"366","1",2015,"11","Gulf Coast West","Texas","involuntary servitude",187,"adult",71,26977142,6.93179433166048,2.63185774089783
+"367","1",2015,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"adult",0,107884,0,0
+"368","1",2015,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"adult",0,2937399,0,0
+"369","1",2015,"12","Northeast","Washington","involuntary servitude",0,"adult",0,7052439,0,0
+"370","1",2015,"7","North Central","Wisconsin","involuntary servitude",0,"adult",0,5751974,0,0
+"371","1",2015,"10","Rockies/Mid-West","Wyoming","involuntary servitude",1,"adult",0,582548,1.7165967439593,0
+"372","2",2016,"9","Southwest/Pacific","Alaska","involuntary servitude",1,"adult",0,737547,1.35584579694582,0
+"373","2",2016,"9","Southwest/Pacific","Arizona","involuntary servitude",0,"adult",0,6833596,0,0
+"374","2",2016,"8","Plains","Arkansas","involuntary servitude",2,"adult",0,2978407,0.67149989910714,0
+"375","2",2016,"10","Rockies/Mid-West","Colorado","involuntary servitude",22,"adult",9,5452107,4.03513724143712,1.65073796240609
+"376","2",2016,"2","Mideast North","Connecticut","involuntary servitude",1,"adult",0,3587509,0.278744945308848,0
+"377","2",2016,"3","Mideast South","Delaware","involuntary servitude",0,"adult",0,941413,0,0
+"378","2",2016,"5","Gulf Coast East","Florida","involuntary servitude",7,"adult",4,20224249,0.346119156266322,0.197782375009327
+"379","2",2016,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"adult",0,1422484,0,0
+"380","2",2016,"7","North Central","Illinois","involuntary servitude",3,"adult",0,12864342,0.233202755337195,0
+"381","2",2016,"7","North Central","Indiana","involuntary servitude",0,"adult",0,6608296,0,0
+"382","2",2016,"10","Rockies/Mid-West","Kansas","involuntary servitude",2,"adult",1,2909502,0.687402861383151,0.343701430691575
+"383","2",2016,"11","Gulf Coast West","Louisiana","involuntary servitude",2,"adult",2,4664851,0.428738238370314,0.428738238370314
+"384","2",2016,"4","Mid-Atlantic","Maryland","involuntary servitude",0,"adult",0,5986717,0,0
+"385","2",2016,"1","New England","Massachusetts","involuntary servitude",3,"adult",3,6795891,0.441443219145216,0.441443219145216
+"386","2",2016,"6","Central","Michigan","involuntary servitude",2,"adult",0,9932573,0.201357694526886,0
+"387","2",2016,"7","North Central","Minnesota","involuntary servitude",0,"adult",0,5482503,0,0
+"388","2",2016,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"adult",0,2988693,0,0
+"389","2",2016,"8","Plains","Missouri","involuntary servitude",0,"adult",0,6071745,0,0
+"390","2",2016,"12","Northeast","Montana","involuntary servitude",0,"adult",0,1030503,0,0
+"391","2",2016,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"adult",0,2868666,0,0
+"392","2",2016,"8","Plains","North Dakota","involuntary servitude",1,"adult",1,754022,1.32622125083883,1.32622125083883
+"393","2",2016,"6","Central","Ohio","involuntary servitude",0,"adult",0,11617850,0,0
+"394","2",2016,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",4,"adult",3,3909831,1.02306212212241,0.76729659159181
+"395","2",2016,"12","Northeast","Oregon","involuntary servitude",0,"adult",0,4016918,0,0
+"396","2",2016,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"adult",0,3473166,0,0
+"397","2",2016,"1","New England","Rhode Island","involuntary servitude",1,"adult",0,1056173,0.946814584353132,0
+"398","2",2016,"4","Mid-Atlantic","South Carolina","involuntary servitude",7,"adult",7,4892253,1.43083360570273,1.43083360570273
+"399","2",2016,"8","Plains","South Dakota","involuntary servitude",0,"adult",0,853933,0,0
+"400","2",2016,"6","Central","Tennessee","involuntary servitude",0,"adult",0,6590808,0,0
+"401","2",2016,"11","Gulf Coast West","Texas","involuntary servitude",127,"adult",27,27486814,4.62039725666278,0.982289180550354
+"402","2",2016,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"adult",0,107710,0,0
+"403","2",2016,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"adult",0,2982497,0,0
+"404","2",2016,"2","Mideast North","Vermont","involuntary servitude",0,"adult",0,625197,0,0
+"405","2",2016,"12","Northeast","Washington","involuntary servitude",1,"adult",1,7163543,0.139595727979856,0.139595727979856
+"406","2",2016,"7","North Central","Wisconsin","involuntary servitude",1,"adult",0,5761406,0.173568743462967,0
+"407","2",2016,"10","Rockies/Mid-West","Wyoming","involuntary servitude",2,"adult",1,585668,3.41490400704836,1.70745200352418
+"408","3",2017,"5","Gulf Coast East","Alabama","involuntary servitude",0,"adult",0,4864745,0,0
+"409","3",2017,"9","Southwest/Pacific","Alaska","involuntary servitude",1,"adult",0,741504,1.34861039185224,0
+"410","3",2017,"9","Southwest/Pacific","Arizona","involuntary servitude",7,"adult",4,6945452,1.00785377251185,0.575916441435345
+"411","3",2017,"8","Plains","Arkansas","involuntary servitude",0,"adult",0,2990410,0,0
+"412","3",2017,"9","Southwest/Pacific","California","involuntary servitude",0,"adult",0,39209127,0,0
+"413","3",2017,"10","Rockies/Mid-West","Colorado","involuntary servitude",7,"adult",0,5540921,1.26332788357748,0
+"414","3",2017,"2","Mideast North","Connecticut","involuntary servitude",0,"adult",0,3578674,0,0
+"415","3",2017,"3","Mideast South","Delaware","involuntary servitude",0,"adult",0,949216,0,0
+"416","3",2017,"5","Gulf Coast East","Florida","involuntary servitude",24,"adult",7,20629982,1.16335535338809,0.339311978071527
+"417","3",2017,"5","Gulf Coast East","Georgia","involuntary servitude",0,"adult",0,10304763,0,0
+"418","3",2017,"9","Southwest/Pacific","Guam","involuntary servitude",0,"adult",0,162896,0,0
+"419","3",2017,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"adult",0,1428105,0,0
+"420","3",2017,"12","Northeast","Idaho","involuntary servitude",0,"adult",0,1682930,0,0
+"421","3",2017,"7","North Central","Illinois","involuntary servitude",8,"adult",0,12826895,0.623689521119491,0
+"422","3",2017,"7","North Central","Indiana","involuntary servitude",1,"adult",0,6633344,0.15075352642649,0
+"423","3",2017,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"adult",0,2911263,0,0
+"424","3",2017,"6","Central","Kentucky","involuntary servitude",14,"adult",0,4438229,3.15441136543428,0
+"425","3",2017,"11","Gulf Coast West","Louisiana","involuntary servitude",2,"adult",2,4678215,0.427513485378504,0.427513485378504
+"426","3",2017,"1","New England","Maine","involuntary servitude",0,"adult",0,1331370,0,0
+"427","3",2017,"4","Mid-Atlantic","Maryland","involuntary servitude",0,"adult",0,6004692,0,0
+"428","3",2017,"1","New England","Massachusetts","involuntary servitude",11,"adult",2,6826022,1.61148030287626,0.292996418704774
+"429","3",2017,"6","Central","Michigan","involuntary servitude",11,"adult",0,9951890,1.10531768337472,0
+"430","3",2017,"7","North Central","Minnesota","involuntary servitude",0,"adult",0,5523409,0,0
+"431","3",2017,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"adult",0,2988298,0,0
+"432","3",2017,"8","Plains","Missouri","involuntary servitude",3,"adult",0,6087203,0.492837186471356,0
+"433","3",2017,"12","Northeast","Montana","involuntary servitude",0,"adult",0,1040863,0,0
+"434","3",2017,"8","Plains","Nebraska","involuntary servitude",0,"adult",0,1905924,0,0
+"435","3",2017,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"adult",0,2919772,0,0
+"436","3",2017,"1","New England","New Hampshire","involuntary servitude",0,"adult",0,1342373,0,0
+"437","3",2017,"10","Rockies/Mid-West","New Mexico","involuntary servitude",0,"adult",0,2092789,0,0
+"438","3",2017,"2","Mideast North","New York","involuntary servitude",0,"adult",0,19641589,0,0
+"439","3",2017,"4","Mid-Atlantic","North Carolina","involuntary servitude",0,"adult",0,10156679,0,0
+"440","3",2017,"8","Plains","North Dakota","involuntary servitude",1,"adult",0,754353,1.32563932270436,0
+"441","3",2017,"6","Central","Ohio","involuntary servitude",0,"adult",0,11635003,0,0
+"442","3",2017,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",0,"adult",0,3926769,0,0
+"443","3",2017,"12","Northeast","Oregon","involuntary servitude",0,"adult",0,4091404,0,0
+"444","3",2017,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"adult",0,3406495,0,0
+"445","3",2017,"1","New England","Rhode Island","involuntary servitude",1,"adult",1,1057063,0.946017408612353,0.946017408612353
+"446","3",2017,"4","Mid-Atlantic","South Carolina","involuntary servitude",4,"adult",0,4958235,0.806738688263061,0
+"447","3",2017,"8","Plains","South Dakota","involuntary servitude",0,"adult",0,862890,0,0
+"448","3",2017,"6","Central","Tennessee","involuntary servitude",4,"adult",0,6645011,0.601955361699176,0
+"449","3",2017,"11","Gulf Coast West","Texas","involuntary servitude",119,"adult",43,27937492,4.25950904970281,1.53915032888421
+"450","3",2017,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"adult",0,3042613,0,0
+"451","3",2017,"12","Northeast","Washington","involuntary servitude",1,"adult",1,7294680,0.137086205289334,0.137086205289334
+"452","3",2017,"7","North Central","Wisconsin","involuntary servitude",6,"adult",2,5772958,1.03932853833338,0.346442846111127
+"453","3",2017,"10","Rockies/Mid-West","Wyoming","involuntary servitude",0,"adult",0,584290,0,0
+"454","0",2014,"9","Southwest/Pacific","Alaska","involuntary servitude",0,"juvenile",0,737045,0,0
+"455","0",2014,"9","Southwest/Pacific","Arizona","involuntary servitude",0,"juvenile",0,6634999,0,0
+"456","0",2014,"9","Southwest/Pacific","California","involuntary servitude",0,"juvenile",0,38280824,0,0
+"457","0",2014,"10","Rockies/Mid-West","Colorado","involuntary servitude",2,"juvenile",0,5270482,0.379471934445464,0
+"458","0",2014,"3","Mideast South","Delaware","involuntary servitude",0,"juvenile",0,923638,0,0
+"459","0",2014,"5","Gulf Coast East","Florida","involuntary servitude",3,"juvenile",0,19563166,0.153349411848777,0
+"460","0",2014,"9","Southwest/Pacific","Guam","involuntary servitude",0,"juvenile",0,160375,0,0
+"461","0",2014,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"juvenile",0,1408453,0,0
+"462","0",2014,"12","Northeast","Idaho","involuntary servitude",0,"juvenile",0,1611530,0,0
+"463","0",2014,"7","North Central","Illinois","involuntary servitude",17,"juvenile",0,12898269,1.31800631542108,0
+"464","0",2014,"7","North Central","Indiana","involuntary servitude",0,"juvenile",0,6568367,0,0
+"465","0",2014,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"juvenile",0,2893510,0,0
+"466","0",2014,"1","New England","Massachusetts","involuntary servitude",1,"juvenile",0,6713944,0.148943750498962,0
+"467","0",2014,"6","Central","Michigan","involuntary servitude",1,"juvenile",0,9913349,0.100874084025489,0
+"468","0",2014,"7","North Central","Minnesota","involuntary servitude",1,"juvenile",0,5413693,0.184716791292007,0
+"469","0",2014,"8","Plains","Missouri","involuntary servitude",1,"juvenile",0,6040658,0.165544879382345,0
+"470","0",2014,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"juvenile",0,2988797,0,0
+"471","0",2014,"12","Northeast","Montana","involuntary servitude",0,"juvenile",0,1013564,0,0
+"472","0",2014,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"juvenile",0,2776972,0,0
+"473","0",2014,"6","Central","Ohio","involuntary servitude",0,"juvenile",0,11576576,0,0
+"474","0",2014,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",0,"juvenile",0,3853205,0,0
+"475","0",2014,"12","Northeast","Oregon","involuntary servitude",0,"juvenile",0,3922908,0,0
+"476","0",2014,"8","Plains","South Dakota","involuntary servitude",0,"juvenile",0,842270,0,0
+"477","0",2014,"6","Central","Tennessee","involuntary servitude",1,"juvenile",0,6493432,0.154001766708268,0
+"478","0",2014,"11","Gulf Coast West","Texas","involuntary servitude",113,"juvenile",3,26489464,4.26584697976524,0.113252574684033
+"479","0",2014,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"juvenile",0,2897927,0,0
+"480","0",2014,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"juvenile",0,108044,0,0
+"481","0",2014,"12","Northeast","Washington","involuntary servitude",0,"juvenile",0,6962906,0,0
+"482","0",2014,"10","Rockies/Mid-West","Wyoming","involuntary servitude",1,"juvenile",0,582123,1.71785000764443,0
+"483","1",2015,"9","Southwest/Pacific","Alaska","involuntary servitude",0,"juvenile",0,736307,0,0
+"484","1",2015,"9","Southwest/Pacific","Arizona","involuntary servitude",1,"juvenile",0,6733840,0.148503676951041,0
+"485","1",2015,"8","Plains","Arkansas","involuntary servitude",0,"juvenile",0,2967726,0,0
+"486","1",2015,"10","Rockies/Mid-West","Colorado","involuntary servitude",6,"juvenile",0,5351218,1.1212400616084,0
+"487","1",2015,"2","Mideast North","Connecticut","involuntary servitude",0,"juvenile",0,3594783,0,0
+"488","1",2015,"3","Mideast South","Delaware","involuntary servitude",0,"juvenile",0,932596,0,0
+"489","1",2015,"5","Gulf Coast East","Florida","involuntary servitude",2,"juvenile",0,19860330,0.100703261224763,0
+"490","1",2015,"9","Southwest/Pacific","Guam","involuntary servitude",0,"juvenile",0,160967,0,0
+"491","1",2015,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"juvenile",0,1414862,0,0
+"492","1",2015,"12","Northeast","Idaho","involuntary servitude",0,"juvenile",0,1631479,0,0
+"493","1",2015,"7","North Central","Illinois","involuntary servitude",8,"juvenile",0,12888962,0.620686134383824,0
+"494","1",2015,"7","North Central","Indiana","involuntary servitude",0,"juvenile",0,6593533,0,0
+"495","1",2015,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"juvenile",0,2900896,0,0
+"496","1",2015,"11","Gulf Coast West","Louisiana","involuntary servitude",0,"juvenile",0,4644204,0,0
+"497","1",2015,"1","New England","Maine","involuntary servitude",0,"juvenile",0,1330760,0,0
+"498","1",2015,"4","Mid-Atlantic","Maryland","involuntary servitude",1,"juvenile",0,5958165,0.167836909518283,0
+"499","1",2015,"1","New England","Massachusetts","involuntary servitude",2,"juvenile",0,6763652,0.295698241127722,0
+"500","1",2015,"6","Central","Michigan","involuntary servitude",0,"juvenile",0,9930589,0,0
+"501","1",2015,"7","North Central","Minnesota","involuntary servitude",0,"juvenile",0,5451522,0,0
+"502","1",2015,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"juvenile",0,2990623,0,0
+"503","1",2015,"8","Plains","Missouri","involuntary servitude",0,"juvenile",0,6056293,0,0
+"504","1",2015,"12","Northeast","Montana","involuntary servitude",0,"juvenile",0,1021891,0,0
+"505","1",2015,"8","Plains","Nebraska","involuntary servitude",0,"juvenile",0,1879522,0,0
+"506","1",2015,"9","Southwest/Pacific","Nevada","involuntary servitude",2,"juvenile",0,2819012,0.709468423688867,0
+"507","1",2015,"2","Mideast North","New York","involuntary servitude",0,"juvenile",0,19656330,0,0
+"508","1",2015,"4","Mid-Atlantic","North Carolina","involuntary servitude",0,"juvenile",0,9933944,0,0
+"509","1",2015,"6","Central","Ohio","involuntary servitude",0,"juvenile",0,11602973,0,0
+"510","1",2015,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",2,"juvenile",0,3878367,0.51568095541242,0
+"511","1",2015,"12","Northeast","Oregon","involuntary servitude",0,"juvenile",0,3964106,0,0
+"512","1",2015,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"juvenile",0,3534874,0,0
+"513","1",2015,"1","New England","Rhode Island","involuntary servitude",0,"juvenile",0,1056017,0,0
+"514","1",2015,"4","Mid-Atlantic","South Carolina","involuntary servitude",4,"juvenile",0,4823793,0.829222978680885,0
+"515","1",2015,"8","Plains","South Dakota","involuntary servitude",0,"juvenile",0,849088,0,0
+"516","1",2015,"6","Central","Tennessee","involuntary servitude",3,"juvenile",0,6540826,0.458657668007068,0
+"517","1",2015,"11","Gulf Coast West","Texas","involuntary servitude",187,"juvenile",0,26977142,6.93179433166048,0
+"518","1",2015,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"juvenile",0,107884,0,0
+"519","1",2015,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"juvenile",0,2937399,0,0
+"520","1",2015,"12","Northeast","Washington","involuntary servitude",0,"juvenile",0,7052439,0,0
+"521","1",2015,"7","North Central","Wisconsin","involuntary servitude",0,"juvenile",0,5751974,0,0
+"522","1",2015,"10","Rockies/Mid-West","Wyoming","involuntary servitude",1,"juvenile",0,582548,1.7165967439593,0
+"523","2",2016,"9","Southwest/Pacific","Alaska","involuntary servitude",1,"juvenile",0,737547,1.35584579694582,0
+"524","2",2016,"9","Southwest/Pacific","Arizona","involuntary servitude",0,"juvenile",0,6833596,0,0
+"525","2",2016,"8","Plains","Arkansas","involuntary servitude",2,"juvenile",0,2978407,0.67149989910714,0
+"526","2",2016,"10","Rockies/Mid-West","Colorado","involuntary servitude",22,"juvenile",0,5452107,4.03513724143712,0
+"527","2",2016,"2","Mideast North","Connecticut","involuntary servitude",1,"juvenile",0,3587509,0.278744945308848,0
+"528","2",2016,"3","Mideast South","Delaware","involuntary servitude",0,"juvenile",0,941413,0,0
+"529","2",2016,"5","Gulf Coast East","Florida","involuntary servitude",7,"juvenile",0,20224249,0.346119156266322,0
+"530","2",2016,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"juvenile",0,1422484,0,0
+"531","2",2016,"7","North Central","Illinois","involuntary servitude",3,"juvenile",0,12864342,0.233202755337195,0
+"532","2",2016,"7","North Central","Indiana","involuntary servitude",0,"juvenile",0,6608296,0,0
+"533","2",2016,"10","Rockies/Mid-West","Kansas","involuntary servitude",2,"juvenile",0,2909502,0.687402861383151,0
+"534","2",2016,"11","Gulf Coast West","Louisiana","involuntary servitude",2,"juvenile",0,4664851,0.428738238370314,0
+"535","2",2016,"4","Mid-Atlantic","Maryland","involuntary servitude",0,"juvenile",0,5986717,0,0
+"536","2",2016,"1","New England","Massachusetts","involuntary servitude",3,"juvenile",0,6795891,0.441443219145216,0
+"537","2",2016,"6","Central","Michigan","involuntary servitude",2,"juvenile",0,9932573,0.201357694526886,0
+"538","2",2016,"7","North Central","Minnesota","involuntary servitude",0,"juvenile",0,5482503,0,0
+"539","2",2016,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"juvenile",0,2988693,0,0
+"540","2",2016,"8","Plains","Missouri","involuntary servitude",0,"juvenile",0,6071745,0,0
+"541","2",2016,"12","Northeast","Montana","involuntary servitude",0,"juvenile",0,1030503,0,0
+"542","2",2016,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"juvenile",0,2868666,0,0
+"543","2",2016,"8","Plains","North Dakota","involuntary servitude",1,"juvenile",0,754022,1.32622125083883,0
+"544","2",2016,"6","Central","Ohio","involuntary servitude",0,"juvenile",0,11617850,0,0
+"545","2",2016,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",4,"juvenile",0,3909831,1.02306212212241,0
+"546","2",2016,"12","Northeast","Oregon","involuntary servitude",0,"juvenile",0,4016918,0,0
+"547","2",2016,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"juvenile",0,3473166,0,0
+"548","2",2016,"1","New England","Rhode Island","involuntary servitude",1,"juvenile",0,1056173,0.946814584353132,0
+"549","2",2016,"4","Mid-Atlantic","South Carolina","involuntary servitude",7,"juvenile",0,4892253,1.43083360570273,0
+"550","2",2016,"8","Plains","South Dakota","involuntary servitude",0,"juvenile",0,853933,0,0
+"551","2",2016,"6","Central","Tennessee","involuntary servitude",0,"juvenile",0,6590808,0,0
+"552","2",2016,"11","Gulf Coast West","Texas","involuntary servitude",127,"juvenile",0,27486814,4.62039725666278,0
+"553","2",2016,"5","Gulf Coast East","U.S. Virgin Islands","involuntary servitude",0,"juvenile",0,107710,0,0
+"554","2",2016,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"juvenile",0,2982497,0,0
+"555","2",2016,"2","Mideast North","Vermont","involuntary servitude",0,"juvenile",0,625197,0,0
+"556","2",2016,"12","Northeast","Washington","involuntary servitude",1,"juvenile",0,7163543,0.139595727979856,0
+"557","2",2016,"7","North Central","Wisconsin","involuntary servitude",1,"juvenile",0,5761406,0.173568743462967,0
+"558","2",2016,"10","Rockies/Mid-West","Wyoming","involuntary servitude",2,"juvenile",0,585668,3.41490400704836,0
+"559","3",2017,"5","Gulf Coast East","Alabama","involuntary servitude",0,"juvenile",0,4864745,0,0
+"560","3",2017,"9","Southwest/Pacific","Alaska","involuntary servitude",1,"juvenile",0,741504,1.34861039185224,0
+"561","3",2017,"9","Southwest/Pacific","Arizona","involuntary servitude",7,"juvenile",0,6945452,1.00785377251185,0
+"562","3",2017,"8","Plains","Arkansas","involuntary servitude",0,"juvenile",0,2990410,0,0
+"563","3",2017,"9","Southwest/Pacific","California","involuntary servitude",0,"juvenile",0,39209127,0,0
+"564","3",2017,"10","Rockies/Mid-West","Colorado","involuntary servitude",7,"juvenile",0,5540921,1.26332788357748,0
+"565","3",2017,"2","Mideast North","Connecticut","involuntary servitude",0,"juvenile",0,3578674,0,0
+"566","3",2017,"3","Mideast South","Delaware","involuntary servitude",0,"juvenile",0,949216,0,0
+"567","3",2017,"5","Gulf Coast East","Florida","involuntary servitude",24,"juvenile",0,20629982,1.16335535338809,0
+"568","3",2017,"5","Gulf Coast East","Georgia","involuntary servitude",0,"juvenile",0,10304763,0,0
+"569","3",2017,"9","Southwest/Pacific","Guam","involuntary servitude",0,"juvenile",0,162896,0,0
+"570","3",2017,"9","Southwest/Pacific","Hawaii","involuntary servitude",0,"juvenile",0,1428105,0,0
+"571","3",2017,"12","Northeast","Idaho","involuntary servitude",0,"juvenile",0,1682930,0,0
+"572","3",2017,"7","North Central","Illinois","involuntary servitude",8,"juvenile",0,12826895,0.623689521119491,0
+"573","3",2017,"7","North Central","Indiana","involuntary servitude",1,"juvenile",0,6633344,0.15075352642649,0
+"574","3",2017,"10","Rockies/Mid-West","Kansas","involuntary servitude",0,"juvenile",0,2911263,0,0
+"575","3",2017,"6","Central","Kentucky","involuntary servitude",14,"juvenile",0,4438229,3.15441136543428,0
+"576","3",2017,"11","Gulf Coast West","Louisiana","involuntary servitude",2,"juvenile",0,4678215,0.427513485378504,0
+"577","3",2017,"1","New England","Maine","involuntary servitude",0,"juvenile",0,1331370,0,0
+"578","3",2017,"4","Mid-Atlantic","Maryland","involuntary servitude",0,"juvenile",0,6004692,0,0
+"579","3",2017,"1","New England","Massachusetts","involuntary servitude",11,"juvenile",0,6826022,1.61148030287626,0
+"580","3",2017,"6","Central","Michigan","involuntary servitude",11,"juvenile",0,9951890,1.10531768337472,0
+"581","3",2017,"7","North Central","Minnesota","involuntary servitude",0,"juvenile",0,5523409,0,0
+"582","3",2017,"5","Gulf Coast East","Mississippi","involuntary servitude",0,"juvenile",0,2988298,0,0
+"583","3",2017,"8","Plains","Missouri","involuntary servitude",3,"juvenile",0,6087203,0.492837186471356,0
+"584","3",2017,"12","Northeast","Montana","involuntary servitude",0,"juvenile",0,1040863,0,0
+"585","3",2017,"8","Plains","Nebraska","involuntary servitude",0,"juvenile",0,1905924,0,0
+"586","3",2017,"9","Southwest/Pacific","Nevada","involuntary servitude",0,"juvenile",0,2919772,0,0
+"587","3",2017,"1","New England","New Hampshire","involuntary servitude",0,"juvenile",0,1342373,0,0
+"588","3",2017,"10","Rockies/Mid-West","New Mexico","involuntary servitude",0,"juvenile",0,2092789,0,0
+"589","3",2017,"2","Mideast North","New York","involuntary servitude",0,"juvenile",0,19641589,0,0
+"590","3",2017,"4","Mid-Atlantic","North Carolina","involuntary servitude",0,"juvenile",0,10156679,0,0
+"591","3",2017,"8","Plains","North Dakota","involuntary servitude",1,"juvenile",0,754353,1.32563932270436,0
+"592","3",2017,"6","Central","Ohio","involuntary servitude",0,"juvenile",0,11635003,0,0
+"593","3",2017,"10","Rockies/Mid-West","Oklahoma","involuntary servitude",0,"juvenile",0,3926769,0,0
+"594","3",2017,"12","Northeast","Oregon","involuntary servitude",0,"juvenile",0,4091404,0,0
+"595","3",2017,"5","Gulf Coast East","Puerto Rico","involuntary servitude",0,"juvenile",0,3406495,0,0
+"596","3",2017,"1","New England","Rhode Island","involuntary servitude",1,"juvenile",0,1057063,0.946017408612353,0
+"597","3",2017,"4","Mid-Atlantic","South Carolina","involuntary servitude",4,"juvenile",0,4958235,0.806738688263061,0
+"598","3",2017,"8","Plains","South Dakota","involuntary servitude",0,"juvenile",0,862890,0,0
+"599","3",2017,"6","Central","Tennessee","involuntary servitude",4,"juvenile",0,6645011,0.601955361699176,0
+"600","3",2017,"11","Gulf Coast West","Texas","involuntary servitude",119,"juvenile",16,27937492,4.25950904970281,0.572707099119706
+"601","3",2017,"10","Rockies/Mid-West","Utah","involuntary servitude",0,"juvenile",0,3042613,0,0
+"602","3",2017,"12","Northeast","Washington","involuntary servitude",1,"juvenile",0,7294680,0.137086205289334,0
+"603","3",2017,"7","North Central","Wisconsin","involuntary servitude",6,"juvenile",0,5772958,1.03932853833338,0
+"604","3",2017,"10","Rockies/Mid-West","Wyoming","involuntary servitude",0,"juvenile",0,584290,0,0

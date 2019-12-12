@@ -86,7 +86,7 @@ There are 4 rows in each file that were used a data information header in excel,
 ht_offenses_clearing_2014_df <- ht_offenses_clearing_2014_df[-c(1, 2, 3, 4),]
 ht_offenses_clearing_2015_df <- ht_offenses_clearing_2015_df[-c(1, 2, 3, 4),]
 ht_offenses_clearing_2016_df <- ht_offenses_clearing_2016_df[-c(1, 2, 3, 4),]
-ht_offenses_clearing_2017_df <- ht_offenses_clearing_2017_df[-c(1, 2, 3, 4),]
+ht_offenses_clearing_2017_df <- ht_offenses_clearing_2017_df[-c(1, 2, 3, 4, 52),]
 ```
 
 ## Adding Columns

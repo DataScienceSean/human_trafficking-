@@ -43,17 +43,24 @@ Even though many of these articles date back to as far as 2005, the FBI only beg
 Lets look at two charts.  The first chart shows total report cases of human trafficing.  The second chart shows the occurrence of human trafficking for every 100,000 people in the United States.
 
 ```{r echo=FALSE}
-total_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occurrence > 0)
+total_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occurrence)
 ggplot(total_plot, aes(x = year, y = occurrence)) + geom_bar(stat = "identity", fill ="blue") + ggtitle("Total Occurrences of Human Trafficking \nFrom 2014 Through 2017") + labs(y= "Occurrences", x = "Year")
 
-occ_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occ_per_100k > 0)
-ggplot(occ_plot, aes(x = year, y = occ_per_100k)) + geom_bar(stat = "identity", fill ="red") + ggtitle("Occurrence of Human Trafficking \nFor Every 100,000 People in the United States") + labs(y= "Occurrences Per 100k People", x = "Year")
+occ_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occ_per_100k)
+ggplot(occ_plot, aes(x = year, y = occ_per_100k)) + geom_bar(stat = "summary", fun.y = "mean", fill ="red") + ggtitle("Occurrence of Human Trafficking \nFor Every 100,000 People in the United States") + labs(y= "Occurrences Per 100k People", x = "Year")
 
 ```
 
 
-2014 is the first year and the instance is significantly lower than other year and is most likely the result of under reporting.  We can see that for the years 2015 through 2017, Human Trafficking is defiantly and issue, but appears to be in a slight decline.  However, more information is need to determine this.
+2014 was the first year and the instance is significantly lower than other years.  2015 is also low compared to the next two years.  This is most likely the result of under reporting during those two years.  We can see that Human Trafficking is defiantly and issue, but appears to be in a slight decline from 2016 to 2017.  However, more information is need to determine this.
 
 In 2014 there were 600 recorded occurences of human trafficking.  In 2015 there were 1,488 occurences, 2016	there were 2,014 occurrences, and in 2017 there were 1,988.
 
 
+```{r echo=FALSE}
+
+state_plot <- filter(ht_offenses_4_years_clean_df, state == c("Nevada","Minnesota","Louisiana","Alaska","North Dakota", "Texas"), offense == "commercial sex act", round(occ_per_100k, digits=2))
+
+ggplot(state_plot) + geom_bar(aes(x = year, fill = state), position = position_dodge()) + ggtitle("Occurrence of Human Trafficking \nFor Every 100,000 People in the United States \nBy State") + labs(y= "Occurrences Per 100k People", x = "Year") + coord_flip()
+
+```
