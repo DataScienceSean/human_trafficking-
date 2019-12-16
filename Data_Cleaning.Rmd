@@ -13,9 +13,9 @@ library("tidyr")
 ```
 # The Human Trafficking Project
 
-Human trafficking is the business of stealing freedom for profit. In some cases, traffickers trick, defraud or physically force victims into providing commercial sex. In others, victims are lied to, assaulted, threatened or manipulated into working under inhumane, illegal or otherwise unacceptable conditions. It is a multi-billion dollar criminal industry that denies freedom to 24.9 million people around the world.
+Human trafficking is the business of stealing freedom for profit. In some cases, traffickers trick, defraud, or physically force victims into providing commercial sex. In others cases, victims are lied to, assaulted, threatened or manipulated into working under inhumane, illegal, or otherwise unacceptable conditions. It is a multi-billion dollar criminal industry that denies freedom to 24.9 million people around the world.
 
-My project is to examine the data avaialable on the FBI website for human trafficking.
+My project is to examine the data available on the FBI website for human trafficking to determine the impact in the United States.
 
 ## Data Cleaning
 
@@ -33,13 +33,13 @@ Information and datacan be accessed from the following sites:
 
 <https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/additional-data-collections/human-trafficking>
 
-2018 data is not available at this time
+2018 data is not available at this time.
 
-The follwoing Tables are the Offense and Clearnace using the FBI's Summary Reporting System (SRS)
-When more than one crime was committed by the same person or group of persons.  The time and space intervals
-separating the crimes were insignificant.  So, the crime highest in the hierarchy is the only offense reported.
+The following tables are the Offense and Clearance using the FBI's Summary Reporting System (SRS).
+When more than one crime was committed by the same person or group of persons, the time and space intervals
+separating the crimes were insignificant, so the crime highest in the hierarchy is the only offense reported.
 
-An Offense is reported and under investigation by a participating organization.
+An Offense is a reported crime and under investigation by a participating organization.
 A Clearance is an offense where a perpetrator has been arrested or convicted.
 
 ## Read and Write
@@ -80,7 +80,7 @@ colnames(ht_offenses_clearing_2017_df) <- c("state", "commercial_sex_act_offense
 
 ## Rows that aren't needed
 
-There are 4 rows in each file that were used a data information header in excel, that are not needed.  I am deleting these rows using the following code.
+There are 4 rows in each file that were used as data information headers in excel that are not needed.  I am deleting these rows using the following code. The year 2017 had a final comment at the bottom of the data.  This also deletes that row.
 
 ```{r include=TRUE}
 ht_offenses_clearing_2014_df <- ht_offenses_clearing_2014_df[-c(1, 2, 3, 4),]
@@ -96,16 +96,16 @@ This is the code I am using to create the new column and add the year of the fil
 
 ```{r include=TRUE}
 # Creating a new column for the year and move that column to the front.
-ht_offenses_clearing_2014_df <- mutate(ht_offenses_clearing_2014_df,"year" = 2014)
+ht_offenses_clearing_2014_df <- mutate(ht_offenses_clearing_2014_df,"year" = "2014")
 ht_offenses_clearing_2014_df <- select(ht_offenses_clearing_2014_df, year, everything())
 
-ht_offenses_clearing_2015_df <- mutate(ht_offenses_clearing_2015_df,"year" = 2015)
+ht_offenses_clearing_2015_df <- mutate(ht_offenses_clearing_2015_df,"year" = "2015")
 ht_offenses_clearing_2015_df <- select(ht_offenses_clearing_2015_df, year, everything())
 
-ht_offenses_clearing_2016_df <- mutate(ht_offenses_clearing_2016_df,"year" = 2016)
+ht_offenses_clearing_2016_df <- mutate(ht_offenses_clearing_2016_df,"year" = "2016")
 ht_offenses_clearing_2016_df <- select(ht_offenses_clearing_2016_df, year, everything())
 
-ht_offenses_clearing_2017_df <- mutate(ht_offenses_clearing_2017_df,"year" = 2017)
+ht_offenses_clearing_2017_df <- mutate(ht_offenses_clearing_2017_df,"year" = "2017")
 ht_offenses_clearing_2017_df <- select(ht_offenses_clearing_2017_df, year, everything())
 ```
 
@@ -122,7 +122,7 @@ write.csv(ht_offenses_clearing_2017, file = "Human_Trafficking_Offenses_and_Clea
 
 # Combine and Sort
 
-This code combines all four dataframes into a single dataframe to use with analysis, and writes it to a single CSV file.
+This code combines all four dataframes into a single dataframe to use for analysis, and writes it to a single CSV file.
 
 ```{r include=TRUE}
 ht_offenses_clearing_4_years_df <- bind_rows(ht_offenses_clearing_2014_df, ht_offenses_clearing_2015_df, ht_offenses_clearing_2016_df, ht_offenses_clearing_2017_df)
@@ -132,14 +132,14 @@ write.csv(ht_offenses_clearing_4_years_df, file = "Human_Trafficking_Offenses_an
 ## How the Data is Organized
 
 Now that the data is organized and combined and after reading the FBI website on the process of compiling the data,
-I've leanred that data is generally broken down by age and is categorized as adult and juvenile.
+I've learned that data is generally broken down by age and is categorized as adult and juvenile.
 If an individual is over 18 they are adults and under 18 they are juveniles.
-There are also two tpyes of offences listed.  Commercial Sex Acts and Involuntary Servitude.
+There are also two types of offences listed.  Commercial Sex Acts and Involuntary Servitude.
 Both age and offense need to be separated by columns.
 
 ## Separate Offenses and Age
 
-I am going to pull out Commercial Sex Offense and Involuntary servituded into two different groups and then combine them back.
+I am going to pull out Commercial Sex Offense and Involuntary servitude into two different groups and then combine them back.
 
 ```{r include=TRUE}
 comm_sex_offense_df <- select(ht_offenses_clearing_4_years_df, "year", "state", "commercial_sex_act_offense", "commercial_sex_act_cleared", "commercial_sex_act_cleared_under_18")
@@ -160,7 +160,6 @@ comm_sex_offense_df <- mutate(comm_sex_offense_df, "offense" = "commercial sex a
 I discovered that my values are characters and not numeric.  This code Changes the columns to numeric in value.
 
 ```{r include=TRUE}
-comm_sex_offense_df$year <- as.numeric(comm_sex_offense_df$year)
 comm_sex_offense_df$commercial_sex_act_offense <- as.numeric(comm_sex_offense_df$commercial_sex_act_offense)
 comm_sex_offense_df$commercial_sex_act_cleared <- as.numeric(comm_sex_offense_df$commercial_sex_act_cleared)
 comm_sex_offense_df$commercial_sex_act_cleared_under_18 <- as.numeric(comm_sex_offense_df$commercial_sex_act_cleared_under_18)
@@ -175,7 +174,7 @@ comm_sex_offense_df <- select(comm_sex_offense_df, year, state, offense,commerci
 ```
 
 With commercial_sex_act_cleared_adults separted out from commercial_sex_act_cleared, commercial_sex_act_cleared is no longer needed.
-The columns also need to be rename to help understanding the data in each column.
+The columns also need to be renamed to help understanding the data in each column.
 
 ```{r include=TRUE}
 comm_sex_offense_df$commercial_sex_act_cleared <- NULL
@@ -188,7 +187,7 @@ This will create and column for age and gather Adult and Juvenile.
 comm_sex_offense_df <- gather(comm_sex_offense_df, age, cleared, adult, juvenile)
 ```
 
-Now I'm pulling the data for involuntary servitude.  I will clean this up and then put coomercial sex act and involuntary servitude back together.
+Now I'm pulling the data for involuntary servitude.  I will clean this up and then put commercial sex act and involuntary servitude back together.
 
 ```{r include=TRUE}
 invol_serv_df <- select(ht_offenses_clearing_4_years_df, "year", "state", "involuntary_servitude_offense", "involuntary_servitude_cleared", "involuntary_servitude_cleared_under_18")
@@ -209,7 +208,7 @@ invol_serv_df <- mutate(invol_serv_df,"offense" = "involuntary servitude")
 This code Changes certain columns to numeric values.
 
 ```{r include=TRUE}
-invol_serv_df$year <- as.numeric(invol_serv_df$year)
+
 invol_serv_df$involuntary_servitude_offense <- as.numeric(invol_serv_df$involuntary_servitude_offense)
 invol_serv_df$involuntary_servitude_cleared <- as.numeric(invol_serv_df$involuntary_servitude_cleared)
 invol_serv_df$involuntary_servitude_cleared_under_18 <- as.numeric(invol_serv_df$involuntary_servitude_cleared_under_18)
@@ -237,7 +236,7 @@ invol_serv_df <- gather(invol_serv_df, age, cleared, adult, juvenile)
 
 # Combine
 
-Now this code combines the two data frames into one final data frame.
+Now this code combines the two data frames into one final dataframe.
 
 ```{r include=TRUE}
 ht_offenses_4_years_clean_df <- bind_rows(comm_sex_offense_df, invol_serv_df)
@@ -245,14 +244,14 @@ ht_offenses_4_years_clean_df <- bind_rows(comm_sex_offense_df, invol_serv_df)
 
 # One More Look
 
-After examining the data, I noticed a few states have an asterisk after it in certain years.
-This code removes the astreisk.
+U.S. Virgin Islands is spelled two Different Ways.  This will correct the spelling of the odd one.
 
 ```{r include=TRUE}
 ht_offenses_4_years_clean_df$state <- gsub("U. S. Virgin Islands", "U.S. Virgin Islands", ht_offenses_4_years_clean_df$state)
 ```
 
-U.S. Virgin Islands is spelled two Different Ways.  This will correct the spelling of the odd one.
+After examining the data, I noticed a few states have an asterisk after it in certain years.
+This code removes the asterisk.
 
 ```{r include=TRUE}
 ht_offenses_4_years_clean_df$state <- gsub("\\*", "", ht_offenses_4_years_clean_df$state)
@@ -260,7 +259,7 @@ ht_offenses_4_years_clean_df$state <- gsub("\\*", "", ht_offenses_4_years_clean_
 
 # FBI Regions
 
-Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data.  The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns. The regions and descriptions are in a file state_region.csv.  We will import that data into a dataframe, Create evquivilant columns in the current dataframe.
+Currently the data is all listed by state. For possible simplification of analysis, this code adds the twelve FBI regions to the data.  The FBI uses a number code; however I will add an additional column for a description. Then the code will reorder the columns. The regions and descriptions are in a file state_region.csv.  We will import that data into a dataframe, Create equivalent  columns in the current dataframe.
 
 ```{r include=TRUE}
 state_regions <- read.csv(file = "state_regions.csv")
@@ -281,15 +280,15 @@ This code will join the two dataframes.
 ht_offenses_4_years_clean_df <- left_join(ht_offenses_4_years_clean_df, state_regions_df, by = "state")
 ```
 
-This Code adds a column for years that will be more usful in regression analysis.
+This Code adds a column for years that will be more useful in regression analysis.
 
 ```{r include=TRUE}
 ht_offenses_4_years_clean_df <- mutate(ht_offenses_4_years_clean_df, year_data = year)
 
-ht_offenses_4_years_clean_df$year_data <- gsub(2014, 0, ht_offenses_4_years_clean_df$year_data)
-ht_offenses_4_years_clean_df$year_data <- gsub(2015, 1, ht_offenses_4_years_clean_df$year_data)
-ht_offenses_4_years_clean_df$year_data <- gsub(2016, 2, ht_offenses_4_years_clean_df$year_data)
-ht_offenses_4_years_clean_df$year_data <- gsub(2017, 3, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data <- gsub("2014", 0, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data <- gsub("2015", 1, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data <- gsub("2016", 2, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data <- gsub("2017", 3, ht_offenses_4_years_clean_df$year_data)
 ```
 
 This code reorders the column names for later analysis.
@@ -306,7 +305,7 @@ population <- read.csv(file = "PEP_2018_PEPANNRES_with_ann.csv")
 population_df <- data.frame(population)
 ```
 
-The first two columns contain unneeded Geo IDs and the 4th columns contains a 2010 estimate.  The column names are also geo ID codes and need to be renamed. Once that is done, the first row won't be needed. Since the second row has the popluation for the entire United States, That will be deleted also.
+The first two columns contain unneeded Geo IDs and the 4th columns contains a 2010 estimate.  The column names are also geo ID codes and need to be renamed. Once that is done, the first row won't be needed. Since the second row has the population for the entire United States. That will be deleted also.
 
 This code deletes the three columns.
 
@@ -323,13 +322,12 @@ colnames(population_df) <- c("state", "2010", "2011", "2012", "2013", "2014", "2
 population_df <- population_df[-c(1, 2),]
 ```
 
-Currently with the new file, all the years are columns. To match the dataframe to be analyised, the columns need to be turned to rows.
+Currently with the new file, all the years are columns. To match the dataframe to be analyzed, the columns need to be turned to rows.
 This code creates a new dataframe where the columns for years are gathered into rows.
 
 ```{r include=TRUE}
 population_gather <- gather(population_df, year, population, -state)
 population_gather_df <- data.frame(population_gather)
-population_gather_df$year <- as.numeric(population_gather_df$year)
 population_gather_df$population <- as.numeric(population_gather_df$population)
 ```
 Since I may want to use both of these dataframes in the future I am writing them to a csv file.
@@ -341,8 +339,8 @@ write.csv(population_gather_df, file = "population_by_sate_by_year_long.csv")
 
 # Combine Crime Data and Population
 
-We have a the human traficing dataframe and the population dataframe and we need to put them together.
-The human traficing dataframe needs a column for poplulation and then they can be merged.
+We have the human trafficking dataframe and the population dataframe and we need to put them together.
+The human trafficking dataframe needs a column for population and then they can be merged.
 
 ```{r inclue=TRUE}
 ht_offenses_4_years_clean_df <- left_join(ht_offenses_4_years_clean_df, population_gather_df, by = c("state", "year"))
@@ -351,7 +349,7 @@ ht_offenses_4_years_clean_df <- left_join(ht_offenses_4_years_clean_df, populati
 
 ## Crime Stats
 
-In the United States Crime Statisitics are ussually descibed as instance per 100,000 people in a population.
+In the United States, crime statistics are usually described as an instance per 100,000 people in a population.
 This code will add a column dividing the instances of the crimes by the population and multiplying by 100,000.
 This is the number that will be used in the analysis.
 

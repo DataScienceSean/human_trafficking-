@@ -193,8 +193,8 @@ $(document).ready(function () {
 
 <div id="the-human-trafficking-project" class="section level1">
 <h1>The Human Trafficking Project</h1>
-<p>Human trafficking is the business of stealing freedom for profit. In some cases, traffickers trick, defraud or physically force victims into providing commercial sex. In others, victims are lied to, assaulted, threatened or manipulated into working under inhumane, illegal or otherwise unacceptable conditions. It is a multi-billion dollar criminal industry that denies freedom to 24.9 million people around the world.</p>
-<p>My project is to examine the data avaialable on the FBI website for human trafficking.</p>
+<p>Human trafficking is the business of stealing freedom for profit. In some cases, traffickers trick, defraud, or physically force victims into providing commercial sex. In others cases, victims are lied to, assaulted, threatened or manipulated into working under inhumane, illegal, or otherwise unacceptable conditions. It is a multi-billion dollar criminal industry that denies freedom to 24.9 million people around the world.</p>
+<p>My project is to examine the data available on the FBI website for human trafficking to determine the impact in the United States.</p>
 <div id="data-cleaning" class="section level2">
 <h2>Data Cleaning</h2>
 <p>I will be using the readxl, dplyr, and tdyr packages for the data cleaning process.</p>
@@ -203,9 +203,9 @@ $(document).ready(function () {
 <p><a href="https://ucr.fbi.gov/crime-in-the-u.s/2015/crime-in-the-u.s.-2015/additional-reports/human-trafficking/humantrafficking_-2015-_final" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2015/crime-in-the-u.s.-2015/additional-reports/human-trafficking/humantrafficking_-2015-_final</a></p>
 <p><a href="https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/additional-publications/human-trafficking" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/additional-publications/human-trafficking</a></p>
 <p><a href="https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/additional-data-collections/human-trafficking" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2017/crime-in-the-u.s.-2017/additional-data-collections/human-trafficking</a></p>
-<p>2018 data is not available at this time</p>
-<p>The follwoing Tables are the Offense and Clearnace using the FBI’s Summary Reporting System (SRS) When more than one crime was committed by the same person or group of persons. The time and space intervals separating the crimes were insignificant. So, the crime highest in the hierarchy is the only offense reported.</p>
-<p>An Offense is reported and under investigation by a participating organization. A Clearance is an offense where a perpetrator has been arrested or convicted.</p>
+<p>2018 data is not available at this time.</p>
+<p>The following tables are the Offense and Clearance using the FBI’s Summary Reporting System (SRS). When more than one crime was committed by the same person or group of persons, the time and space intervals separating the crimes were insignificant, so the crime highest in the hierarchy is the only offense reported.</p>
+<p>An Offense is a reported crime and under investigation by a participating organization. A Clearance is an offense where a perpetrator has been arrested or convicted.</p>
 </div>
 <div id="read-and-write" class="section level2">
 <h2>Read and Write</h2>
@@ -267,7 +267,7 @@ colnames(ht_offenses_clearing_2017_df) &lt;- c(&quot;state&quot;, &quot;commerci
 </div>
 <div id="rows-that-arent-needed" class="section level2">
 <h2>Rows that aren’t needed</h2>
-<p>There are 4 rows in each file that were used a data information header in excel, that are not needed. I am deleting these rows using the following code.</p>
+<p>There are 4 rows in each file that were used as data information headers in excel that are not needed. I am deleting these rows using the following code. The year 2017 had a final comment at the bottom of the data. This also deletes that row.</p>
 <pre class="r"><code>ht_offenses_clearing_2014_df &lt;- ht_offenses_clearing_2014_df[-c(1, 2, 3, 4),]
 ht_offenses_clearing_2015_df &lt;- ht_offenses_clearing_2015_df[-c(1, 2, 3, 4),]
 ht_offenses_clearing_2016_df &lt;- ht_offenses_clearing_2016_df[-c(1, 2, 3, 4),]
@@ -277,16 +277,16 @@ ht_offenses_clearing_2017_df &lt;- ht_offenses_clearing_2017_df[-c(1, 2, 3, 4, 5
 <h2>Adding Columns</h2>
 <p>Since each file represents data form a particular year, and eventually the data will be combined, I need a column for the year. This is the code I am using to create the new column and add the year of the file as the data in the new column.</p>
 <pre class="r"><code># Creating a new column for the year and move that column to the front.
-ht_offenses_clearing_2014_df &lt;- mutate(ht_offenses_clearing_2014_df,&quot;year&quot; = 2014)
+ht_offenses_clearing_2014_df &lt;- mutate(ht_offenses_clearing_2014_df,&quot;year&quot; = &quot;2014&quot;)
 ht_offenses_clearing_2014_df &lt;- select(ht_offenses_clearing_2014_df, year, everything())
 
-ht_offenses_clearing_2015_df &lt;- mutate(ht_offenses_clearing_2015_df,&quot;year&quot; = 2015)
+ht_offenses_clearing_2015_df &lt;- mutate(ht_offenses_clearing_2015_df,&quot;year&quot; = &quot;2015&quot;)
 ht_offenses_clearing_2015_df &lt;- select(ht_offenses_clearing_2015_df, year, everything())
 
-ht_offenses_clearing_2016_df &lt;- mutate(ht_offenses_clearing_2016_df,&quot;year&quot; = 2016)
+ht_offenses_clearing_2016_df &lt;- mutate(ht_offenses_clearing_2016_df,&quot;year&quot; = &quot;2016&quot;)
 ht_offenses_clearing_2016_df &lt;- select(ht_offenses_clearing_2016_df, year, everything())
 
-ht_offenses_clearing_2017_df &lt;- mutate(ht_offenses_clearing_2017_df,&quot;year&quot; = 2017)
+ht_offenses_clearing_2017_df &lt;- mutate(ht_offenses_clearing_2017_df,&quot;year&quot; = &quot;2017&quot;)
 ht_offenses_clearing_2017_df &lt;- select(ht_offenses_clearing_2017_df, year, everything())</code></pre>
 </div>
 <div id="writing-the-data-to-a-file" class="section level2">
@@ -296,44 +296,42 @@ ht_offenses_clearing_2017_df &lt;- select(ht_offenses_clearing_2017_df, year, ev
 </div>
 <div id="combine-and-sort" class="section level1">
 <h1>Combine and Sort</h1>
-<p>This code combines all four dataframes into a single dataframe to use with analysis, and writes it to a single CSV file.</p>
+<p>This code combines all four dataframes into a single dataframe to use for analysis, and writes it to a single CSV file.</p>
 <pre class="r"><code>ht_offenses_clearing_4_years_df &lt;- bind_rows(ht_offenses_clearing_2014_df, ht_offenses_clearing_2015_df, ht_offenses_clearing_2016_df, ht_offenses_clearing_2017_df)
 write.csv(ht_offenses_clearing_4_years_df, file = &quot;Human_Trafficking_Offenses_and_Clearances_by_State_2014_to_2017.csv&quot;)</code></pre>
 <div id="how-the-data-is-organized" class="section level2">
 <h2>How the Data is Organized</h2>
-<p>Now that the data is organized and combined and after reading the FBI website on the process of compiling the data, I’ve leanred that data is generally broken down by age and is categorized as adult and juvenile. If an individual is over 18 they are adults and under 18 they are juveniles. There are also two tpyes of offences listed. Commercial Sex Acts and Involuntary Servitude. Both age and offense need to be separated by columns.</p>
+<p>Now that the data is organized and combined and after reading the FBI website on the process of compiling the data, I’ve learned that data is generally broken down by age and is categorized as adult and juvenile. If an individual is over 18 they are adults and under 18 they are juveniles. There are also two types of offences listed. Commercial Sex Acts and Involuntary Servitude. Both age and offense need to be separated by columns.</p>
 </div>
 <div id="separate-offenses-and-age" class="section level2">
 <h2>Separate Offenses and Age</h2>
-<p>I am going to pull out Commercial Sex Offense and Involuntary servituded into two different groups and then combine them back.</p>
+<p>I am going to pull out Commercial Sex Offense and Involuntary servitude into two different groups and then combine them back.</p>
 <pre class="r"><code>comm_sex_offense_df &lt;- select(ht_offenses_clearing_4_years_df, &quot;year&quot;, &quot;state&quot;, &quot;commercial_sex_act_offense&quot;, &quot;commercial_sex_act_cleared&quot;, &quot;commercial_sex_act_cleared_under_18&quot;)</code></pre>
 <p>This code removes the invalid row at the bottom</p>
 <pre class="r"><code>comm_sex_offense_df &lt;- comm_sex_offense_df[-c(149),]</code></pre>
 <p>This code creates a new column for offense</p>
 <pre class="r"><code>comm_sex_offense_df &lt;- mutate(comm_sex_offense_df, &quot;offense&quot; = &quot;commercial sex act&quot;)</code></pre>
 <p>I discovered that my values are characters and not numeric. This code Changes the columns to numeric in value.</p>
-<pre class="r"><code>comm_sex_offense_df$year &lt;- as.numeric(comm_sex_offense_df$year)
-comm_sex_offense_df$commercial_sex_act_offense &lt;- as.numeric(comm_sex_offense_df$commercial_sex_act_offense)
+<pre class="r"><code>comm_sex_offense_df$commercial_sex_act_offense &lt;- as.numeric(comm_sex_offense_df$commercial_sex_act_offense)
 comm_sex_offense_df$commercial_sex_act_cleared &lt;- as.numeric(comm_sex_offense_df$commercial_sex_act_cleared)
 comm_sex_offense_df$commercial_sex_act_cleared_under_18 &lt;- as.numeric(comm_sex_offense_df$commercial_sex_act_cleared_under_18)</code></pre>
 <p>This code creates a new column for adult cleared offenses, then reorders the columns</p>
 <pre class="r"><code>comm_sex_offense_df &lt;- mutate(comm_sex_offense_df, commercial_sex_act_cleared_adults = (commercial_sex_act_cleared - commercial_sex_act_cleared_under_18))
 
 comm_sex_offense_df &lt;- select(comm_sex_offense_df, year, state, offense,commercial_sex_act_offense, commercial_sex_act_cleared, commercial_sex_act_cleared_adults, commercial_sex_act_cleared_under_18, everything())</code></pre>
-<p>With commercial_sex_act_cleared_adults separted out from commercial_sex_act_cleared, commercial_sex_act_cleared is no longer needed. The columns also need to be rename to help understanding the data in each column.</p>
+<p>With commercial_sex_act_cleared_adults separted out from commercial_sex_act_cleared, commercial_sex_act_cleared is no longer needed. The columns also need to be renamed to help understanding the data in each column.</p>
 <pre class="r"><code>comm_sex_offense_df$commercial_sex_act_cleared &lt;- NULL
 colnames(comm_sex_offense_df) &lt;- c(&quot;year&quot;, &quot;state&quot;, &quot;offense&quot;, &quot;occurrence&quot;, &quot;adult&quot;, &quot;juvenile&quot;)</code></pre>
 <p>This will create and column for age and gather Adult and Juvenile.</p>
 <pre class="r"><code>comm_sex_offense_df &lt;- gather(comm_sex_offense_df, age, cleared, adult, juvenile)</code></pre>
-<p>Now I’m pulling the data for involuntary servitude. I will clean this up and then put coomercial sex act and involuntary servitude back together.</p>
+<p>Now I’m pulling the data for involuntary servitude. I will clean this up and then put commercial sex act and involuntary servitude back together.</p>
 <pre class="r"><code>invol_serv_df &lt;- select(ht_offenses_clearing_4_years_df, &quot;year&quot;, &quot;state&quot;, &quot;involuntary_servitude_offense&quot;, &quot;involuntary_servitude_cleared&quot;, &quot;involuntary_servitude_cleared_under_18&quot;)</code></pre>
 <p>This code removes the invalid row at the bottom.</p>
 <pre class="r"><code>invol_serv_df &lt;- invol_serv_df[-c(149),]</code></pre>
 <p>This code creates a new column for offenses.</p>
 <pre class="r"><code>invol_serv_df &lt;- mutate(invol_serv_df,&quot;offense&quot; = &quot;involuntary servitude&quot;)</code></pre>
 <p>This code Changes certain columns to numeric values.</p>
-<pre class="r"><code>invol_serv_df$year &lt;- as.numeric(invol_serv_df$year)
-invol_serv_df$involuntary_servitude_offense &lt;- as.numeric(invol_serv_df$involuntary_servitude_offense)
+<pre class="r"><code>invol_serv_df$involuntary_servitude_offense &lt;- as.numeric(invol_serv_df$involuntary_servitude_offense)
 invol_serv_df$involuntary_servitude_cleared &lt;- as.numeric(invol_serv_df$involuntary_servitude_cleared)
 invol_serv_df$involuntary_servitude_cleared_under_18 &lt;- as.numeric(invol_serv_df$involuntary_servitude_cleared_under_18)</code></pre>
 <p>This code creates a new column for adult cleared offenses.</p>
@@ -348,19 +346,19 @@ colnames(invol_serv_df) &lt;- c(&quot;year&quot;, &quot;state&quot;, &quot;offen
 </div>
 <div id="combine" class="section level1">
 <h1>Combine</h1>
-<p>Now this code combines the two data frames into one final data frame.</p>
+<p>Now this code combines the two data frames into one final dataframe.</p>
 <pre class="r"><code>ht_offenses_4_years_clean_df &lt;- bind_rows(comm_sex_offense_df, invol_serv_df)</code></pre>
 </div>
 <div id="one-more-look" class="section level1">
 <h1>One More Look</h1>
-<p>After examining the data, I noticed a few states have an asterisk after it in certain years. This code removes the astreisk.</p>
-<pre class="r"><code>ht_offenses_4_years_clean_df$state &lt;- gsub(&quot;U. S. Virgin Islands&quot;, &quot;U.S. Virgin Islands&quot;, ht_offenses_4_years_clean_df$state)</code></pre>
 <p>U.S. Virgin Islands is spelled two Different Ways. This will correct the spelling of the odd one.</p>
+<pre class="r"><code>ht_offenses_4_years_clean_df$state &lt;- gsub(&quot;U. S. Virgin Islands&quot;, &quot;U.S. Virgin Islands&quot;, ht_offenses_4_years_clean_df$state)</code></pre>
+<p>After examining the data, I noticed a few states have an asterisk after it in certain years. This code removes the asterisk.</p>
 <pre class="r"><code>ht_offenses_4_years_clean_df$state &lt;- gsub(&quot;\\*&quot;, &quot;&quot;, ht_offenses_4_years_clean_df$state)</code></pre>
 </div>
 <div id="fbi-regions" class="section level1">
 <h1>FBI Regions</h1>
-<p>Currently the data is all listed by state. For possible simplification of analysis, this code addes the twelve FBI regions to the data. The FBI uses a number code, however I will add an additional column for a description. Then the code will reoder the columns. The regions and descriptions are in a file state_region.csv. We will import that data into a dataframe, Create evquivilant columns in the current dataframe.</p>
+<p>Currently the data is all listed by state. For possible simplification of analysis, this code adds the twelve FBI regions to the data. The FBI uses a number code; however I will add an additional column for a description. Then the code will reorder the columns. The regions and descriptions are in a file state_region.csv. We will import that data into a dataframe, Create equivalent columns in the current dataframe.</p>
 <pre class="r"><code>state_regions &lt;- read.csv(file = &quot;state_regions.csv&quot;)
 state_regions_df &lt;- data.frame(state_regions)
 colnames(state_regions_df)</code></pre>
@@ -371,13 +369,13 @@ state_regions_df$region &lt;- as.character(state_regions_df$region)
 state_regions_df$region_description &lt;- as.character(state_regions_df$region_description)</code></pre>
 <p>This code will join the two dataframes.</p>
 <pre class="r"><code>ht_offenses_4_years_clean_df &lt;- left_join(ht_offenses_4_years_clean_df, state_regions_df, by = &quot;state&quot;)</code></pre>
-<p>This Code adds a column for years that will be more usful in regression analysis.</p>
+<p>This Code adds a column for years that will be more useful in regression analysis.</p>
 <pre class="r"><code>ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, year_data = year)
 
-ht_offenses_4_years_clean_df$year_data &lt;- gsub(2014, 0, ht_offenses_4_years_clean_df$year_data)
-ht_offenses_4_years_clean_df$year_data &lt;- gsub(2015, 1, ht_offenses_4_years_clean_df$year_data)
-ht_offenses_4_years_clean_df$year_data &lt;- gsub(2016, 2, ht_offenses_4_years_clean_df$year_data)
-ht_offenses_4_years_clean_df$year_data &lt;- gsub(2017, 3, ht_offenses_4_years_clean_df$year_data)</code></pre>
+ht_offenses_4_years_clean_df$year_data &lt;- gsub(&quot;2014&quot;, 0, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data &lt;- gsub(&quot;2015&quot;, 1, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data &lt;- gsub(&quot;2016&quot;, 2, ht_offenses_4_years_clean_df$year_data)
+ht_offenses_4_years_clean_df$year_data &lt;- gsub(&quot;2017&quot;, 3, ht_offenses_4_years_clean_df$year_data)</code></pre>
 <p>This code reorders the column names for later analysis.</p>
 <pre class="r"><code>ht_offenses_4_years_clean_df &lt;- select(ht_offenses_4_years_clean_df, year_data, year, region, region_description, state, offense, occurrence, age, cleared,everything())</code></pre>
 </div>
@@ -386,7 +384,7 @@ ht_offenses_4_years_clean_df$year_data &lt;- gsub(2017, 3, ht_offenses_4_years_c
 <p>I found a data set at <a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk" class="uri">https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk</a> that had the population for each state for the years 2010 through 2018. This code will read the csv file and create a dataframe of the population.</p>
 <pre class="r"><code>population &lt;- read.csv(file = &quot;PEP_2018_PEPANNRES_with_ann.csv&quot;)
 population_df &lt;- data.frame(population)</code></pre>
-<p>The first two columns contain unneeded Geo IDs and the 4th columns contains a 2010 estimate. The column names are also geo ID codes and need to be renamed. Once that is done, the first row won’t be needed. Since the second row has the popluation for the entire United States, That will be deleted also.</p>
+<p>The first two columns contain unneeded Geo IDs and the 4th columns contains a 2010 estimate. The column names are also geo ID codes and need to be renamed. Once that is done, the first row won’t be needed. Since the second row has the population for the entire United States. That will be deleted also.</p>
 <p>This code deletes the three columns.</p>
 <pre class="r"><code>population_df$GEO.id &lt;- NULL
 population_df$GEO.id2 &lt;- NULL
@@ -394,12 +392,11 @@ population_df$rescen42010 &lt;- NULL</code></pre>
 <p>This code renames the columns and deletes the first row.</p>
 <pre class="r"><code>colnames(population_df) &lt;- c(&quot;state&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;)
 population_df &lt;- population_df[-c(1, 2),]</code></pre>
-<p>Currently with the new file, all the years are columns. To match the dataframe to be analyised, the columns need to be turned to rows. This code creates a new dataframe where the columns for years are gathered into rows.</p>
+<p>Currently with the new file, all the years are columns. To match the dataframe to be analyzed, the columns need to be turned to rows. This code creates a new dataframe where the columns for years are gathered into rows.</p>
 <pre class="r"><code>population_gather &lt;- gather(population_df, year, population, -state)</code></pre>
 <pre><code>## Warning: attributes are not identical across measure variables;
 ## they will be dropped</code></pre>
 <pre class="r"><code>population_gather_df &lt;- data.frame(population_gather)
-population_gather_df$year &lt;- as.numeric(population_gather_df$year)
 population_gather_df$population &lt;- as.numeric(population_gather_df$population)</code></pre>
 <p>Since I may want to use both of these dataframes in the future I am writing them to a csv file.</p>
 <pre class="r"><code>write.csv(population_df, file = &quot;population_by_state_by_year_wide.csv&quot;)
@@ -407,13 +404,13 @@ write.csv(population_gather_df, file = &quot;population_by_sate_by_year_long.csv
 </div>
 <div id="combine-crime-data-and-population" class="section level1">
 <h1>Combine Crime Data and Population</h1>
-<p>We have a the human traficing dataframe and the population dataframe and we need to put them together. The human traficing dataframe needs a column for poplulation and then they can be merged.</p>
+<p>We have the human trafficking dataframe and the population dataframe and we need to put them together. The human trafficking dataframe needs a column for population and then they can be merged.</p>
 <pre class="r"><code>ht_offenses_4_years_clean_df &lt;- left_join(ht_offenses_4_years_clean_df, population_gather_df, by = c(&quot;state&quot;, &quot;year&quot;))</code></pre>
 <pre><code>## Warning: Column `state` joining character vector and factor, coercing into
 ## character vector</code></pre>
 <div id="crime-stats" class="section level2">
 <h2>Crime Stats</h2>
-<p>In the United States Crime Statisitics are ussually descibed as instance per 100,000 people in a population. This code will add a column dividing the instances of the crimes by the population and multiplying by 100,000. This is the number that will be used in the analysis.</p>
+<p>In the United States, crime statistics are usually described as an instance per 100,000 people in a population. This code will add a column dividing the instances of the crimes by the population and multiplying by 100,000. This is the number that will be used in the analysis.</p>
 <pre class="r"><code>ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, occ_per_100k = occurrence / population * 1000000)
 ht_offenses_4_years_clean_df &lt;- mutate(ht_offenses_4_years_clean_df, clr_per_100k = cleared / population * 1000000)</code></pre>
 </div>

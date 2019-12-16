@@ -8,12 +8,12 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
+library(plyr)
 library(dplyr)
 library(tidyr)
 library(treemapify)
 library(breakDown)
 library(reshape2)
-library(plyr)
 ```
 
 ## Is Human Trafficking Really a Problem?
@@ -47,20 +47,24 @@ total_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex ac
 ggplot(total_plot, aes(x = year, y = occurrence)) + geom_bar(stat = "identity", fill ="blue") + ggtitle("Total Occurrences of Human Trafficking \nFrom 2014 Through 2017") + labs(y= "Occurrences", x = "Year")
 
 occ_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occ_per_100k)
-ggplot(occ_plot, aes(x = year, y = occ_per_100k)) + geom_bar(stat = "summary", fun.y = "mean", fill ="red") + ggtitle("Occurrence of Human Trafficking \nFor Every 100,000 People in the United States") + labs(y= "Occurrences Per 100k People", x = "Year")
-
+ggplot(occ_plot, aes(x = year, y = occ_per_100k)) + geom_bar(stat = "summary", fun.y = "mean", fill ="red") + ggtitle("Total Occurrences of Human Trafficking \nFrom 2014 Through 2017") + labs(y= "Occurrences Per 100k People", x = "Year")
 ```
 
+2014 was the first year and the instance is significantly lower than other years.  In fact there were twenty-eight states and territories, that didn't report any occurances that year.  2015 is also low compared to the next two years.  This is most likely the result of under reporting during those two years.  We can see that Human Trafficking is defiantly and issue, but appears to be in a slight decline from 2016 to 2017.  However, more information is need to determine this.  The FBI is still working with states to improve reporting.  There were twelve states that had reported no occurances at all.
 
-2014 was the first year and the instance is significantly lower than other years.  2015 is also low compared to the next two years.  This is most likely the result of under reporting during those two years.  We can see that Human Trafficking is defiantly and issue, but appears to be in a slight decline from 2016 to 2017.  However, more information is need to determine this.
+In 2014 there were 600 recorded occurences of human trafficking.  In 2015 there were 1,488 occurences, 2016	there were 2,014 occurrences, and in 2017 there were 1,988. Reminder comment coord_flip() to flip my chart.
 
-In 2014 there were 600 recorded occurences of human trafficking.  In 2015 there were 1,488 occurences, 2016	there were 2,014 occurrences, and in 2017 there were 1,988.
-
+## Regions and State With The Highest Insidence of Human Trafficking
+The FBI has divided the country into thirteen regions. By examining the regions, you can see areas hith higher occurences.
 
 ```{r echo=FALSE}
+ggplot(occ_plot, aes(x = year, y = occ_per_100k, fill = region_description)) + geom_bar(position = "dodge", stat = "summary", fun.y = mean) + ggtitle("Total Occurrences of Human Trafficking \nBy Region From 2014 Through 2017") + labs(y= "Occurrences Per 100k People", x = "Year")
+```
 
-state_plot <- filter(ht_offenses_4_years_clean_df, state == c("Nevada","Minnesota","Louisiana","Alaska","North Dakota", "Texas"), offense == "commercial sex act", round(occ_per_100k, digits=2))
+You will notice that there were no occurences reported in the Northeast Region in 2014 and 2015.  This includes the State of New York, that has no reported occurences in any of the four years.
 
-ggplot(state_plot) + geom_bar(aes(x = year, fill = state), position = position_dodge()) + ggtitle("Occurrence of Human Trafficking \nFor Every 100,000 People in the United States \nBy State") + labs(y= "Occurrences Per 100k People", x = "Year") + coord_flip()
-
+For a look at the top six states, the year 2014 was excluded, because some of the states with the high occurences per 100,000 people, did not report any occurances, that year.
+```{r echo=FALSE}
+state_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occ_per_100k, year == c("2015", "2016", "2017"))
+ggplot(state_plot, aes(x = year, y = occ_per_100k, fill = state)) + geom_bar(position = "dodge", stat = "summary", fun.y = "mean") + ggtitle("Total Occurrences of Human Trafficking \nBy State \nFrom 2015 Through 2017") + labs(y= "Occurrences Per 100k People", x = "Year", fill = "State")
 ```
