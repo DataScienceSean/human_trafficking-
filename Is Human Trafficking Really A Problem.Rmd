@@ -61,10 +61,15 @@ The FBI has divided the country into thirteen regions. By examining the regions,
 ggplot(occ_plot, aes(x = year, y = occ_per_100k, fill = region_description)) + geom_bar(position = "dodge", stat = "summary", fun.y = mean) + ggtitle("Total Occurrences of Human Trafficking \nBy Region From 2014 Through 2017") + labs(y= "Occurrences Per 100k People", x = "Year")
 ```
 
-You will notice that there were no occurences reported in the Northeast Region in 2014 and 2015.  This includes the State of New York, that has no reported occurences in any of the four years.
+The data shows that here were no occurences reported in the Northeast Region in 2014 and 2015.  This includes the State of New York, that has no reported occurences in any of the four years.
 
 For a look at the top six states, the year 2014 was excluded, because some of the states with the high occurences per 100,000 people, did not report any occurances, that year.
 ```{r echo=FALSE}
 state_plot <- filter(ht_offenses_4_years_clean_df, offense == "commercial sex act", occ_per_100k, year == c("2015", "2016", "2017"))
 ggplot(state_plot, aes(x = year, y = occ_per_100k, fill = state)) + geom_bar(position = "dodge", stat = "summary", fun.y = "mean") + ggtitle("Total Occurrences of Human Trafficking \nBy State \nFrom 2015 Through 2017") + labs(y= "Occurrences Per 100k People", x = "Year", fill = "State")
 ```
+
+The top six states for the number occurence per 100,000 people are Nevada, Minnesota, Louisiana, Alaska, North Dakota, and Texas, respectivly.  It is interesting to note that North Dakota only hade reported occurences in 206 and 2017.
+
+In conclusions, based on avaialble data, yes human traficking is a problem in the United States, but even with improved reporting numbers were down for 2017.  More states do need to participate in reporting or improve reporting methods.  Once more data for additional years becomes avaiable, better predictive models can be applied.
+

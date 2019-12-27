@@ -49,4 +49,6 @@ tree_data <- data.frame(ht_offenses_4_years_clean_df$state, round(ht_offenses_4_
 colnames(tree_data) <- c("state", "occ_per_100k", "year")
 
 ggplot(tree_data, aes(area = occ_per_100k, fill = occ_per_100k)) + geom_treemap() + geom_treemap_text(aes(label = state), fontface = "italic", colour = "white", place = "centre", grow = F, reflow = T) + facet_wrap(year~.)
+
+install.packages("ggrepel")
 ```
